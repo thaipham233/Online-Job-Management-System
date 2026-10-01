@@ -1,13 +1,15 @@
-using Microsoft.EntityFrameworkCore.Storage;
-using Online_Job_Management_System.Data;
-using Online_Job_Management_System.Repositories;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using System.Data;
+using Online_Job_Management_System.Models;
 
 namespace Online_Job_Management_System.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly AppDbContext _context;
-        private IDbContextTransaction? _transaction;
+        private readonly string _connectionString;
+        private IDbConnection? _connection;
+        private IDbTransaction? _transaction;
 
         private IUserRepository? _users;
         private ICompanyRepository? _companies;
@@ -16,34 +18,38 @@ namespace Online_Job_Management_System.Repositories
         private IApplicationRepository? _applications;
         private IResumeRepository? _resumes;
 
-        public UnitOfWork(AppDbContext context)
+        public UnitOfWork(IConfiguration configuration)
         {
-            _context = context;
+            _connectionString = configuration.GetConnectionString("DefaultConnection") 
+                ?? throw new ArgumentNullException("Connection string 'DefaultConnection' not found");
         }
 
-        public IUserRepository Users => _users ??= new UserRepository(_context);
-        public ICompanyRepository Companies => _companies ??= new CompanyRepository(_context);
-        public ICategoryRepository Categories => _categories ??= new CategoryRepository(_context);
-        public IJobRepository Jobs => _jobs ??= new JobRepository(_context);
-        public IApplicationRepository Applications => _applications ??= new ApplicationRepository(_context);
-        public IResumeRepository Resumes => _resumes ??= new ResumeRepository(_context);
+        private IDbConnection Connection => _connection ??= new SqlConnection(_connectionString);
 
-        public async Task<int> SaveChangesAsync()
-        {
-            return await _context.SaveChangesAsync();
-        }
+        public IUserRepository Users => _users ??= new UserRepository(_connectionString);
+        public ICompanyRepository Companies => _companies ??= new CompanyRepository(_connectionString);
+        public ICategoryRepository Categories => _categories ??= new CategoryRepository(_connectionString);
+        public IJobRepository Jobs => _jobs ??= new JobRepository(_connectionString);
+        public IApplicationRepository Applications => _applications ??= new ApplicationRepository(_connectionString);
+        public IResumeRepository Resumes => _resumes ??= new ResumeRepository(_connectionString);
 
         public async Task BeginTransactionAsync()
         {
-            _transaction = await _context.Database.BeginTransactionAsync();
+            if (_connection == null)
+                _connection = new SqlConnection(_connectionString);
+            
+            if (_connection.State != ConnectionState.Open)
+                await _connection.OpenAsync();
+            
+            _transaction = _connection.BeginTransaction();
         }
 
         public async Task CommitTransactionAsync()
         {
             if (_transaction != null)
             {
-                await _transaction.CommitAsync();
-                await _transaction.DisposeAsync();
+                _transaction.Commit();
+                _transaction.Dispose();
                 _transaction = null;
             }
         }
@@ -52,8 +58,8 @@ namespace Online_Job_Management_System.Repositories
         {
             if (_transaction != null)
             {
-                await _transaction.RollbackAsync();
-                await _transaction.DisposeAsync();
+                _transaction.Rollback();
+                _transaction.Dispose();
                 _transaction = null;
             }
         }
@@ -61,7 +67,21 @@ namespace Online_Job_Management_System.Repositories
         public void Dispose()
         {
             _transaction?.Dispose();
-            _context.Dispose();
+            _connection?.Dispose();
+        }
+
+        public async ValueTask DisposeAsync()
+        {
+            if (_transaction != null)
+            {
+                _transaction.Dispose();
+                _transaction = null;
+            }
+            if (_connection != null)
+            {
+                await _connection.DisposeAsync();
+                _connection = null;
+            }
         }
     }
 }

@@ -1,11 +1,13 @@
+using Dapper.Contrib.Extensions;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Job_Management_System.Models
 {
+    [Table("Jobs")]
     public class Job
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -31,10 +33,8 @@ namespace Online_Job_Management_System.Models
 
         public ExperienceLevel ExperienceLevel { get; set; } = ExperienceLevel.Fresher;
 
-        [Column(TypeName = "decimal(18,2)")]
         public decimal? SalaryMin { get; set; }
 
-        [Column(TypeName = "decimal(18,2)")]
         public decimal? SalaryMax { get; set; }
 
         public SalaryType SalaryType { get; set; } = SalaryType.Monthly;
@@ -42,7 +42,7 @@ namespace Online_Job_Management_System.Models
         public bool IsNegotiableSalary { get; set; } = false;
 
         [MaxLength(200)]
-        public string? Skills { get; set; } // JSON string of required skills
+        public string? Skills { get; set; }
 
         public int Quantity { get; set; } = 1;
 
@@ -58,23 +58,22 @@ namespace Online_Job_Management_System.Models
 
         public DateTime? PublishedAt { get; set; }
 
-        // Foreign keys
         public int CompanyId { get; set; }
 
         public int CategoryId { get; set; }
 
         public int? CreatedByUserId { get; set; }
 
-        // Navigation properties
-        [ForeignKey(nameof(CompanyId))]
+        [Computed]
         public virtual Company Company { get; set; } = null!;
 
-        [ForeignKey(nameof(CategoryId))]
+        [Computed]
         public virtual Category Category { get; set; } = null!;
 
-        [ForeignKey(nameof(CreatedByUserId))]
+        [Computed]
         public virtual User? CreatedByUser { get; set; }
 
+        [Computed]
         public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
     }
 

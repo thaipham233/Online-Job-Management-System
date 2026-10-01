@@ -1,11 +1,13 @@
+using Dapper.Contrib.Extensions;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Job_Management_System.Models
 {
+    [Table("Applications")]
     public class Application
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [MaxLength(1000)]
@@ -23,26 +25,24 @@ namespace Online_Job_Management_System.Models
         public string? RejectionReason { get; set; }
 
         [MaxLength(1000)]
-        public string? Notes { get; set; } // Internal notes by employer
+        public string? Notes { get; set; }
 
-        // Foreign keys
         public int JobId { get; set; }
 
         public int UserId { get; set; }
 
         public int? ResumeId { get; set; }
 
-        // Navigation properties
-        [ForeignKey(nameof(JobId))]
+        [Computed]
         public virtual Job Job { get; set; } = null!;
 
-        [ForeignKey(nameof(UserId))]
+        [Computed]
         public virtual User User { get; set; } = null!;
 
-        [ForeignKey(nameof(ResumeId))]
+        [Computed]
         public virtual Resume? Resume { get; set; }
 
-        [ForeignKey(nameof(ReviewedByUserId))]
+        [Computed]
         public virtual User? ReviewedByUser { get; set; }
     }
 

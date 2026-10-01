@@ -1,11 +1,13 @@
+using Dapper.Contrib.Extensions;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Job_Management_System.Models
 {
+    [Table("Categories")]
     public class Category
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -20,11 +22,13 @@ namespace Online_Job_Management_System.Models
 
         public int? ParentCategoryId { get; set; }
 
-        [ForeignKey(nameof(ParentCategoryId))]
+        [Computed]
         public virtual Category? ParentCategory { get; set; }
 
+        [Computed]
         public virtual ICollection<Category> SubCategories { get; set; } = new List<Category>();
 
+        [Computed]
         public virtual ICollection<Job> Jobs { get; set; } = new List<Job>();
 
         public int DisplayOrder { get; set; } = 0;

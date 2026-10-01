@@ -1,44 +1,76 @@
-using Microsoft.EntityFrameworkCore;
-using Online_Job_Management_System.Data;
+using Dapper;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
+using System.Data;
 using Online_Job_Management_System.Models;
-using System.Linq.Expressions;
 
 namespace Online_Job_Management_System.Repositories
 {
     public class JobRepository : GenericRepository<Job>, IJobRepository
     {
-        public JobRepository(AppDbContext context) : base(context) { }
+        public JobRepository(IConfiguration configuration) : base(configuration) { }
 
         public async Task<Job?> GetWithDetailsAsync(int jobId)
         {
-            return await _dbSet
-                .Include(j => j.Company)
-                .Include(j => j.Category)
-                .Include(j => j.CreatedByUser)
-                .FirstOrDefaultAsync(j => j.Id == jobId);
+            using var connection = CreateConnection();
+            var sql = @"
+                SELECT j.*, c.*, cat.*, u.*
+                FROM Jobs j
+                LEFT JOIN Companies c ON c.Id = j.CompanyId
+                LEFT JOIN Categories cat ON cat.Id = j.CategoryId
+                LEFT JOIN Users u ON u.Id = j.CreatedByUserId
+                WHERE j.Id = @JobId";
+            
+            Job? job = null;
+            await connection.QueryAsync<Job, Company, Category, User, Job>(sql,
+                (j, c, cat, u) =>
+                {
+                    job = j;
+                    job.Company = c;
+                    job.Category = cat;
+                    job.CreatedByUser = u;
+                    return job;
+                },
+                new { JobId = jobId },
+                splitOn: "Id,Id,Id");
+            
+            return job;
         }
 
         public async Task<IEnumerable<Job>> GetByCompanyAsync(int companyId, int skip = 0, int take = 10)
         {
-            return await _dbSet
-                .Where(j => j.CompanyId == companyId)
-                .OrderByDescending(j => j.CreatedAt)
-                .Skip(skip)
-                .Take(take)
-                .ToListAsync();
+            using var connection = CreateConnection();
+            var sql = @"
+                SELECT * FROM Jobs 
+                WHERE CompanyId = @CompanyId
+                ORDER BY CreatedAt DESC
+                OFFSET @Skip ROWS FETCH NEXT @Take ROWS ONLY";
+            
+            return await connection.QueryAsync<Job>(sql, new { CompanyId = companyId, Skip = skip, Take = take });
         }
 
         public async Task<IEnumerable<Job>> GetPublishedJobsAsync(int skip = 0, int take = 10)
         {
-            return await _dbSet
-                .Include(j => j.Company)
-                .Include(j => j.Category)
-                .Where(j => j.Status == JobStatus.Published && 
-                           (j.ExpiredDate == null || j.ExpiredDate > DateTime.UtcNow))
-                .OrderByDescending(j => j.PublishedAt ?? j.CreatedAt)
-                .Skip(skip)
-                .Take(take)
-                .ToListAsync();
+            using var connection = CreateConnection();
+            var sql = @"
+                SELECT j.*, c.*, cat.*
+                FROM Jobs j
+                LEFT JOIN Companies c ON c.Id = j.CompanyId
+                LEFT JOIN Categories cat ON cat.Id = j.CategoryId
+                WHERE j.Status = @Status 
+                AND (j.ExpiredDate IS NULL OR j.ExpiredDate > GETUTCDATE())
+                ORDER BY COALESCE(j.PublishedAt, j.CreatedAt) DESC
+                OFFSET @Skip ROWS FETCH NEXT @Take ROWS ONLY";
+            
+            return await connection.QueryAsync<Job, Company, Category, Job>(sql,
+                (j, c, cat) =>
+                {
+                    j.Company = c;
+                    j.Category = cat;
+                    return j;
+                },
+                new { Status = (int)JobStatus.Published, Skip = skip, Take = take },
+                splitOn: "Id,Id");
         }
 
         public async Task<IEnumerable<Job>> SearchJobsAsync(
@@ -51,93 +83,130 @@ namespace Online_Job_Management_System.Repositories
             int skip = 0, 
             int take = 10)
         {
-            var query = _dbSet
-                .Include(j => j.Company)
-                .Include(j => j.Category)
-                .Where(j => j.Status == JobStatus.Published && 
-                           (j.ExpiredDate == null || j.ExpiredDate > DateTime.UtcNow));
+            using var connection = CreateConnection();
+            var where = new List<string> { "j.Status = @Status", "(j.ExpiredDate IS NULL OR j.ExpiredDate > GETUTCDATE())" };
+            var parameters = new DynamicParameters();
+            parameters.Add("Status", (int)JobStatus.Published);
+            parameters.Add("Skip", skip);
+            parameters.Add("Take", take);
 
             if (!string.IsNullOrWhiteSpace(keyword))
             {
-                var lowerKeyword = keyword.ToLower();
-                query = query.Where(j => j.Title.ToLower().Contains(lowerKeyword) ||
-                                        j.Description.ToLower().Contains(lowerKeyword) ||
-                                        j.Requirements.ToLower().Contains(lowerKeyword) ||
-                                        j.Company.Name.ToLower().Contains(lowerKeyword));
+                where.Add("(j.Title LIKE @Keyword OR j.Description LIKE @Keyword OR j.Requirements LIKE @Keyword OR c.Name LIKE @Keyword)");
+                parameters.Add("Keyword", $"%{keyword}%");
             }
 
             if (categoryId.HasValue)
             {
-                query = query.Where(j => j.CategoryId == categoryId.Value);
+                where.Add("j.CategoryId = @CategoryId");
+                parameters.Add("CategoryId", categoryId.Value);
             }
 
             if (jobType.HasValue)
             {
-                query = query.Where(j => j.JobType == jobType.Value);
+                where.Add("j.JobType = @JobType");
+                parameters.Add("JobType", (int)jobType.Value);
             }
 
             if (experienceLevel.HasValue)
             {
-                query = query.Where(j => j.ExperienceLevel == experienceLevel.Value);
+                where.Add("j.ExperienceLevel = @ExperienceLevel");
+                parameters.Add("ExperienceLevel", (int)experienceLevel.Value);
             }
 
             if (salaryMin.HasValue)
             {
-                query = query.Where(j => j.SalaryMax >= salaryMin.Value);
+                where.Add("j.SalaryMax >= @SalaryMin");
+                parameters.Add("SalaryMin", salaryMin.Value);
             }
 
             if (!string.IsNullOrWhiteSpace(location))
             {
-                var lowerLocation = location.ToLower();
-                query = query.Where(j => j.Location != null && j.Location.ToLower().Contains(lowerLocation));
+                where.Add("j.Location LIKE @Location");
+                parameters.Add("Location", $"%{location}%");
             }
 
-            return await query
-                .OrderByDescending(j => j.PublishedAt ?? j.CreatedAt)
-                .Skip(skip)
-                .Take(take)
-                .ToListAsync();
+            var whereClause = string.Join(" AND ", where);
+            var sql = $@"
+                SELECT j.*, c.*, cat.*
+                FROM Jobs j
+                LEFT JOIN Companies c ON c.Id = j.CompanyId
+                LEFT JOIN Categories cat ON cat.Id = j.CategoryId
+                WHERE {whereClause}
+                ORDER BY COALESCE(j.PublishedAt, j.CreatedAt) DESC
+                OFFSET @Skip ROWS FETCH NEXT @Take ROWS ONLY";
+            
+            return await connection.QueryAsync<Job, Company, Category, Job>(sql,
+                (j, c, cat) =>
+                {
+                    j.Company = c;
+                    j.Category = cat;
+                    return j;
+                },
+                parameters,
+                splitOn: "Id,Id");
         }
 
         public async Task<IEnumerable<Job>> GetFeaturedJobsAsync(int take = 10)
         {
-            return await _dbSet
-                .Include(j => j.Company)
-                .Include(j => j.Category)
-                .Where(j => j.Status == JobStatus.Published && 
-                           (j.ExpiredDate == null || j.ExpiredDate > DateTime.UtcNow))
-                .OrderByDescending(j => j.ViewCount)
-                .Take(take)
-                .ToListAsync();
+            using var connection = CreateConnection();
+            var sql = @"
+                SELECT j.*, c.*, cat.*
+                FROM Jobs j
+                LEFT JOIN Companies c ON c.Id = j.CompanyId
+                LEFT JOIN Categories cat ON cat.Id = j.CategoryId
+                WHERE j.Status = @Status 
+                AND (j.ExpiredDate IS NULL OR j.ExpiredDate > GETUTCDATE())
+                ORDER BY j.ViewCount DESC";
+            
+            return await connection.QueryAsync<Job, Company, Category, Job>(sql,
+                (j, c, cat) =>
+                {
+                    j.Company = c;
+                    j.Category = cat;
+                    return j;
+                },
+                new { Status = (int)JobStatus.Published, Take = take },
+                splitOn: "Id,Id");
         }
 
         public async Task<IEnumerable<Job>> GetRecentJobsAsync(int take = 10)
         {
-            return await _dbSet
-                .Include(j => j.Company)
-                .Include(j => j.Category)
-                .Where(j => j.Status == JobStatus.Published && 
-                           (j.ExpiredDate == null || j.ExpiredDate > DateTime.UtcNow))
-                .OrderByDescending(j => j.PublishedAt ?? j.CreatedAt)
-                .Take(take)
-                .ToListAsync();
+            using var connection = CreateConnection();
+            var sql = @"
+                SELECT j.*, c.*, cat.*
+                FROM Jobs j
+                LEFT JOIN Companies c ON c.Id = j.CompanyId
+                LEFT JOIN Categories cat ON cat.Id = j.CategoryId
+                WHERE j.Status = @Status 
+                AND (j.ExpiredDate IS NULL OR j.ExpiredDate > GETUTCDATE())
+                ORDER BY COALESCE(j.PublishedAt, j.CreatedAt) DESC";
+            
+            return await connection.QueryAsync<Job, Company, Category, Job>(sql,
+                (j, c, cat) =>
+                {
+                    j.Company = c;
+                    j.Category = cat;
+                    return j;
+                },
+                new { Status = (int)JobStatus.Published, Take = take },
+                splitOn: "Id,Id");
         }
 
         public async Task IncrementViewCountAsync(int jobId)
         {
-            var job = await _dbSet.FindAsync(jobId);
-            if (job != null)
-            {
-                job.ViewCount++;
-                _dbSet.Update(job);
-            }
+            using var connection = CreateConnection();
+            await connection.ExecuteAsync(
+                "UPDATE Jobs SET ViewCount = ViewCount + 1 WHERE Id = @JobId", 
+                new { JobId = jobId });
         }
 
         public async Task<int> GetTotalPublishedCountAsync()
         {
-            return await _dbSet
-                .CountAsync(j => j.Status == JobStatus.Published && 
-                                (j.ExpiredDate == null || j.ExpiredDate > DateTime.UtcNow));
+            using var connection = CreateConnection();
+            return await connection.ExecuteScalarAsync<int>(
+                "SELECT COUNT(*) FROM Jobs WHERE Status = @Status AND (ExpiredDate IS NULL OR ExpiredDate > GETUTCDATE())",
+                new { Status = (int)JobStatus.Published });
         }
     }
 }

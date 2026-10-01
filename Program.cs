@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Online_Job_Management_System.Data;
 using Online_Job_Management_System.Models;
+using Online_Job_Management_System.Repositories;
 using Serilog;
 using System.Text;
 
@@ -19,11 +18,7 @@ builder.Host.UseSerilog((context, services, configuration) => configuration
 // Add services to the container.
 builder.Services.AddControllers();
 
-// Configure DbContext
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-// Configure Identity
+// Configure Identity (using custom stores, not EF Core)
 builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 {
     // Password settings
@@ -47,8 +42,11 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
     options.SignIn.RequireConfirmedEmail = false;
     options.SignIn.RequireConfirmedPhoneNumber = false;
 })
-.AddEntityFrameworkStores<AppDbContext>()
 .AddDefaultTokenProviders();
+
+// Register custom UserStore for Dapper
+builder.Services.AddScoped<IUserStore<User>, DapperUserStore>();
+builder.Services.AddScoped<IRoleStore<IdentityRole<int>>, DapperRoleStore>();
 
 // Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("Jwt");
@@ -101,6 +99,15 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader();
     });
 });
+
+// Register Repositories
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IJobRepository, JobRepository>();
+builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
+builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();

@@ -1,81 +1,95 @@
-using Microsoft.EntityFrameworkCore;
-using Online_Job_Management_System.Data;
+using Dapper;
+using Dapper.Contrib.Extensions;
+using Microsoft.Data.SqlClient;
+using System.Data;
 using Online_Job_Management_System.Models;
-using System.Linq.Expressions;
 
 namespace Online_Job_Management_System.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected readonly AppDbContext _context;
-        protected readonly DbSet<T> _dbSet;
+        private readonly string _connectionString;
+        private readonly string _tableName;
 
-        public GenericRepository(AppDbContext context)
+        public GenericRepository(IConfiguration configuration)
         {
-            _context = context;
-            _dbSet = context.Set<T>();
+            _connectionString = configuration.GetConnectionString("DefaultConnection") 
+                ?? throw new ArgumentNullException("Connection string 'DefaultConnection' not found");
+            
+            var tableAttr = typeof(T).GetCustomAttributes(typeof(TableAttribute), false).FirstOrDefault() as TableAttribute;
+            _tableName = tableAttr?.Name ?? typeof(T).Name + "s";
+        }
+
+        protected IDbConnection CreateConnection()
+        {
+            return new SqlConnection(_connectionString);
         }
 
         public virtual async Task<T?> GetByIdAsync(int id)
         {
-            return await _dbSet.FindAsync(id);
+            using var connection = CreateConnection();
+            return await connection.GetAsync<T>(id);
         }
 
         public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _dbSet.ToListAsync();
+            using var connection = CreateConnection();
+            return await connection.GetAllAsync<T>();
         }
 
-        public virtual async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
+        public virtual async Task<IEnumerable<T>> FindAsync(string whereClause, object? parameters = null)
         {
-            return await _dbSet.Where(predicate).ToListAsync();
+            using var connection = CreateConnection();
+            var sql = $"SELECT * FROM {_tableName} WHERE {whereClause}";
+            return await connection.QueryAsync<T>(sql, parameters);
         }
 
-        public virtual async Task<T?> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
+        public virtual async Task<T?> FirstOrDefaultAsync(string whereClause, object? parameters = null)
         {
-            return await _dbSet.FirstOrDefaultAsync(predicate);
+            using var connection = CreateConnection();
+            var sql = $"SELECT TOP 1 * FROM {_tableName} WHERE {whereClause}";
+            return await connection.QueryFirstOrDefaultAsync<T>(sql, parameters);
         }
 
-        public virtual async Task AddAsync(T entity)
+        public virtual async Task<int> AddAsync(T entity)
         {
-            await _dbSet.AddAsync(entity);
+            using var connection = CreateConnection();
+            return await connection.InsertAsync(entity);
         }
 
         public virtual async Task AddRangeAsync(IEnumerable<T> entities)
         {
-            await _dbSet.AddRangeAsync(entities);
+            using var connection = CreateConnection();
+            await connection.InsertAsync(entities);
         }
 
-        public virtual void Update(T entity)
+        public virtual async Task<bool> UpdateAsync(T entity)
         {
-            _dbSet.Update(entity);
+            using var connection = CreateConnection();
+            return await connection.UpdateAsync(entity);
         }
 
-        public virtual void Remove(T entity)
+        public virtual async Task<bool> DeleteAsync(int id)
         {
-            _dbSet.Remove(entity);
+            using var connection = CreateConnection();
+            var entity = await connection.GetAsync<T>(id);
+            if (entity == null) return false;
+            return await connection.DeleteAsync(entity);
         }
 
-        public virtual void RemoveRange(IEnumerable<T> entities)
+        public virtual async Task<int> CountAsync(string? whereClause = null, object? parameters = null)
         {
-            _dbSet.RemoveRange(entities);
+            using var connection = CreateConnection();
+            var sql = string.IsNullOrEmpty(whereClause) 
+                ? $"SELECT COUNT(*) FROM {_tableName}"
+                : $"SELECT COUNT(*) FROM {_tableName} WHERE {whereClause}";
+            return await connection.ExecuteScalarAsync<int>(sql, parameters);
         }
 
-        public virtual async Task<int> CountAsync(Expression<Func<T, bool>>? predicate = null)
+        public virtual async Task<bool> ExistsAsync(string whereClause, object? parameters = null)
         {
-            if (predicate == null)
-                return await _dbSet.CountAsync();
-            return await _dbSet.CountAsync(predicate);
-        }
-
-        public virtual async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
-        {
-            return await _dbSet.AnyAsync(predicate);
-        }
-
-        public virtual IQueryable<T> Query()
-        {
-            return _dbSet.AsQueryable();
+            var count = await CountAsync(whereClause, parameters);
+            return count > 0;
         }
     }
 }

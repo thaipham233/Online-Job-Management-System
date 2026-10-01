@@ -1,8 +1,11 @@
-using Online_Job_Management_System.Repositories;
+using Microsoft.Extensions.Configuration;
+using System.Data;
+using Microsoft.Data.SqlClient;
+using Online_Job_Management_System.Models;
 
 namespace Online_Job_Management_System.Repositories
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable, IAsyncDisposable
     {
         IUserRepository Users { get; }
         ICompanyRepository Companies { get; }
@@ -11,7 +14,6 @@ namespace Online_Job_Management_System.Repositories
         IApplicationRepository Applications { get; }
         IResumeRepository Resumes { get; }
         
-        Task<int> SaveChangesAsync();
         Task BeginTransactionAsync();
         Task CommitTransactionAsync();
         Task RollbackTransactionAsync();

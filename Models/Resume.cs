@@ -1,11 +1,13 @@
+using Dapper.Contrib.Extensions;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Job_Management_System.Models
 {
+    [Table("Resumes")]
     public class Resume
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -16,9 +18,9 @@ namespace Online_Job_Management_System.Models
         public string? Summary { get; set; }
 
         [MaxLength(500)]
-        public string? FileUrl { get; set; } // Path to uploaded CV file
+        public string? FileUrl { get; set; }
 
-        public string? ParsedContent { get; set; } // JSON parsed from CV
+        public string? ParsedContent { get; set; }
 
         [MaxLength(100)]
         public string? CurrentPosition { get; set; }
@@ -26,7 +28,6 @@ namespace Online_Job_Management_System.Models
         [MaxLength(200)]
         public string? CurrentCompany { get; set; }
 
-        [Column(TypeName = "decimal(18,2)")]
         public decimal? ExpectedSalary { get; set; }
 
         [MaxLength(100)]
@@ -42,34 +43,35 @@ namespace Online_Job_Management_System.Models
 
         public DateTime? UpdatedAt { get; set; }
 
-        // Foreign key
         public int UserId { get; set; }
 
-        // Navigation properties
-        [ForeignKey(nameof(UserId))]
+        [Computed]
         public virtual User User { get; set; } = null!;
 
+        [Computed]
         public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
 
-        // Education
+        [Computed]
         public virtual ICollection<Education> Educations { get; set; } = new List<Education>();
 
-        // Experience
+        [Computed]
         public virtual ICollection<WorkExperience> WorkExperiences { get; set; } = new List<WorkExperience>();
 
-        // Skills
+        [Computed]
         public virtual ICollection<ResumeSkill> ResumeSkills { get; set; } = new List<ResumeSkill>();
 
-        // Certificates
+        [Computed]
         public virtual ICollection<Certificate> Certificates { get; set; } = new List<Certificate>();
 
-        // Languages
+        [Computed]
         public virtual ICollection<Language> Languages { get; set; } = new List<Language>();
     }
 
+    [Table("Educations")]
     public class Education
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -92,19 +94,19 @@ namespace Online_Job_Management_System.Models
         [MaxLength(1000)]
         public string? Description { get; set; }
 
-        [Column(TypeName = "decimal(3,2)")]
         public decimal? GPA { get; set; }
 
-        // Foreign key
         public int ResumeId { get; set; }
 
-        [ForeignKey(nameof(ResumeId))]
+        [Computed]
         public virtual Resume Resume { get; set; } = null!;
     }
 
+    [Table("WorkExperiences")]
     public class WorkExperience
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -127,16 +129,17 @@ namespace Online_Job_Management_System.Models
         [MaxLength(2000)]
         public string? Description { get; set; }
 
-        // Foreign key
         public int ResumeId { get; set; }
 
-        [ForeignKey(nameof(ResumeId))]
+        [Computed]
         public virtual Resume Resume { get; set; } = null!;
     }
 
+    [Table("ResumeSkills")]
     public class ResumeSkill
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -147,16 +150,17 @@ namespace Online_Job_Management_System.Models
 
         public int YearsOfExperience { get; set; } = 0;
 
-        // Foreign key
         public int ResumeId { get; set; }
 
-        [ForeignKey(nameof(ResumeId))]
+        [Computed]
         public virtual Resume Resume { get; set; } = null!;
     }
 
+    [Table("Certificates")]
     public class Certificate
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -176,16 +180,17 @@ namespace Online_Job_Management_System.Models
         [MaxLength(500)]
         public string? CredentialUrl { get; set; }
 
-        // Foreign key
         public int ResumeId { get; set; }
 
-        [ForeignKey(nameof(ResumeId))]
+        [Computed]
         public virtual Resume Resume { get; set; } = null!;
     }
 
+    [Table("Languages")]
     public class Language
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -194,10 +199,9 @@ namespace Online_Job_Management_System.Models
 
         public LanguageProficiency Proficiency { get; set; } = LanguageProficiency.Basic;
 
-        // Foreign key
         public int ResumeId { get; set; }
 
-        [ForeignKey(nameof(ResumeId))]
+        [Computed]
         public virtual Resume Resume { get; set; } = null!;
     }
 

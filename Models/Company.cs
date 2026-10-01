@@ -1,11 +1,13 @@
+using Dapper.Contrib.Extensions;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Job_Management_System.Models
 {
+    [Table("Companies")]
     public class Company
     {
         [Key]
+        [ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -27,7 +29,7 @@ namespace Online_Job_Management_System.Models
         [MaxLength(500)]
         public string? CoverImageUrl { get; set; }
 
-        public int? Size { get; set; } // Number of employees
+        public int? Size { get; set; }
 
         [MaxLength(100)]
         public string? Industry { get; set; }
@@ -40,13 +42,12 @@ namespace Online_Job_Management_System.Models
 
         public bool IsVerified { get; set; } = false;
 
-        // Foreign key
         public int UserId { get; set; }
 
-        // Navigation properties
-        [ForeignKey(nameof(UserId))]
+        [Computed]
         public virtual User User { get; set; } = null!;
 
+        [Computed]
         public virtual ICollection<Job> Jobs { get; set; } = new List<Job>();
     }
 }
