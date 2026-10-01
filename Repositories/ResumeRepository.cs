@@ -163,5 +163,231 @@ namespace Online_Job_Management_System.Repositories
             
             return resumeDict.Values;
         }
+
+        // Education
+        public async Task<Education?> GetEducationByIdAsync(int id)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryFirstOrDefaultAsync<Education>(
+                "SELECT * FROM Educations WHERE Id = @Id", new { Id = id });
+        }
+
+        public async Task<IEnumerable<Education>> GetEducationsByResumeAsync(int resumeId)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryAsync<Education>(
+                "SELECT * FROM Educations WHERE ResumeId = @ResumeId ORDER BY EndDate DESC",
+                new { ResumeId = resumeId });
+        }
+
+        public async Task<int> AddEducationAsync(Education education)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                INSERT INTO Educations (Institution, Degree, FieldOfStudy, StartDate, EndDate, IsCurrentlyStudying, Description, GPA, ResumeId)
+                VALUES (@Institution, @Degree, @FieldOfStudy, @StartDate, @EndDate, @IsCurrentlyStudying, @Description, @GPA, @ResumeId);
+                SELECT CAST(SCOPE_IDENTITY() as int)";
+            return await connection.QuerySingleAsync<int>(sql, education);
+        }
+
+        public async Task<bool> UpdateEducationAsync(Education education)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                UPDATE Educations SET 
+                    Institution = @Institution, Degree = @Degree, FieldOfStudy = @FieldOfStudy,
+                    StartDate = @StartDate, EndDate = @EndDate, IsCurrentlyStudying = @IsCurrentlyStudying,
+                    Description = @Description, GPA = @GPA
+                WHERE Id = @Id";
+            var rows = await connection.ExecuteAsync(sql, education);
+            return rows > 0;
+        }
+
+        public async Task<bool> DeleteEducationAsync(int id)
+        {
+            using var connection = CreateConnection();
+            var rows = await connection.ExecuteAsync("DELETE FROM Educations WHERE Id = @Id", new { Id = id });
+            return rows > 0;
+        }
+
+        // WorkExperience
+        public async Task<WorkExperience?> GetWorkExperienceByIdAsync(int id)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryFirstOrDefaultAsync<WorkExperience>(
+                "SELECT * FROM WorkExperiences WHERE Id = @Id", new { Id = id });
+        }
+
+        public async Task<IEnumerable<WorkExperience>> GetWorkExperiencesByResumeAsync(int resumeId)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryAsync<WorkExperience>(
+                "SELECT * FROM WorkExperiences WHERE ResumeId = @ResumeId ORDER BY StartDate DESC",
+                new { ResumeId = resumeId });
+        }
+
+        public async Task<int> AddWorkExperienceAsync(WorkExperience workExperience)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                INSERT INTO WorkExperiences (Company, Position, Location, StartDate, EndDate, IsCurrentJob, Description, ResumeId)
+                VALUES (@Company, @Position, @Location, @StartDate, @EndDate, @IsCurrentJob, @Description, @ResumeId);
+                SELECT CAST(SCOPE_IDENTITY() as int)";
+            return await connection.QuerySingleAsync<int>(sql, workExperience);
+        }
+
+        public async Task<bool> UpdateWorkExperienceAsync(WorkExperience workExperience)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                UPDATE WorkExperiences SET 
+                    Company = @Company, Position = @Position, Location = @Location,
+                    StartDate = @StartDate, EndDate = @EndDate, IsCurrentJob = @IsCurrentJob,
+                    Description = @Description
+                WHERE Id = @Id";
+            var rows = await connection.ExecuteAsync(sql, workExperience);
+            return rows > 0;
+        }
+
+        public async Task<bool> DeleteWorkExperienceAsync(int id)
+        {
+            using var connection = CreateConnection();
+            var rows = await connection.ExecuteAsync("DELETE FROM WorkExperiences WHERE Id = @Id", new { Id = id });
+            return rows > 0;
+        }
+
+        // ResumeSkill
+        public async Task<ResumeSkill?> GetResumeSkillByIdAsync(int id)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryFirstOrDefaultAsync<ResumeSkill>(
+                "SELECT * FROM ResumeSkills WHERE Id = @Id", new { Id = id });
+        }
+
+        public async Task<IEnumerable<ResumeSkill>> GetResumeSkillsByResumeAsync(int resumeId)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryAsync<ResumeSkill>(
+                "SELECT * FROM ResumeSkills WHERE ResumeId = @ResumeId ORDER BY SkillName",
+                new { ResumeId = resumeId });
+        }
+
+        public async Task<int> AddResumeSkillAsync(ResumeSkill resumeSkill)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                INSERT INTO ResumeSkills (SkillName, Level, YearsOfExperience, ResumeId)
+                VALUES (@SkillName, @Level, @YearsOfExperience, @ResumeId);
+                SELECT CAST(SCOPE_IDENTITY() as int)";
+            return await connection.QuerySingleAsync<int>(sql, resumeSkill);
+        }
+
+        public async Task<bool> UpdateResumeSkillAsync(ResumeSkill resumeSkill)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                UPDATE ResumeSkills SET 
+                    SkillName = @SkillName, Level = @Level, YearsOfExperience = @YearsOfExperience
+                WHERE Id = @Id";
+            var rows = await connection.ExecuteAsync(sql, resumeSkill);
+            return rows > 0;
+        }
+
+        public async Task<bool> DeleteResumeSkillAsync(int id)
+        {
+            using var connection = CreateConnection();
+            var rows = await connection.ExecuteAsync("DELETE FROM ResumeSkills WHERE Id = @Id", new { Id = id });
+            return rows > 0;
+        }
+
+        // Certificate
+        public async Task<Certificate?> GetCertificateByIdAsync(int id)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryFirstOrDefaultAsync<Certificate>(
+                "SELECT * FROM Certificates WHERE Id = @Id", new { Id = id });
+        }
+
+        public async Task<IEnumerable<Certificate>> GetCertificatesByResumeAsync(int resumeId)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryAsync<Certificate>(
+                "SELECT * FROM Certificates WHERE ResumeId = @ResumeId ORDER BY IssueDate DESC",
+                new { ResumeId = resumeId });
+        }
+
+        public async Task<int> AddCertificateAsync(Certificate certificate)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                INSERT INTO Certificates (Name, IssuingOrganization, IssueDate, ExpiryDate, CredentialId, CredentialUrl, ResumeId)
+                VALUES (@Name, @IssuingOrganization, @IssueDate, @ExpiryDate, @CredentialId, @CredentialUrl, @ResumeId);
+                SELECT CAST(SCOPE_IDENTITY() as int)";
+            return await connection.QuerySingleAsync<int>(sql, certificate);
+        }
+
+        public async Task<bool> UpdateCertificateAsync(Certificate certificate)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                UPDATE Certificates SET 
+                    Name = @Name, IssuingOrganization = @IssuingOrganization,
+                    IssueDate = @IssueDate, ExpiryDate = @ExpiryDate,
+                    CredentialId = @CredentialId, CredentialUrl = @CredentialUrl
+                WHERE Id = @Id";
+            var rows = await connection.ExecuteAsync(sql, certificate);
+            return rows > 0;
+        }
+
+        public async Task<bool> DeleteCertificateAsync(int id)
+        {
+            using var connection = CreateConnection();
+            var rows = await connection.ExecuteAsync("DELETE FROM Certificates WHERE Id = @Id", new { Id = id });
+            return rows > 0;
+        }
+
+        // Language
+        public async Task<Language?> GetLanguageByIdAsync(int id)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryFirstOrDefaultAsync<Language>(
+                "SELECT * FROM Languages WHERE Id = @Id", new { Id = id });
+        }
+
+        public async Task<IEnumerable<Language>> GetLanguagesByResumeAsync(int resumeId)
+        {
+            using var connection = CreateConnection();
+            return await connection.QueryAsync<Language>(
+                "SELECT * FROM Languages WHERE ResumeId = @ResumeId ORDER BY Name",
+                new { ResumeId = resumeId });
+        }
+
+        public async Task<int> AddLanguageAsync(Language language)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                INSERT INTO Languages (Name, Proficiency, ResumeId)
+                VALUES (@Name, @Proficiency, @ResumeId);
+                SELECT CAST(SCOPE_IDENTITY() as int)";
+            return await connection.QuerySingleAsync<int>(sql, language);
+        }
+
+        public async Task<bool> UpdateLanguageAsync(Language language)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                UPDATE Languages SET 
+                    Name = @Name, Proficiency = @Proficiency
+                WHERE Id = @Id";
+            var rows = await connection.ExecuteAsync(sql, language);
+            return rows > 0;
+        }
+
+        public async Task<bool> DeleteLanguageAsync(int id)
+        {
+            using var connection = CreateConnection();
+            var rows = await connection.ExecuteAsync("DELETE FROM Languages WHERE Id = @Id", new { Id = id });
+            return rows > 0;
+        }
     }
 }

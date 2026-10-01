@@ -84,7 +84,7 @@ builder.Services.AddAuthorization(options =>
 });
 
 // Add AutoMapper
-builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddAutoMapper(typeof(Mapping.MappingProfile));
 
 // Add FluentValidation
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
@@ -108,6 +108,14 @@ builder.Services.AddScoped<IJobRepository, JobRepository>();
 builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
 builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Register Services
+builder.Services.AddScoped<Services.Auth.IAuthService, Services.Auth.AuthService>();
+builder.Services.AddScoped<Services.Company.ICompanyService, Services.Company.CompanyService>();
+builder.Services.AddScoped<Services.Category.ICategoryService, Services.Category.CategoryService>();
+builder.Services.AddScoped<Services.Job.IJobService, Services.Job.JobService>();
+builder.Services.AddScoped<Services.Application.IApplicationService, Services.Application.ApplicationService>();
+builder.Services.AddScoped<Services.Resume.IResumeService, Services.Resume.ResumeService>();
 
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
