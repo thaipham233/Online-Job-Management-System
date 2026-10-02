@@ -6,8 +6,7 @@ namespace Online_Job_Management_System.Models
     [Table("Jobs")]
     public class Job
     {
-        [Key]
-        [ExplicitKey]
+        [Dapper.Contrib.Extensions.ExplicitKey]
         public int Id { get; set; }
 
         [Required]

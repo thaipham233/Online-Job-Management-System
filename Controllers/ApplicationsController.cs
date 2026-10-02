@@ -144,8 +144,8 @@ namespace Online_Job_Management_System.Controllers
                 var company = await _companyService.GetByUserIdAsync(userId);
                 if (company == null) return Forbid();
 
-                var application = await _applicationService.GetByIdAsync(id);
-                if (application == null || application.Job?.CompanyId != company.Id) return NotFound();
+                var existingApplication = await _applicationService.GetByIdAsync(id);
+                if (existingApplication == null || existingApplication.Job?.CompanyId != company.Id) return NotFound();
             }
 
             var application = await _applicationService.UpdateStatusAsync(id, dto, reviewerId);

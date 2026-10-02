@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Dapper;
+using Dapper.Contrib.Extensions;
 using System.Data;
+using System.Security.Claims;
 using Online_Job_Management_System.Models;
 
 namespace Online_Job_Management_System.Repositories
@@ -95,10 +97,10 @@ namespace Online_Job_Management_System.Repositories
                 new { NormalizedUserName = normalizedUserName });
         }
 
-        public Task<string?> GetUserIdAsync(User user, CancellationToken cancellationToken)
+        public Task<string> GetUserIdAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.Id.ToString());
 
-        public Task<string?> GetUserNameAsync(User user, CancellationToken cancellationToken)
+        public Task<string> GetUserNameAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.UserName);
 
         public Task SetUserNameAsync(User user, string? userName, CancellationToken cancellationToken)
@@ -108,7 +110,7 @@ namespace Online_Job_Management_System.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<string?> GetNormalizedUserNameAsync(User user, CancellationToken cancellationToken)
+        public Task<string> GetNormalizedUserNameAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.NormalizedUserName);
 
         public Task SetNormalizedUserNameAsync(User user, string? normalizedName, CancellationToken cancellationToken)
@@ -117,13 +119,14 @@ namespace Online_Job_Management_System.Repositories
             return Task.CompletedTask;
         }
 
-        public async Task SetEmailAsync(User user, string? email, CancellationToken cancellationToken)
+        public Task SetEmailAsync(User user, string? email, CancellationToken cancellationToken)
         {
             user.Email = email;
             user.NormalizedEmail = email?.ToUpperInvariant();
+            return Task.CompletedTask;
         }
 
-        public Task<string?> GetEmailAsync(User user, CancellationToken cancellationToken)
+        public Task<string> GetEmailAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.Email);
 
         public Task<bool> GetEmailConfirmedAsync(User user, CancellationToken cancellationToken)
@@ -143,7 +146,7 @@ namespace Online_Job_Management_System.Repositories
                 new { NormalizedEmail = normalizedEmail });
         }
 
-        public Task<string?> GetNormalizedEmailAsync(User user, CancellationToken cancellationToken)
+        public Task<string> GetNormalizedEmailAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.NormalizedEmail);
 
         public Task SetNormalizedEmailAsync(User user, string? normalizedEmail, CancellationToken cancellationToken)
@@ -158,7 +161,7 @@ namespace Online_Job_Management_System.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<string?> GetPhoneNumberAsync(User user, CancellationToken cancellationToken)
+        public Task<string> GetPhoneNumberAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.PhoneNumber);
 
         public Task<bool> GetPhoneNumberConfirmedAsync(User user, CancellationToken cancellationToken)
@@ -218,19 +221,19 @@ namespace Online_Job_Management_System.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<string?> GetPasswordHashAsync(User user, CancellationToken cancellationToken)
+        public Task<string> GetPasswordHashAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.PasswordHash);
 
         public Task<bool> HasPasswordAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(!string.IsNullOrEmpty(user.PasswordHash));
 
         // IUserClaimStore
-        public Task<IList<Claim>> GetClaimsAsync(User user, CancellationToken cancellationToken)
+        public async Task<IList<Claim>> GetClaimsAsync(User user, CancellationToken cancellationToken)
         {
             using var connection = CreateConnection();
             var claims = await connection.QueryAsync<UserClaim>(
                 "SELECT * FROM UserClaims WHERE UserId = @UserId", new { UserId = user.Id });
-            return Task.FromResult<IList<Claim>>(claims.Select(c => c.ToClaim()).ToList());
+            return claims.Select(c => c.ToClaim()).ToList();
         }
 
         public Task AddClaimsAsync(User user, IEnumerable<Claim> claims, CancellationToken cancellationToken)
@@ -268,13 +271,22 @@ namespace Online_Job_Management_System.Repositories
             return Task.CompletedTask;
         }
 
+        public async Task<IList<User>> GetUsersForClaimAsync(Claim claim, CancellationToken cancellationToken)
+        {
+            using var connection = CreateConnection();
+            var users = await connection.QueryAsync<User>(
+                "SELECT u.* FROM Users u JOIN UserClaims uc ON uc.UserId = u.Id WHERE uc.ClaimType = @ClaimType AND uc.ClaimValue = @ClaimValue",
+                new { ClaimType = claim.Type, ClaimValue = claim.Value });
+            return users.ToList();
+        }
+
         // IUserLoginStore
-        public Task<IList<UserLoginInfo>> GetLoginsAsync(User user, CancellationToken cancellationToken)
+        public async Task<IList<UserLoginInfo>> GetLoginsAsync(User user, CancellationToken cancellationToken)
         {
             using var connection = CreateConnection();
             var logins = await connection.QueryAsync<UserLogin>(
                 "SELECT * FROM UserLogins WHERE UserId = @UserId", new { UserId = user.Id });
-            return Task.FromResult<IList<UserLoginInfo>>(logins.Select(l => l.ToUserLoginInfo()).ToList());
+            return logins.Select(l => l.ToUserLoginInfo()).ToList();
         }
 
         public Task AddLoginAsync(User user, UserLoginInfo login, CancellationToken cancellationToken)
@@ -362,7 +374,7 @@ namespace Online_Job_Management_System.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<string?> GetSecurityStampAsync(User user, CancellationToken cancellationToken)
+        public Task<string> GetSecurityStampAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.SecurityStamp);
 
         // IUserAuthenticatorKeyStore
@@ -389,7 +401,6 @@ namespace Online_Job_Management_System.Repositories
     [Table("UserClaims")]
     public class UserClaim
     {
-        [Key]
         [ExplicitKey]
         public int Id { get; set; }
         public int UserId { get; set; }
@@ -402,7 +413,6 @@ namespace Online_Job_Management_System.Repositories
     [Table("UserLogins")]
     public class UserLogin
     {
-        [Key]
         [ExplicitKey]
         public int Id { get; set; }
         public int UserId { get; set; }

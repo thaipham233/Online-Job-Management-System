@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using Online_Job_Management_System.DTOs.Auth;
+using Online_Job_Management_System.Models;
 
 namespace Online_Job_Management_System.DTOs.Resume
 {

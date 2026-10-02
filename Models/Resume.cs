@@ -6,8 +6,7 @@ namespace Online_Job_Management_System.Models
     [Table("Resumes")]
     public class Resume
     {
-        [Key]
-        [ExplicitKey]
+        [Dapper.Contrib.Extensions.ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -70,8 +69,7 @@ namespace Online_Job_Management_System.Models
     [Table("Educations")]
     public class Education
     {
-        [Key]
-        [ExplicitKey]
+        [Dapper.Contrib.Extensions.ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -105,8 +103,7 @@ namespace Online_Job_Management_System.Models
     [Table("WorkExperiences")]
     public class WorkExperience
     {
-        [Key]
-        [ExplicitKey]
+        [Dapper.Contrib.Extensions.ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -138,8 +135,7 @@ namespace Online_Job_Management_System.Models
     [Table("ResumeSkills")]
     public class ResumeSkill
     {
-        [Key]
-        [ExplicitKey]
+        [Dapper.Contrib.Extensions.ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -159,8 +155,7 @@ namespace Online_Job_Management_System.Models
     [Table("Certificates")]
     public class Certificate
     {
-        [Key]
-        [ExplicitKey]
+        [Dapper.Contrib.Extensions.ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -189,8 +184,7 @@ namespace Online_Job_Management_System.Models
     [Table("Languages")]
     public class Language
     {
-        [Key]
-        [ExplicitKey]
+        [Dapper.Contrib.Extensions.ExplicitKey]
         public int Id { get; set; }
 
         [Required]

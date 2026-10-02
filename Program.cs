@@ -4,8 +4,17 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Online_Job_Management_System.Models;
 using Online_Job_Management_System.Repositories;
+using Online_Job_Management_System.Services.Auth;
+using Online_Job_Management_System.Services.Company;
+using Online_Job_Management_System.Services.Category;
+using Online_Job_Management_System.Services.Job;
+using Online_Job_Management_System.Services.Application;
+using Online_Job_Management_System.Services.Resume;
+using Online_Job_Management_System.Data;
+using Online_Job_Management_System.Mapping;
 using Serilog;
 using System.Text;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -84,7 +93,7 @@ builder.Services.AddAuthorization(options =>
 });
 
 // Add AutoMapper
-builder.Services.AddAutoMapper(typeof(Mapping.MappingProfile));
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 // Add FluentValidation
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
@@ -110,12 +119,12 @@ builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Register Services
-builder.Services.AddScoped<Services.Auth.IAuthService, Services.Auth.AuthService>();
-builder.Services.AddScoped<Services.Company.ICompanyService, Services.Company.CompanyService>();
-builder.Services.AddScoped<Services.Category.ICategoryService, Services.Category.CategoryService>();
-builder.Services.AddScoped<Services.Job.IJobService, Services.Job.JobService>();
-builder.Services.AddScoped<Services.Application.IApplicationService, Services.Application.ApplicationService>();
-builder.Services.AddScoped<Services.Resume.IResumeService, Services.Resume.ResumeService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ICompanyService, CompanyService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IJobService, JobService>();
+builder.Services.AddScoped<IApplicationService, ApplicationService>();
+builder.Services.AddScoped<IResumeService, ResumeService>();
 
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();

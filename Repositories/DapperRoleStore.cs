@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Dapper;
+using Dapper.Contrib.Extensions;
 using System.Data;
+using System.Security.Claims;
 using Online_Job_Management_System.Models;
 
 namespace Online_Job_Management_System.Repositories
@@ -72,10 +74,10 @@ namespace Online_Job_Management_System.Repositories
                 new { NormalizedName = normalizedRoleName });
         }
 
-        public Task<string?> GetRoleIdAsync(IdentityRole<int> role, CancellationToken cancellationToken)
+        public Task<string> GetRoleIdAsync(IdentityRole<int> role, CancellationToken cancellationToken)
             => Task.FromResult(role.Id.ToString());
 
-        public Task<string?> GetRoleNameAsync(IdentityRole<int> role, CancellationToken cancellationToken)
+        public Task<string> GetRoleNameAsync(IdentityRole<int> role, CancellationToken cancellationToken)
             => Task.FromResult(role.Name);
 
         public Task SetRoleNameAsync(IdentityRole<int> role, string? roleName, CancellationToken cancellationToken)
@@ -85,8 +87,8 @@ namespace Online_Job_Management_System.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<string?> GetNormalizedRoleNameAsync(IdentityRole<int> role, CancellationToken cancellationToken)
-            => Task.FromResult(role.NormalizedRoleName);
+        public Task<string> GetNormalizedRoleNameAsync(IdentityRole<int> role, CancellationToken cancellationToken)
+            => Task.FromResult(role.NormalizedName);
 
         public Task SetNormalizedRoleNameAsync(IdentityRole<int> role, string? normalizedName, CancellationToken cancellationToken)
         {
@@ -95,12 +97,12 @@ namespace Online_Job_Management_System.Repositories
         }
 
         // IRoleClaimStore
-        public Task<IList<Claim>> GetClaimsAsync(IdentityRole<int> role, CancellationToken cancellationToken)
+        public async Task<IList<Claim>> GetClaimsAsync(IdentityRole<int> role, CancellationToken cancellationToken)
         {
             using var connection = CreateConnection();
             var claims = await connection.QueryAsync<RoleClaim>(
                 "SELECT * FROM RoleClaims WHERE RoleId = @RoleId", new { RoleId = role.Id });
-            return Task.FromResult<IList<Claim>>(claims.Select(c => c.ToClaim()).ToList());
+            return claims.Select(c => c.ToClaim()).ToList();
         }
 
         public Task AddClaimAsync(IdentityRole<int> role, Claim claim, CancellationToken cancellationToken)
@@ -126,7 +128,6 @@ namespace Online_Job_Management_System.Repositories
     [Table("RoleClaims")]
     public class RoleClaim
     {
-        [Key]
         [ExplicitKey]
         public int Id { get; set; }
         public int RoleId { get; set; }

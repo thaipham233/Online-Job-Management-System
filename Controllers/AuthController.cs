@@ -83,7 +83,7 @@ namespace Online_Job_Management_System.Controllers
 
         [HttpPut("profile")]
         [Authorize]
-        public async Task<IActionResult> UpdateProfile([FromBody] UpdateProfileDto dto)
+        public async Task<IActionResult> UpdateProfile([FromBody] Online_Job_Management_System.Services.Auth.UpdateProfileDto dto)
         {
             var userId = int.Parse(User.FindFirst("sub")?.Value ?? User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "0");
             var user = await _authService.UpdateProfileAsync(userId, dto);
@@ -91,12 +91,5 @@ namespace Online_Job_Management_System.Controllers
                 return NotFound();
             return Ok(user);
         }
-    }
-
-    public class UpdateProfileDto
-    {
-        public string? FullName { get; set; }
-        public string? PhoneNumber { get; set; }
-        public string? AvatarUrl { get; set; }
     }
 }

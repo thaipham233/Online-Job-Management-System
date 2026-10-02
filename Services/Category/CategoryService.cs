@@ -48,7 +48,7 @@ namespace Online_Job_Management_System.Services.Category
 
         public async Task<CategoryDto> CreateAsync(CreateCategoryDto dto)
         {
-            var category = _mapper.Map<Category>(dto);
+            var category = _mapper.Map<Online_Job_Management_System.Models.Category>(dto);
             category.CreatedAt = DateTime.UtcNow;
             await _categoryRepository.AddAsync(category);
             return _mapper.Map<CategoryDto>(category);
@@ -91,7 +91,7 @@ namespace Online_Job_Management_System.Services.Category
             return true;
         }
 
-        private CategoryDto MapToDtoWithChildren(Category category)
+        private CategoryDto MapToDtoWithChildren(Online_Job_Management_System.Models.Category category)
         {
             var dto = _mapper.Map<CategoryDto>(category);
             if (category.SubCategories != null)

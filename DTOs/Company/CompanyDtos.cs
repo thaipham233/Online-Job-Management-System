@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Online_Job_Management_System.DTOs.Auth;
 
 namespace Online_Job_Management_System.DTOs.Company
 {

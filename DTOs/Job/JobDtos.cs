@@ -1,4 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using Online_Job_Management_System.Models;
+using Online_Job_Management_System.DTOs.Company;
+using Online_Job_Management_System.DTOs.Category;
 
 namespace Online_Job_Management_System.DTOs.Job
 {

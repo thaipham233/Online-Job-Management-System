@@ -11,10 +11,9 @@ namespace Online_Job_Management_System.Repositories
         private readonly string _connectionString;
         private readonly string _tableName;
 
-        public GenericRepository(IConfiguration configuration)
+        public GenericRepository(string connectionString)
         {
-            _connectionString = configuration.GetConnectionString("DefaultConnection") 
-                ?? throw new ArgumentNullException("Connection string 'DefaultConnection' not found");
+            _connectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
             
             var tableAttr = typeof(T).GetCustomAttributes(typeof(TableAttribute), false).FirstOrDefault() as TableAttribute;
             _tableName = tableAttr?.Name ?? typeof(T).Name + "s";

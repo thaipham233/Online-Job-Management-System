@@ -3,6 +3,7 @@ using Online_Job_Management_System.DTOs.Application;
 using Online_Job_Management_System.DTOs;
 using Online_Job_Management_System.Models;
 using Online_Job_Management_System.Repositories;
+using Dapper;
 
 namespace Online_Job_Management_System.Services.Application
 {
@@ -78,7 +79,7 @@ namespace Online_Job_Management_System.Services.Application
 
         public async Task<PagedResult<ApplicationDto>> SearchAsync(ApplicationSearchDto searchDto)
         {
-            IEnumerable<Application> applications;
+            IEnumerable<Online_Job_Management_System.Models.Application> applications;
             int totalCount;
 
             var whereClause = new List<string>();
@@ -162,7 +163,7 @@ namespace Online_Job_Management_System.Services.Application
                 }
             }
 
-            var application = _mapper.Map<Application>(dto);
+            var application = _mapper.Map<Online_Job_Management_System.Models.Application>(dto);
             application.UserId = userId;
             application.AppliedAt = DateTime.UtcNow;
             application.Status = ApplicationStatus.Pending;
@@ -200,7 +201,7 @@ namespace Online_Job_Management_System.Services.Application
             }
 
             application.Status = ApplicationStatus.Withdrawn;
-            application.UpdatedAt = DateTime.UtcNow;
+            // Note: Application model doesn't have UpdatedAt, removing that line
 
             await _applicationRepository.UpdateAsync(application);
             return true;
@@ -236,7 +237,7 @@ namespace Online_Job_Management_System.Services.Application
             };
         }
 
-        private ApplicationDto MapToDto(Application application)
+        private ApplicationDto MapToDto(Online_Job_Management_System.Models.Application application)
         {
             var dto = _mapper.Map<ApplicationDto>(application);
             dto.StatusName = application.Status.ToString();

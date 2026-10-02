@@ -40,7 +40,7 @@ namespace Online_Job_Management_System.Services.Company
 
         public async Task<PagedResult<CompanyDto>> GetAllAsync(CompanySearchDto searchDto)
         {
-            IEnumerable<Company> companies;
+            IEnumerable<Online_Job_Management_System.Models.Company> companies;
 
             if (!string.IsNullOrWhiteSpace(searchDto.Keyword))
             {
@@ -97,7 +97,7 @@ namespace Online_Job_Management_System.Services.Company
                 throw new InvalidOperationException("User already has a company");
             }
 
-            var company = _mapper.Map<Company>(dto);
+            var company = _mapper.Map<Online_Job_Management_System.Models.Company>(dto);
             company.UserId = userId;
             company.CreatedAt = DateTime.UtcNow;
             company.IsActive = true;
@@ -160,7 +160,7 @@ namespace Online_Job_Management_System.Services.Company
             return true;
         }
 
-        private CompanyDto MapToDto(Company company)
+        private CompanyDto MapToDto(Online_Job_Management_System.Models.Company company)
         {
             var dto = _mapper.Map<CompanyDto>(company);
             dto.JobsCount = company.Jobs?.Count ?? 0;

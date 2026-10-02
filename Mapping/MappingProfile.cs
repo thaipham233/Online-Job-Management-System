@@ -20,7 +20,7 @@ namespace Online_Job_Management_System.Mapping
             // Company mappings
             CreateMap<Company, CompanyDto>()
                 .ForMember(dest => dest.User, opt => opt.MapFrom(src => src.User))
-                .ForMember(dest => dest.JobsCount, opt => opt.MapFrom(src => src.Jobs?.Count ?? 0));
+                .ForMember(dest => dest.JobsCount, opt => opt.MapFrom(src => src.Jobs != null ? src.Jobs.Count : 0));
 
             CreateMap<CreateCompanyDto, Company>();
             CreateMap<UpdateCompanyDto, Company>();
@@ -28,7 +28,7 @@ namespace Online_Job_Management_System.Mapping
             // Category mappings
             CreateMap<Category, CategoryDto>()
                 .ForMember(dest => dest.SubCategories, opt => opt.MapFrom(src => src.SubCategories))
-                .ForMember(dest => dest.JobsCount, opt => opt.MapFrom(src => src.Jobs?.Count ?? 0));
+                .ForMember(dest => dest.JobsCount, opt => opt.MapFrom(src => src.Jobs != null ? src.Jobs.Count : 0));
 
             CreateMap<CreateCategoryDto, Category>();
             CreateMap<UpdateCategoryDto, Category>();
@@ -37,7 +37,7 @@ namespace Online_Job_Management_System.Mapping
             CreateMap<Job, JobDto>()
                 .ForMember(dest => dest.Company, opt => opt.MapFrom(src => src.Company))
                 .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category))
-                .ForMember(dest => dest.ApplicationsCount, opt => opt.MapFrom(src => src.Applications?.Count ?? 0));
+                .ForMember(dest => dest.ApplicationsCount, opt => opt.MapFrom(src => src.Applications != null ? src.Applications.Count : 0));
 
             CreateMap<CreateJobDto, Job>();
             CreateMap<UpdateJobDto, Job>();

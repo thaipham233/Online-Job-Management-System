@@ -64,7 +64,7 @@ namespace Online_Job_Management_System.Services.Resume
 
         public async Task<ResumeDto> CreateAsync(int userId, CreateResumeDto dto)
         {
-            var resume = _mapper.Map<Resume>(dto);
+            var resume = _mapper.Map<Online_Job_Management_System.Models.Resume>(dto);
             resume.UserId = userId;
             resume.CreatedAt = DateTime.UtcNow;
 
@@ -80,35 +80,35 @@ namespace Online_Job_Management_System.Services.Resume
             // Add nested entities
             foreach (var edu in dto.Educations)
             {
-                var education = _mapper.Map<Education>(edu);
+                var education = _mapper.Map<Online_Job_Management_System.Models.Education>(edu);
                 education.ResumeId = resume.Id;
                 await _resumeRepository.AddEducationAsync(education);
             }
 
             foreach (var exp in dto.WorkExperiences)
             {
-                var experience = _mapper.Map<WorkExperience>(exp);
+                var experience = _mapper.Map<Online_Job_Management_System.Models.WorkExperience>(exp);
                 experience.ResumeId = resume.Id;
                 await _resumeRepository.AddWorkExperienceAsync(experience);
             }
 
             foreach (var skill in dto.Skills)
             {
-                var resumeSkill = _mapper.Map<ResumeSkill>(skill);
+                var resumeSkill = _mapper.Map<Online_Job_Management_System.Models.ResumeSkill>(skill);
                 resumeSkill.ResumeId = resume.Id;
                 await _resumeRepository.AddResumeSkillAsync(resumeSkill);
             }
 
             foreach (var cert in dto.Certificates)
             {
-                var certificate = _mapper.Map<Certificate>(cert);
+                var certificate = _mapper.Map<Online_Job_Management_System.Models.Certificate>(cert);
                 certificate.ResumeId = resume.Id;
                 await _resumeRepository.AddCertificateAsync(certificate);
             }
 
             foreach (var lang in dto.Languages)
             {
-                var language = _mapper.Map<Language>(lang);
+                var language = _mapper.Map<Online_Job_Management_System.Models.Language>(lang);
                 language.ResumeId = resume.Id;
                 await _resumeRepository.AddLanguageAsync(language);
             }
@@ -173,7 +173,7 @@ namespace Online_Job_Management_System.Services.Resume
             if (resume == null || resume.UserId != userId)
                 throw new UnauthorizedAccessException();
 
-            var education = _mapper.Map<Education>(dto);
+            var education = _mapper.Map<Online_Job_Management_System.Models.Education>(dto);
             education.ResumeId = resumeId;
             
             await _resumeRepository.AddEducationAsync(education);
@@ -187,7 +187,7 @@ namespace Online_Job_Management_System.Services.Resume
             if (resume == null || resume.UserId != userId)
                 throw new UnauthorizedAccessException();
 
-            var experience = _mapper.Map<WorkExperience>(dto);
+            var experience = _mapper.Map<Online_Job_Management_System.Models.WorkExperience>(dto);
             experience.ResumeId = resumeId;
             
             await _resumeRepository.AddWorkExperienceAsync(experience);
@@ -201,7 +201,7 @@ namespace Online_Job_Management_System.Services.Resume
             if (resume == null || resume.UserId != userId)
                 throw new UnauthorizedAccessException();
 
-            var skill = _mapper.Map<ResumeSkill>(dto);
+            var skill = _mapper.Map<Online_Job_Management_System.Models.ResumeSkill>(dto);
             skill.ResumeId = resumeId;
             
             await _resumeRepository.AddResumeSkillAsync(skill);
@@ -215,7 +215,7 @@ namespace Online_Job_Management_System.Services.Resume
             if (resume == null || resume.UserId != userId)
                 throw new UnauthorizedAccessException();
 
-            var certificate = _mapper.Map<Certificate>(dto);
+            var certificate = _mapper.Map<Online_Job_Management_System.Models.Certificate>(dto);
             certificate.ResumeId = resumeId;
             
             await _resumeRepository.AddCertificateAsync(certificate);
@@ -229,7 +229,7 @@ namespace Online_Job_Management_System.Services.Resume
             if (resume == null || resume.UserId != userId)
                 throw new UnauthorizedAccessException();
 
-            var language = _mapper.Map<Language>(dto);
+            var language = _mapper.Map<Online_Job_Management_System.Models.Language>(dto);
             language.ResumeId = resumeId;
             
             await _resumeRepository.AddLanguageAsync(language);
@@ -292,7 +292,7 @@ namespace Online_Job_Management_System.Services.Resume
             return await _resumeRepository.DeleteLanguageAsync(languageId);
         }
 
-        private ResumeDto MapToDto(Resume resume)
+        private ResumeDto MapToDto(Online_Job_Management_System.Models.Resume resume)
         {
             var dto = _mapper.Map<ResumeDto>(resume);
             dto.Educations = _mapper.Map<List<EducationDto>>(resume.Educations);

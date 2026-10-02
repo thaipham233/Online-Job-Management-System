@@ -6,8 +6,7 @@ namespace Online_Job_Management_System.Models
     [Table("Categories")]
     public class Category
     {
-        [Key]
-        [ExplicitKey]
+        [Dapper.Contrib.Extensions.ExplicitKey]
         public int Id { get; set; }
 
         [Required]
@@ -34,5 +33,9 @@ namespace Online_Job_Management_System.Models
         public int DisplayOrder { get; set; } = 0;
 
         public bool IsActive { get; set; } = true;
+
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public DateTime? UpdatedAt { get; set; }
     }
 }

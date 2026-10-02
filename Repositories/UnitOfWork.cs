@@ -1,7 +1,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using System.Data;
-using Online_Job_Management_System.Models;
+using System.Threading.Tasks;
 
 namespace Online_Job_Management_System.Repositories
 {
@@ -39,7 +39,7 @@ namespace Online_Job_Management_System.Repositories
                 _connection = new SqlConnection(_connectionString);
             
             if (_connection.State != ConnectionState.Open)
-                await _connection.OpenAsync();
+                await ((SqlConnection)_connection).OpenAsync();
             
             _transaction = _connection.BeginTransaction();
         }
@@ -67,7 +67,11 @@ namespace Online_Job_Management_System.Repositories
         public void Dispose()
         {
             _transaction?.Dispose();
-            _connection?.Dispose();
+            if (_connection != null)
+            {
+                _connection.Dispose();
+                _connection = null;
+            }
         }
 
         public async ValueTask DisposeAsync()
@@ -77,11 +81,15 @@ namespace Online_Job_Management_System.Repositories
                 _transaction.Dispose();
                 _transaction = null;
             }
-            if (_connection != null)
+            if (_connection is IAsyncDisposable asyncDisposable)
             {
-                await _connection.DisposeAsync();
-                _connection = null;
+                await asyncDisposable.DisposeAsync();
             }
+            else
+            {
+                _connection?.Dispose();
+            }
+            _connection = null;
         }
     }
 }

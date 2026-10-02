@@ -35,7 +35,7 @@ namespace Online_Job_Management_System.Services.Job
 
         public async Task<PagedResult<JobDto>> GetPublishedJobsAsync(JobSearchDto searchDto)
         {
-            IEnumerable<Job> jobs;
+            IEnumerable<Online_Job_Management_System.Models.Job> jobs;
             int totalCount;
 
             if (searchDto.Status.HasValue)
@@ -116,7 +116,7 @@ namespace Online_Job_Management_System.Services.Job
                 throw new ArgumentException("Invalid category");
             }
 
-            var job = _mapper.Map<Job>(dto);
+            var job = _mapper.Map<Online_Job_Management_System.Models.Job>(dto);
             job.CompanyId = company.Id;
             job.CreatedByUserId = userId;
             job.CreatedAt = DateTime.UtcNow;
@@ -223,7 +223,7 @@ namespace Online_Job_Management_System.Services.Job
             };
         }
 
-        private JobDto MapToDto(Job job)
+        private JobDto MapToDto(Online_Job_Management_System.Models.Job job)
         {
             var dto = _mapper.Map<JobDto>(job);
             dto.JobTypeName = job.JobType.ToString();
