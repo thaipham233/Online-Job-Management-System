@@ -39,7 +39,7 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />
     
     <!-- BCrypt for password hashing -->
-    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
     
     <!-- MailKit for email (updated to fix vulnerability) -->
     <PackageReference Include="MailKit" Version="4.8.0" />
