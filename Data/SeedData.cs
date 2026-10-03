@@ -11,6 +11,9 @@ namespace Online_Job_Management_System.Data
     {
         public static async Task InitializeAsync(IServiceProvider serviceProvider)
         {
+            // First, ensure database exists (tables should be created via migrations or separately)
+            await EnsureDatabaseAsync(serviceProvider);
+
             using var scope = serviceProvider.CreateScope();
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
             var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<int>>>();
@@ -56,11 +59,35 @@ namespace Online_Job_Management_System.Data
             await SeedCategoriesAsync(scope.ServiceProvider);
         }
 
+        private static async Task EnsureDatabaseAsync(IServiceProvider serviceProvider)
+        {
+            var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            // Parse connection string to get server and database
+            var builder = new SqlConnectionStringBuilder(connectionString);
+            var databaseName = builder.InitialCatalog;
+            builder.InitialCatalog = "master"; // Connect to master to create database
+
+            using var masterConnection = new SqlConnection(builder.ConnectionString);
+            await masterConnection.OpenAsync();
+
+            // Check if database exists
+            var dbExists = await masterConnection.ExecuteScalarAsync<int>(
+                "SELECT COUNT(*) FROM sys.databases WHERE name = @dbName", new { dbName = databaseName });
+
+            if (dbExists == 0)
+            {
+                // Create database
+                await masterConnection.ExecuteAsync($"CREATE DATABASE [{databaseName}]");
+            }
+        }
+
         private static async Task SeedCategoriesAsync(IServiceProvider serviceProvider)
         {
             var configuration = serviceProvider.GetRequiredService<IConfiguration>();
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            
+
             using var connection = new SqlConnection(connectionString);
             await connection.OpenAsync();
 

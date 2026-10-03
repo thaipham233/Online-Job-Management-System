@@ -109,7 +109,12 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Register Repositories
+// Register connection string
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+builder.Services.AddSingleton(connectionString);
+
+// Register Repositories (they now take string connectionString)
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
