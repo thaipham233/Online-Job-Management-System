@@ -1,0 +1,19 @@
+2026-10-05 11:03:44.620 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-05 11:03:44.661 +07:00 [WRN] RequestId: 0HNP2IMJ56AO0:00000001, PreviousRequestId: -
+DownstreamRouteFinderMiddleware setting pipeline errors because DownstreamRouteFinder returned the following ->
+UnableToFindDownstreamRouteError: Failed to match route configuration for upstream: GET /api/jobs
+2026-10-05 11:03:44.662 +07:00 [WRN] RequestId: 0HNP2IMJ56AO0:00000001, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnableToFindDownstreamRouteError: Failed to match route configuration for upstream: GET /api/jobs
+Setting error response for request: GET /api/jobs
+2026-10-05 11:03:44.665 +07:00 [INF] HTTP GET /api/jobs responded 404 in 45.4647 ms
+2026-10-05 11:04:56.446 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-05 11:04:56.715 +07:00 [INF] HTTP GET /api/jobs responded 200 in 270.5238 ms
+2026-10-05 11:05:08.124 +07:00 [WRN] RequestId: 0HNP2IN8I4DBE:00000001, PreviousRequestId: -
+DownstreamRouteFinderMiddleware setting pipeline errors because DownstreamRouteFinder returned the following ->
+UnableToFindDownstreamRouteError: Failed to match route configuration for upstream: GET /gateway/api/jobs
+2026-10-05 11:05:08.125 +07:00 [WRN] RequestId: 0HNP2IN8I4DBE:00000001, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnableToFindDownstreamRouteError: Failed to match route configuration for upstream: GET /gateway/api/jobs
+Setting error response for request: GET /gateway/api/jobs
+2026-10-05 11:05:08.126 +07:00 [INF] HTTP GET /gateway/api/jobs responded 404 in 8.6223 ms
