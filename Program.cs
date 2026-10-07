@@ -12,6 +12,8 @@ using Online_Job_Management_System.Services.Application;
 using Online_Job_Management_System.Services.Resume;
 using Online_Job_Management_System.Data;
 using Online_Job_Management_System.Mapping;
+using Online_Job_Management_System.Middleware;
+using Online_Job_Management_System.Validators;
 using Serilog;
 using System.Text;
 using FluentValidation;
@@ -199,6 +201,10 @@ if (app.Environment.IsDevelopment())
         c.RoutePrefix = string.Empty; // Serve Swagger UI at root
     });
 }
+
+// Middleware pipeline
+app.UseMiddleware<GlobalExceptionMiddleware>();
+app.UseMiddleware<RequestLoggingMiddleware>();
 
 app.UseSerilogRequestLogging();
 

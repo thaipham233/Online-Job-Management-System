@@ -17,3 +17,6 @@ ResponderMiddleware found 1 error ->
 UnableToFindDownstreamRouteError: Failed to match route configuration for upstream: GET /gateway/api/jobs
 Setting error response for request: GET /gateway/api/jobs
 2026-10-05 11:05:08.126 +07:00 [INF] HTTP GET /gateway/api/jobs responded 404 in 8.6223 ms
+2026-10-05 11:11:18.792 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-05 11:11:19.009 +07:00 [INF] HTTP GET /api/jobs responded 200 in 218.4882 ms
+2026-10-05 11:11:25.749 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 86.8795 ms
