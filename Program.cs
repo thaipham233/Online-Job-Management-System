@@ -212,9 +212,14 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
 
+app.UseStaticFiles();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Serve index.html for SPA fallback
+app.MapFallbackToFile("index.html");
 
 app.Run();

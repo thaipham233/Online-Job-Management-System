@@ -1,0 +1,4 @@
+2026-10-08 22:08:08.357 +07:00 [INF] HTTP GET /favicon.ico started
+2026-10-08 22:08:08.396 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-08 22:08:08.434 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 39.4172 ms
+2026-10-08 22:08:08.438 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 85ms
