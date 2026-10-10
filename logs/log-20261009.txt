@@ -1,0 +1,19 @@
+2026-10-09 09:48:20.983 +07:00 [INF] HTTP POST /api/Auth/login started
+2026-10-09 09:48:21.018 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-09 09:48:21.209 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 190.9441 ms
+2026-10-09 09:48:21.212 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 232ms
+2026-10-09 09:48:40.174 +07:00 [INF] HTTP POST /api/Auth/login started
+2026-10-09 09:48:40.268 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 92.8963 ms
+2026-10-09 09:48:40.270 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 96ms
+2026-10-09 09:48:53.281 +07:00 [INF] HTTP POST /api/Auth/login started
+2026-10-09 09:48:53.347 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 64.0138 ms
+2026-10-09 09:48:53.349 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 67ms
+2026-10-09 09:49:57.334 +07:00 [INF] HTTP POST /api/Auth/refresh-token started
+2026-10-09 09:49:57.341 +07:00 [INF] HTTP POST /api/Auth/refresh-token responded 400 in 5.7039 ms
+2026-10-09 09:49:57.344 +07:00 [INF] HTTP POST /api/Auth/refresh-token responded 400 in 10ms
+2026-10-09 10:44:36.718 +07:00 [INF] HTTP POST /api/Auth/login started
+2026-10-09 10:44:37.035 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 273.5786 ms
+2026-10-09 10:44:37.038 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 324ms
+2026-10-09 10:45:20.827 +07:00 [INF] HTTP POST /api/Auth/login started
+2026-10-09 10:45:20.899 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 71.4659 ms
+2026-10-09 10:45:20.899 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 71ms
