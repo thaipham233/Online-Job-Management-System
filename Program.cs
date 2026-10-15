@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Online_Job_Management_System.Models;
 using Online_Job_Management_System.Repositories;
+using Online_Job_Management_System.Services.Admin;
 using Online_Job_Management_System.Services.Auth;
 using Online_Job_Management_System.Services.Company;
 using Online_Job_Management_System.Services.Category;
@@ -132,6 +133,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IJobService, JobService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddScoped<IResumeService, ResumeService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();

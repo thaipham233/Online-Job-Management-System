@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: jobportal_postgres
+    environment:
+      POSTGRES_DB: jobportal
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./Database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - jobportal_network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jobportal_app
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=jobportal;Username=postgres;Password=postgres"
+      Jwt__Key: "your-super-secret-key-with-at-least-32-characters-long"
+      Jwt__Issuer: "JobPortal"
+      Jwt__Audience: "JobPortalUsers"
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - jobportal_network
+
+volumes:
+  postgres_data:
+
+networks:
+  jobportal_network:
+    driver: bridge
