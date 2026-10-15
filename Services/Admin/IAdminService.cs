@@ -31,13 +31,13 @@ namespace Online_Job_Management_System.Services.Admin
         // Categories
         Task<PagedResult<AdminCategoryListDto>> GetCategoriesAsync(AdminCategoryQueryDto query);
         Task<AdminCategoryDetailDto?> GetCategoryByIdAsync(int categoryId);
-        Task<AdminCategoryDetailDto> CreateCategoryAsync(CreateCategoryDto dto);
-        Task<AdminCategoryDetailDto?> UpdateCategoryAsync(int categoryId, UpdateCategoryDto dto);
+        Task<AdminCategoryDetailDto> CreateCategoryAsync(AdminCreateCategoryDto dto);
+        Task<AdminCategoryDetailDto?> UpdateCategoryAsync(int categoryId, AdminUpdateCategoryDto dto);
         Task<bool> DeleteCategoryAsync(int categoryId);
 
         // Applications
         Task<PagedResult<AdminApplicationListDto>> GetApplicationsAsync(AdminApplicationQueryDto query);
         Task<AdminApplicationDetailDto?> GetApplicationByIdAsync(int applicationId);
-        Task<bool> UpdateApplicationStatusAsync(int applicationId, UpdateApplicationStatusDto dto);
+        Task<bool> UpdateApplicationStatusAsync(int applicationId, AdminUpdateApplicationStatusDto dto);
     }
 }

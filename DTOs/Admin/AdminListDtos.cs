@@ -89,7 +89,7 @@ namespace Online_Job_Management_System.DTOs.Admin
     {
     }
 
-    public class CreateCategoryDto
+    public class AdminCreateCategoryDto
     {
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
@@ -98,7 +98,7 @@ namespace Online_Job_Management_System.DTOs.Admin
         public int DisplayOrder { get; set; } = 0;
     }
 
-    public class UpdateCategoryDto
+    public class AdminUpdateCategoryDto
     {
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }

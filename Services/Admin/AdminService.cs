@@ -369,7 +369,7 @@ namespace Online_Job_Management_System.Services.Admin
             return await connection.QuerySingleOrDefaultAsync<AdminCategoryDetailDto>(sql, new { categoryId });
         }
 
-        public async Task<AdminCategoryDetailDto> CreateCategoryAsync(CreateCategoryDto dto)
+        public async Task<AdminCategoryDetailDto> CreateCategoryAsync(AdminCreateCategoryDto dto)
         {
             using var connection = CreateConnection();
             var sql = @"
@@ -388,7 +388,7 @@ namespace Online_Job_Management_System.Services.Admin
             });
         }
 
-        public async Task<AdminCategoryDetailDto?> UpdateCategoryAsync(int categoryId, UpdateCategoryDto dto)
+        public async Task<AdminCategoryDetailDto?> UpdateCategoryAsync(int categoryId, AdminUpdateCategoryDto dto)
         {
             using var connection = CreateConnection();
             var sql = @"
@@ -503,7 +503,7 @@ namespace Online_Job_Management_System.Services.Admin
             return await connection.QuerySingleOrDefaultAsync<AdminApplicationDetailDto>(sql, new { applicationId });
         }
 
-        public async Task<bool> UpdateApplicationStatusAsync(int applicationId, UpdateApplicationStatusDto dto)
+        public async Task<bool> UpdateApplicationStatusAsync(int applicationId, AdminUpdateApplicationStatusDto dto)
         {
             using var connection = CreateConnection();
             var sql = @"

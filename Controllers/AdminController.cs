@@ -155,14 +155,14 @@ namespace Online_Job_Management_System.Controllers
         }
 
         [HttpPost("categories")]
-        public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDto dto)
+        public async Task<IActionResult> CreateCategory([FromBody] AdminCreateCategoryDto dto)
         {
             var category = await _adminService.CreateCategoryAsync(dto);
             return CreatedAtAction(nameof(GetCategoryById), new { categoryId = category.Id }, category);
         }
 
         [HttpPut("categories/{categoryId}")]
-        public async Task<IActionResult> UpdateCategory(int categoryId, [FromBody] UpdateCategoryDto dto)
+        public async Task<IActionResult> UpdateCategory(int categoryId, [FromBody] AdminUpdateCategoryDto dto)
         {
             var category = await _adminService.UpdateCategoryAsync(categoryId, dto);
             if (category == null) return NotFound();
@@ -195,7 +195,7 @@ namespace Online_Job_Management_System.Controllers
         }
 
         [HttpPut("applications/{applicationId}/status")]
-        public async Task<IActionResult> UpdateApplicationStatus(int applicationId, [FromBody] UpdateApplicationStatusDto dto)
+        public async Task<IActionResult> UpdateApplicationStatus(int applicationId, [FromBody] AdminUpdateApplicationStatusDto dto)
         {
             var result = await _adminService.UpdateApplicationStatusAsync(applicationId, dto);
             if (!result) return NotFound();

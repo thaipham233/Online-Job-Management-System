@@ -33,7 +33,7 @@ namespace Online_Job_Management_System.DTOs.Admin
         public int? CompanyId { get; set; }
     }
 
-    public class UpdateApplicationStatusDto
+    public class AdminUpdateApplicationStatusDto
     {
         public string Status { get; set; } = string.Empty;
         public string? RejectionReason { get; set; }

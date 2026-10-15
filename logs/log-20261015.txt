@@ -14,3 +14,388 @@
 2026-10-15 11:55:23.617 +07:00 [INF] HTTP GET /api/categories started
 2026-10-15 11:55:23.628 +07:00 [INF] HTTP GET /api/categories responded 200 in 10.6704 ms
 2026-10-15 11:55:23.628 +07:00 [INF] HTTP GET /api/categories responded 200 in 11ms
+2026-10-15 12:17:01.037 +07:00 [INF] HTTP GET /api/admin/applications started
+2026-10-15 12:17:01.060 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-15 12:17:01.078 +07:00 [INF] HTTP GET /api/admin/applications responded 401 in 19.0402 ms
+2026-10-15 12:17:01.080 +07:00 [INF] HTTP GET /api/admin/applications responded 401 in 45ms
+2026-10-15 12:17:04.215 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:17:04.388 +07:00 [INF] HTTP GET /api/jobs responded 200 in 173.0958 ms
+2026-10-15 12:17:04.388 +07:00 [INF] HTTP GET /api/jobs responded 200 in 173ms
+2026-10-15 12:20:35.397 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Online_Job_Management_System.Controllers.ApplicationsController.UpdateStatus (Online Job Management System). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Online_Job_Management_System.DTOs.Application.UpdateApplicationStatusDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$UpdateApplicationStatusDto" for type "$Online_Job_Management_System.DTOs.Application.UpdateApplicationStatusDto". The same schemaId is already used for type "$Online_Job_Management_System.DTOs.Admin.UpdateApplicationStatusDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForParameter(Type modelType, SchemaRepository schemaRepository, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyFromBodyParameter(ApiDescription apiDescription, SchemaRepository schemaRepository, ApiParameterDescription bodyParameter)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAndFilterContext(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-10-15 12:20:41.409 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Online_Job_Management_System.Controllers.ApplicationsController.UpdateStatus (Online Job Management System). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Online_Job_Management_System.DTOs.Application.UpdateApplicationStatusDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$UpdateApplicationStatusDto" for type "$Online_Job_Management_System.DTOs.Application.UpdateApplicationStatusDto". The same schemaId is already used for type "$Online_Job_Management_System.DTOs.Admin.UpdateApplicationStatusDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForParameter(Type modelType, SchemaRepository schemaRepository, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyFromBodyParameter(ApiDescription apiDescription, SchemaRepository schemaRepository, ApiParameterDescription bodyParameter)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAndFilterContext(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-10-15 12:21:10.230 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Online_Job_Management_System.Controllers.ApplicationsController.UpdateStatus (Online Job Management System). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Online_Job_Management_System.DTOs.Application.UpdateApplicationStatusDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$UpdateApplicationStatusDto" for type "$Online_Job_Management_System.DTOs.Application.UpdateApplicationStatusDto". The same schemaId is already used for type "$Online_Job_Management_System.DTOs.Admin.UpdateApplicationStatusDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForParameter(Type modelType, SchemaRepository schemaRepository, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyFromBodyParameter(ApiDescription apiDescription, SchemaRepository schemaRepository, ApiParameterDescription bodyParameter)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAndFilterContext(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-10-15 12:22:28.624 +07:00 [INF] HTTP GET /swagger started
+2026-10-15 12:22:28.650 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-15 12:22:28.671 +07:00 [INF] HTTP GET /index.html responded 200 in 21.9484 ms
+2026-10-15 12:22:28.673 +07:00 [INF] HTTP GET /index.html responded 200 in 51ms
+2026-10-15 12:22:39.955 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Online_Job_Management_System.Controllers.ApplicationsController.UpdateStatus (Online Job Management System). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Online_Job_Management_System.DTOs.Application.UpdateApplicationStatusDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$UpdateApplicationStatusDto" for type "$Online_Job_Management_System.DTOs.Application.UpdateApplicationStatusDto". The same schemaId is already used for type "$Online_Job_Management_System.DTOs.Admin.UpdateApplicationStatusDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForParameter(Type modelType, SchemaRepository schemaRepository, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyFromBodyParameter(ApiDescription apiDescription, SchemaRepository schemaRepository, ApiParameterDescription bodyParameter)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAndFilterContext(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-10-15 12:25:03.023 +07:00 [INF] HTTP GET /swagger started
+2026-10-15 12:25:03.050 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-15 12:25:03.072 +07:00 [INF] HTTP GET /index.html responded 200 in 22.0198 ms
+2026-10-15 12:25:03.074 +07:00 [INF] HTTP GET /index.html responded 200 in 52ms
+2026-10-15 12:25:18.587 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate Operation for action - Online_Job_Management_System.Controllers.CategoriesController.Update (Online Job Management System). See inner exception
+ ---> Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Failed to generate schema for type - Online_Job_Management_System.DTOs.Category.UpdateCategoryDto. See inner exception
+ ---> System.InvalidOperationException: Can't use schemaId "$UpdateCategoryDto" for type "$Online_Job_Management_System.DTOs.Category.UpdateCategoryDto". The same schemaId is already used for type "$Online_Job_Management_System.DTOs.Admin.UpdateCategoryDto"
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaRepository.RegisterType(Type type, String schemaId)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateReferencedSchema(DataContract dataContract, SchemaRepository schemaRepository, Func`1 definitionFactory)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateConcreteSchema(DataContract dataContract, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchemaForParameter(Type modelType, SchemaRepository schemaRepository, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SchemaGenerator.GenerateSchema(Type modelType, SchemaRepository schemaRepository, MemberInfo memberInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateSchema(Type type, SchemaRepository schemaRepository, PropertyInfo propertyInfo, ParameterInfo parameterInfo, ApiParameterRouteInfo routeInfo)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyFromBodyParameter(ApiDescription apiDescription, SchemaRepository schemaRepository, ApiParameterDescription bodyParameter)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAndFilterContext(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateRequestBodyAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   --- End of inner exception stack trace ---
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository, Func`3 parametersGenerator, Func`3 bodyGenerator, Func`3 applyFilters)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationAsync(ApiDescription apiDescription, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperationsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository, Func`3 operationsGenerator)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePathsAsync(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-10-15 12:27:51.992 +07:00 [INF] HTTP GET /swagger started
+2026-10-15 12:27:52.018 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-15 12:27:52.040 +07:00 [INF] HTTP GET /index.html responded 200 in 22.3680 ms
+2026-10-15 12:27:52.042 +07:00 [INF] HTTP GET /index.html responded 200 in 52ms
+2026-10-15 12:31:29.502 +07:00 [INF] HTTP GET /swagger started
+2026-10-15 12:31:29.505 +07:00 [INF] HTTP GET /index.html responded 200 in 2.2513 ms
+2026-10-15 12:31:29.505 +07:00 [INF] HTTP GET /index.html responded 200 in 2ms
+2026-10-15 12:31:29.524 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-15 12:31:29.524 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-15 12:31:29.524 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-15 12:31:29.524 +07:00 [INF] HTTP GET /js/api.js started
+2026-10-15 12:31:29.525 +07:00 [INF] HTTP GET /js/api.js responded 200 in 0.9373 ms
+2026-10-15 12:31:29.525 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 0.9587 ms
+2026-10-15 12:31:29.526 +07:00 [INF] HTTP GET /js/api.js responded 200 in 1ms
+2026-10-15 12:31:29.526 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 1ms
+2026-10-15 12:31:29.529 +07:00 [INF] HTTP GET /js/app.js responded 200 in 4.8190 ms
+2026-10-15 12:31:29.529 +07:00 [INF] HTTP GET /js/router.js responded 200 in 4.7783 ms
+2026-10-15 12:31:29.530 +07:00 [INF] HTTP GET /js/router.js responded 200 in 5ms
+2026-10-15 12:31:29.530 +07:00 [INF] HTTP GET /js/app.js responded 200 in 5ms
+2026-10-15 12:31:30.196 +07:00 [INF] HTTP GET /js/pages/home.js started
+2026-10-15 12:31:30.199 +07:00 [INF] HTTP GET /js/pages/home.js responded 200 in 2.4328 ms
+2026-10-15 12:31:30.199 +07:00 [INF] HTTP GET /js/pages/home.js responded 200 in 2ms
+2026-10-15 12:31:30.211 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:31:30.212 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 12:31:30.211 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:31:30.333 +07:00 [INF] HTTP GET /api/categories responded 200 in 121.5377 ms
+2026-10-15 12:31:30.333 +07:00 [INF] HTTP GET /api/categories responded 200 in 121ms
+2026-10-15 12:31:30.361 +07:00 [INF] HTTP GET /api/companies responded 200 in 149.0043 ms
+2026-10-15 12:31:30.361 +07:00 [INF] HTTP GET /api/companies responded 200 in 149ms
+2026-10-15 12:31:30.369 +07:00 [INF] HTTP GET /api/jobs responded 200 in 157.6136 ms
+2026-10-15 12:31:30.369 +07:00 [INF] HTTP GET /api/jobs responded 200 in 158ms
+2026-10-15 12:31:31.710 +07:00 [INF] HTTP GET /favicon.ico started
+2026-10-15 12:31:31.710 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 0.4146 ms
+2026-10-15 12:31:31.710 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:31:31.711 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 0ms
+2026-10-15 12:31:31.710 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:31:31.710 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 12:31:31.713 +07:00 [INF] HTTP GET /api/categories responded 200 in 1.8836 ms
+2026-10-15 12:31:31.713 +07:00 [INF] HTTP GET /api/categories responded 200 in 2ms
+2026-10-15 12:31:31.714 +07:00 [INF] HTTP GET /api/companies responded 200 in 3.6437 ms
+2026-10-15 12:31:31.714 +07:00 [INF] HTTP GET /api/companies responded 200 in 3ms
+2026-10-15 12:31:31.719 +07:00 [INF] HTTP GET /api/jobs responded 200 in 8.1390 ms
+2026-10-15 12:31:31.719 +07:00 [INF] HTTP GET /api/jobs responded 200 in 8ms
+2026-10-15 12:31:49.509 +07:00 [INF] HTTP GET /js/pages/register.js started
+2026-10-15 12:31:49.510 +07:00 [INF] HTTP GET /js/pages/register.js responded 200 in 0.8126 ms
+2026-10-15 12:31:49.511 +07:00 [INF] HTTP GET /js/pages/register.js responded 200 in 1ms
+2026-10-15 12:31:55.763 +07:00 [INF] HTTP GET /js/pages/login.js started
+2026-10-15 12:31:55.764 +07:00 [INF] HTTP GET /js/pages/login.js responded 200 in 0.6302 ms
+2026-10-15 12:31:55.764 +07:00 [INF] HTTP GET /js/pages/login.js responded 200 in 0ms
+2026-10-15 12:31:56.806 +07:00 [INF] HTTP GET /js/pages/companies-list.js started
+2026-10-15 12:31:56.807 +07:00 [INF] HTTP GET /js/pages/companies-list.js responded 200 in 0.6535 ms
+2026-10-15 12:31:56.807 +07:00 [INF] HTTP GET /js/pages/companies-list.js responded 200 in 0ms
+2026-10-15 12:31:56.813 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:31:56.815 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.7924 ms
+2026-10-15 12:31:56.815 +07:00 [INF] HTTP GET /api/companies responded 200 in 2ms
+2026-10-15 12:32:00.202 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:00.202 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:32:00.203 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 12:32:00.204 +07:00 [INF] HTTP GET /api/companies responded 200 in 2.1175 ms
+2026-10-15 12:32:00.204 +07:00 [INF] HTTP GET /api/companies responded 200 in 2ms
+2026-10-15 12:32:00.205 +07:00 [INF] HTTP GET /api/categories responded 200 in 1.6858 ms
+2026-10-15 12:32:00.205 +07:00 [INF] HTTP GET /api/categories responded 200 in 1ms
+2026-10-15 12:32:00.206 +07:00 [INF] HTTP GET /api/jobs responded 200 in 4.0907 ms
+2026-10-15 12:32:00.206 +07:00 [INF] HTTP GET /api/jobs responded 200 in 4ms
+2026-10-15 12:32:05.660 +07:00 [INF] HTTP GET /js/pages/company-detail.js started
+2026-10-15 12:32:05.661 +07:00 [INF] HTTP GET /js/pages/company-detail.js responded 200 in 0.6183 ms
+2026-10-15 12:32:05.661 +07:00 [INF] HTTP GET /js/pages/company-detail.js responded 200 in 0ms
+2026-10-15 12:32:05.664 +07:00 [INF] HTTP GET /api/companies/1 started
+2026-10-15 12:32:05.681 +07:00 [INF] HTTP GET /api/companies/1 responded 200 in 16.0549 ms
+2026-10-15 12:32:05.681 +07:00 [INF] HTTP GET /api/companies/1 responded 200 in 16ms
+2026-10-15 12:32:05.688 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:05.691 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.7964 ms
+2026-10-15 12:32:05.691 +07:00 [INF] HTTP GET /api/jobs responded 200 in 3ms
+2026-10-15 12:32:17.325 +07:00 [INF] HTTP GET /api/companies/1 started
+2026-10-15 12:32:17.327 +07:00 [INF] HTTP GET /api/companies/1 responded 200 in 1.5256 ms
+2026-10-15 12:32:17.327 +07:00 [INF] HTTP GET /api/companies/1 responded 200 in 1ms
+2026-10-15 12:32:17.334 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:17.337 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.6272 ms
+2026-10-15 12:32:17.337 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-15 12:32:19.232 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:19.232 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:32:19.232 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 12:32:19.234 +07:00 [INF] HTTP GET /api/companies responded 200 in 2.0049 ms
+2026-10-15 12:32:19.234 +07:00 [INF] HTTP GET /api/categories responded 200 in 1.5569 ms
+2026-10-15 12:32:19.234 +07:00 [INF] HTTP GET /api/companies responded 200 in 2ms
+2026-10-15 12:32:19.234 +07:00 [INF] HTTP GET /api/categories responded 200 in 1ms
+2026-10-15 12:32:19.238 +07:00 [INF] HTTP GET /api/jobs responded 200 in 5.8626 ms
+2026-10-15 12:32:19.238 +07:00 [INF] HTTP GET /api/jobs responded 200 in 6ms
+2026-10-15 12:32:22.800 +07:00 [INF] HTTP GET /js/pages/job-detail.js started
+2026-10-15 12:32:22.800 +07:00 [INF] HTTP GET /js/pages/job-detail.js responded 200 in 0.6175 ms
+2026-10-15 12:32:22.800 +07:00 [INF] HTTP GET /js/pages/job-detail.js responded 200 in 0ms
+2026-10-15 12:32:22.809 +07:00 [INF] HTTP GET /api/jobs/2 started
+2026-10-15 12:32:22.840 +07:00 [INF] HTTP GET /api/jobs/2 responded 200 in 29.3932 ms
+2026-10-15 12:32:22.840 +07:00 [INF] HTTP GET /api/jobs/2 responded 200 in 30ms
+2026-10-15 12:32:22.858 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:22.858 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:22.863 +07:00 [INF] HTTP GET /api/jobs responded 200 in 4.5698 ms
+2026-10-15 12:32:22.863 +07:00 [INF] HTTP GET /api/jobs responded 200 in 4ms
+2026-10-15 12:32:22.870 +07:00 [INF] HTTP GET /api/jobs responded 200 in 11.9297 ms
+2026-10-15 12:32:22.870 +07:00 [INF] HTTP GET /api/jobs responded 200 in 12ms
+2026-10-15 12:32:24.997 +07:00 [INF] HTTP GET /api/jobs/2 started
+2026-10-15 12:32:24.999 +07:00 [INF] HTTP GET /api/jobs/2 responded 200 in 2.0541 ms
+2026-10-15 12:32:24.999 +07:00 [INF] HTTP GET /api/jobs/2 responded 200 in 2ms
+2026-10-15 12:32:25.005 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:25.005 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:25.007 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.1999 ms
+2026-10-15 12:32:25.007 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.2459 ms
+2026-10-15 12:32:25.007 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-15 12:32:25.007 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-15 12:32:28.142 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:28.142 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:32:28.142 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 12:32:28.144 +07:00 [INF] HTTP GET /api/categories responded 200 in 1.0528 ms
+2026-10-15 12:32:28.144 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.1811 ms
+2026-10-15 12:32:28.144 +07:00 [INF] HTTP GET /api/categories responded 200 in 1ms
+2026-10-15 12:32:28.144 +07:00 [INF] HTTP GET /api/companies responded 200 in 1ms
+2026-10-15 12:32:28.144 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6153 ms
+2026-10-15 12:32:28.144 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:32:41.097 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:41.097 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:32:41.098 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.5371 ms
+2026-10-15 12:32:41.098 +07:00 [INF] HTTP GET /api/companies responded 200 in 1ms
+2026-10-15 12:32:41.098 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6995 ms
+2026-10-15 12:32:41.098 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:32:41.100 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 12:32:41.102 +07:00 [INF] HTTP GET /api/categories responded 200 in 1.4978 ms
+2026-10-15 12:32:41.102 +07:00 [INF] HTTP GET /api/categories responded 200 in 1ms
+2026-10-15 12:32:47.949 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:32:47.951 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.8909 ms
+2026-10-15 12:32:47.951 +07:00 [INF] HTTP GET /api/companies responded 200 in 2ms
+2026-10-15 12:32:54.315 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:32:54.316 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.5283 ms
+2026-10-15 12:32:54.316 +07:00 [INF] HTTP GET /api/companies responded 200 in 1ms
+2026-10-15 12:32:55.748 +07:00 [INF] HTTP GET /api/companies/3 started
+2026-10-15 12:32:55.750 +07:00 [INF] HTTP GET /api/companies/3 responded 200 in 1.3990 ms
+2026-10-15 12:32:55.750 +07:00 [INF] HTTP GET /api/companies/3 responded 200 in 1ms
+2026-10-15 12:32:55.756 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:55.758 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.1126 ms
+2026-10-15 12:32:55.758 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-15 12:32:57.772 +07:00 [INF] HTTP GET /api/jobs/1 started
+2026-10-15 12:32:57.774 +07:00 [INF] HTTP GET /api/jobs/1 responded 200 in 1.8721 ms
+2026-10-15 12:32:57.775 +07:00 [INF] HTTP GET /api/jobs/1 responded 200 in 2ms
+2026-10-15 12:32:57.780 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:57.781 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:32:57.782 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.5481 ms
+2026-10-15 12:32:57.782 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6558 ms
+2026-10-15 12:32:57.782 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:32:57.782 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:33:00.301 +07:00 [INF] HTTP GET /api/companies/3 started
+2026-10-15 12:33:00.303 +07:00 [INF] HTTP GET /api/companies/3 responded 200 in 1.2831 ms
+2026-10-15 12:33:00.303 +07:00 [INF] HTTP GET /api/companies/3 responded 200 in 1ms
+2026-10-15 12:33:00.310 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:33:00.313 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.5444 ms
+2026-10-15 12:33:00.313 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-15 12:33:00.939 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:33:00.941 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.7583 ms
+2026-10-15 12:33:00.941 +07:00 [INF] HTTP GET /api/companies responded 200 in 1ms
+2026-10-15 12:33:08.867 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started
+2026-10-15 12:33:08.868 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0.2709 ms
+2026-10-15 12:33:08.868 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0ms
+2026-10-15 12:33:14.752 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:33:14.754 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8212 ms
+2026-10-15 12:33:14.754 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-15 12:33:14.757 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:33:14.758 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 12:33:14.758 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.4356 ms
+2026-10-15 12:33:14.758 +07:00 [INF] HTTP GET /api/companies responded 200 in 1ms
+2026-10-15 12:33:14.759 +07:00 [INF] HTTP GET /api/categories responded 200 in 1.0433 ms
+2026-10-15 12:33:14.759 +07:00 [INF] HTTP GET /api/categories responded 200 in 1ms
+2026-10-15 12:33:42.909 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:33:42.909 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:33:42.909 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 12:33:42.910 +07:00 [INF] HTTP GET /api/categories responded 200 in 0.9882 ms
+2026-10-15 12:33:42.910 +07:00 [INF] HTTP GET /api/categories responded 200 in 1ms
+2026-10-15 12:33:42.910 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.1500 ms
+2026-10-15 12:33:42.910 +07:00 [INF] HTTP GET /api/companies responded 200 in 1ms
+2026-10-15 12:33:42.911 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6076 ms
+2026-10-15 12:33:42.911 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:33:44.125 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:33:44.127 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.3220 ms
+2026-10-15 12:33:44.127 +07:00 [INF] HTTP GET /api/companies responded 200 in 1ms
+2026-10-15 12:33:45.730 +07:00 [INF] HTTP GET /api/companies/1 started
+2026-10-15 12:33:45.732 +07:00 [INF] HTTP GET /api/companies/1 responded 200 in 0.9947 ms
+2026-10-15 12:33:45.732 +07:00 [INF] HTTP GET /api/companies/1 responded 200 in 1ms
+2026-10-15 12:33:45.735 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:33:45.737 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.9507 ms
+2026-10-15 12:33:45.737 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-15 12:33:58.592 +07:00 [INF] HTTP GET /api/jobs/5 started
+2026-10-15 12:33:58.594 +07:00 [INF] HTTP GET /api/jobs/5 responded 200 in 1.8251 ms
+2026-10-15 12:33:58.594 +07:00 [INF] HTTP GET /api/jobs/5 responded 200 in 2ms
+2026-10-15 12:33:58.598 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:33:58.598 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:33:58.600 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6492 ms
+2026-10-15 12:33:58.600 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6443 ms
+2026-10-15 12:33:58.600 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:33:58.600 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:33:59.937 +07:00 [INF] HTTP GET /api/companies/2 started
+2026-10-15 12:33:59.938 +07:00 [INF] HTTP GET /api/companies/2 responded 200 in 0.9887 ms
+2026-10-15 12:33:59.938 +07:00 [INF] HTTP GET /api/companies/2 responded 200 in 1ms
+2026-10-15 12:33:59.946 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:33:59.948 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8921 ms
+2026-10-15 12:33:59.948 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-15 12:34:08.975 +07:00 [INF] HTTP GET /api/jobs/5 started
+2026-10-15 12:34:08.977 +07:00 [INF] HTTP GET /api/jobs/5 responded 200 in 1.8401 ms
+2026-10-15 12:34:08.977 +07:00 [INF] HTTP GET /api/jobs/5 responded 200 in 2ms
+2026-10-15 12:34:08.983 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:34:08.983 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:34:08.985 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.4004 ms
+2026-10-15 12:34:08.985 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.3529 ms
+2026-10-15 12:34:08.985 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:34:08.985 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:34:14.309 +07:00 [INF] HTTP GET /api/companies/1 started
+2026-10-15 12:34:14.310 +07:00 [INF] HTTP GET /api/companies/1 responded 200 in 1.2271 ms
+2026-10-15 12:34:14.311 +07:00 [INF] HTTP GET /api/companies/1 responded 200 in 1ms
+2026-10-15 12:34:14.314 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:34:14.316 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.9587 ms
+2026-10-15 12:34:14.317 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-15 12:34:15.961 +07:00 [INF] HTTP GET /api/jobs/5 started
+2026-10-15 12:34:15.963 +07:00 [INF] HTTP GET /api/jobs/5 responded 200 in 1.5835 ms
+2026-10-15 12:34:15.963 +07:00 [INF] HTTP GET /api/jobs/5 responded 200 in 1ms
+2026-10-15 12:34:15.967 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:34:15.967 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:34:15.968 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.3963 ms
+2026-10-15 12:34:15.968 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.3552 ms
+2026-10-15 12:34:15.969 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:34:15.969 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:34:39.454 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 12:34:39.456 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6013 ms
+2026-10-15 12:34:39.456 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-15 12:34:39.458 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 12:34:39.459 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 12:34:39.460 +07:00 [INF] HTTP GET /api/companies responded 200 in 1.2918 ms
+2026-10-15 12:34:39.460 +07:00 [INF] HTTP GET /api/companies responded 200 in 1ms
+2026-10-15 12:34:39.460 +07:00 [INF] HTTP GET /api/categories responded 200 in 0.9319 ms
+2026-10-15 12:34:39.460 +07:00 [INF] HTTP GET /api/categories responded 200 in 1ms
+2026-10-15 13:10:37.631 +07:00 [INF] HTTP GET /css/main.css started
+2026-10-15 13:10:37.655 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-15 13:10:37.662 +07:00 [INF] HTTP GET /css/main.css responded 200 in 8.0214 ms
+2026-10-15 13:10:37.665 +07:00 [INF] HTTP GET /css/main.css responded 200 in 36ms
+2026-10-15 13:10:52.762 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 13:10:52.981 +07:00 [INF] HTTP GET /api/jobs responded 200 in 218.0317 ms
+2026-10-15 13:10:52.981 +07:00 [INF] HTTP GET /api/jobs responded 200 in 218ms
+2026-10-15 13:11:13.352 +07:00 [INF] HTTP GET /swagger started
+2026-10-15 13:11:13.354 +07:00 [INF] HTTP GET /index.html responded 200 in 1.4313 ms
+2026-10-15 13:11:13.354 +07:00 [INF] HTTP GET /index.html responded 200 in 1ms
