@@ -55,16 +55,12 @@ namespace Online_Job_Management_System.Services.Admin
             var sql = @"
                 SELECT 
                     COUNT(*) as Total,
-                    COUNT(CASE WHEN u.""Role"" = 'Candidate' THEN 1 END) as Candidates,
-                    COUNT(CASE WHEN u.""Role"" = 'Employer' THEN 1 END) as Employers,
-                    COUNT(CASE WHEN u.""Role"" = 'Admin' THEN 1 END) as Admins,
-                    COUNT(CASE WHEN u.""CreatedAt"" >= @startOfMonth THEN 1 END) as NewThisMonth
-                FROM ""Users"" u
-                WHERE u.""IsDeleted"" = false";
-            
-            var startOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
-            var result = await connection.QuerySingleAsync<UserStatsDto>(sql, new { startOfMonth });
-            return result ?? new UserStatsDto();
+                    COUNT(*) FILTER (WHERE ""Role"" = 'Candidate') as Candidates,
+                    COUNT(*) FILTER (WHERE ""Role"" = 'Employer') as Employers,
+                    COUNT(*) FILTER (WHERE ""Role"" = 'Admin') as Admins,
+                    COUNT(*) FILTER (WHERE ""CreatedAt"" >= @startOfMonth) as NewThisMonth
+                FROM ""Users""";
+            return await connection.QuerySingleAsync<UserStatsDto>(sql, new { startOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1) });
         }
 
         public async Task<CompanyStatsDto> GetCompanyStatsAsync()
@@ -73,15 +69,11 @@ namespace Online_Job_Management_System.Services.Admin
             var sql = @"
                 SELECT 
                     COUNT(*) as Total,
-                    COUNT(CASE WHEN c.""IsVerified"" = true THEN 1 END) as Verified,
-                    COUNT(CASE WHEN c.""IsVerified"" = false THEN 1 END) as Pending,
-                    COUNT(CASE WHEN c.""CreatedAt"" >= @startOfMonth THEN 1 END) as NewThisMonth
-                FROM ""Companies"" c
-                WHERE c.""IsDeleted"" = false";
-            
-            var startOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
-            var result = await connection.QuerySingleAsync<CompanyStatsDto>(sql, new { startOfMonth });
-            return result ?? new CompanyStatsDto();
+                    COUNT(*) FILTER (WHERE ""IsVerified"" = true) as Verified,
+                    COUNT(*) FILTER (WHERE ""IsVerified"" = false) as Pending,
+                    COUNT(*) FILTER (WHERE ""CreatedAt"" >= @startOfMonth) as NewThisMonth
+                FROM ""Companies""";
+            return await connection.QuerySingleAsync<CompanyStatsDto>(sql, new { startOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1) });
         }
 
         public async Task<JobStatsDto> GetJobStatsAsync()
@@ -90,16 +82,12 @@ namespace Online_Job_Management_System.Services.Admin
             var sql = @"
                 SELECT 
                     COUNT(*) as Total,
-                    COUNT(CASE WHEN j.""Status"" = 'Open' THEN 1 END) as Open,
-                    COUNT(CASE WHEN j.""Status"" = 'Closed' THEN 1 END) as Closed,
-                    COUNT(CASE WHEN j.""Status"" = 'Draft' THEN 1 END) as Draft,
-                    COUNT(CASE WHEN j.""CreatedAt"" >= @startOfMonth THEN 1 END) as NewThisMonth
-                FROM ""Jobs"" j
-                WHERE j.""IsDeleted"" = false";
-            
-            var startOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
-            var result = await connection.QuerySingleAsync<JobStatsDto>(sql, new { startOfMonth });
-            return result ?? new JobStatsDto();
+                    COUNT(*) FILTER (WHERE ""Status"" = 'Open') as Open,
+                    COUNT(*) FILTER (WHERE ""Status"" = 'Closed') as Closed,
+                    COUNT(*) FILTER (WHERE ""Status"" = 'Draft') as Draft,
+                    COUNT(*) FILTER (WHERE ""CreatedAt"" >= @startOfMonth) as NewThisMonth
+                FROM ""Jobs""";
+            return await connection.QuerySingleAsync<JobStatsDto>(sql, new { startOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1) });
         }
 
         public async Task<ApplicationStatsDto> GetApplicationStatsAsync()
@@ -108,72 +96,59 @@ namespace Online_Job_Management_System.Services.Admin
             var sql = @"
                 SELECT 
                     COUNT(*) as Total,
-                    COUNT(CASE WHEN a.""Status"" = 'Pending' THEN 1 END) as Pending,
-                    COUNT(CASE WHEN a.""Status"" IN ('Reviewed', 'Interviewing', 'Accepted', 'Rejected') THEN 1 END) as Processed,
-                    COUNT(CASE WHEN a.""CreatedAt"" >= @startOfMonth THEN 1 END) as NewThisMonth
-                FROM ""Applications"" a
-                WHERE a.""IsDeleted"" = false";
-            
-            var startOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
-            var result = await connection.QuerySingleAsync<ApplicationStatsDto>(sql, new { startOfMonth });
-            return result ?? new ApplicationStatsDto();
+                    COUNT(*) FILTER (WHERE ""Status"" = 'Pending') as Pending,
+                    COUNT(*) FILTER (WHERE ""Status"" IN ('Reviewed', 'Interviewing', 'Accepted')) as Processed,
+                    COUNT(*) FILTER (WHERE ""AppliedAt"" >= @startOfMonth) as NewThisMonth
+                FROM ""Applications""";
+            return await connection.QuerySingleAsync<ApplicationStatsDto>(sql, new { startOfMonth = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1) });
         }
 
         // Users
         public async Task<PagedResult<AdminUserListDto>> GetUsersAsync(AdminUserQueryDto query)
         {
             using var connection = CreateConnection();
-            var where = new List<string> { "u.\"IsDeleted\" = false" };
+            var where = new List<string> { };
             var parameters = new DynamicParameters();
-
-            if (!string.IsNullOrEmpty(query.Role))
-            {
-                where.Add("u.\"Role\" = @role");
-                parameters.Add("role", query.Role);
-            }
 
             if (!string.IsNullOrEmpty(query.Search))
             {
-                where.Add("(u.\"Email\" ILIKE @search OR u.\"FullName\" ILIKE @search)");
+                where.Add("(\"Email\" ILIKE @search OR \"FullName\" ILIKE @search)");
                 parameters.Add("search", $"%{query.Search}%");
             }
 
-            if (!string.IsNullOrEmpty(query.Status))
+            if (!string.IsNullOrEmpty(query.Role))
             {
-                where.Add("u.\"IsActive\" = @isActive");
-                parameters.Add("isActive", query.Status == "Active");
+                where.Add("\"Role\" = @role");
+                parameters.Add("role", query.Role);
             }
 
-            var whereClause = string.Join(" AND ", where);
+            if (query.IsActive.HasValue)
+            {
+                where.Add("\"IsActive\" = @isActive");
+                parameters.Add("isActive", query.IsActive.Value);
+            }
+
+            var whereClause = where.Count > 0 ? "WHERE " + string.Join(" AND ", where) : "";
             var offset = (query.PageNumber - 1) * query.PageSize;
 
-            var countSql = $@"SELECT COUNT(*) FROM ""Users"" u WHERE {whereClause}";
+            var countSql = $@"SELECT COUNT(*) FROM ""Users"" {whereClause}";
             var totalCount = await connection.ExecuteScalarAsync<int>(countSql, parameters);
 
             var dataSql = $@"
-                SELECT 
-                    u.""Id"", u.""Email"", u.""FullName"", u.""PhoneNumber"", u.""AvatarUrl"",
-                    u.""Role"", u.""IsActive"", u.""CreatedAt"", u.""UpdatedAt""
-                FROM ""Users"" u
-                WHERE {whereClause}
-                ORDER BY u.""CreatedAt"" DESC
+                SELECT ""Id"", ""Email"", ""FullName"", ""PhoneNumber"", ""AvatarUrl"", ""Role"", ""IsActive"", ""CreatedAt"", ""UpdatedAt""
+                FROM ""Users""
+                {whereClause}
+                ORDER BY ""CreatedAt"" DESC
                 LIMIT @pageSize OFFSET @offset";
 
             parameters.Add("pageSize", query.PageSize);
             parameters.Add("offset", offset);
 
             var users = await connection.QueryAsync<AdminUserListDto>(dataSql, parameters);
-            
-            // Parse roles (assuming single role stored in Role column)
-            var userList = users.Select(u => 
-            {
-                u.Roles = new List<string> { u.Roles.FirstOrDefault() ?? "Candidate" }.Where(r => !string.IsNullOrEmpty(r)).ToList();
-                return u;
-            }).ToList();
 
             return new PagedResult<AdminUserListDto>
             {
-                Items = userList,
+                Items = users.ToList(),
                 TotalCount = totalCount,
                 PageNumber = query.PageNumber,
                 PageSize = query.PageSize
@@ -184,18 +159,11 @@ namespace Online_Job_Management_System.Services.Admin
         {
             using var connection = CreateConnection();
             var sql = @"
-                SELECT 
-                    u.*, c.""Name"" as CompanyName, c.""Id"" as CompanyId
+                SELECT u.*, c.""Name"" as CompanyName
                 FROM ""Users"" u
                 LEFT JOIN ""Companies"" c ON c.""OwnerId"" = u.""Id""
-                WHERE u.""Id"" = @userId AND u.""IsDeleted"" = false";
-            
-            var user = await connection.QuerySingleOrDefaultAsync<AdminUserDetailDto>(sql, new { userId });
-            if (user != null)
-            {
-                user.Roles = new List<string> { user.Roles.FirstOrDefault() ?? "Candidate" }.Where(r => !string.IsNullOrEmpty(r)).ToList();
-            }
-            return user;
+                WHERE u.""Id"" = @userId";
+            return await connection.QuerySingleOrDefaultAsync<AdminUserDetailDto>(sql, new { userId });
         }
 
         public async Task<bool> UpdateUserStatusAsync(int userId, bool isActive)
@@ -208,10 +176,10 @@ namespace Online_Job_Management_System.Services.Admin
 
         public async Task<bool> UpdateUserRolesAsync(int userId, List<string> roles)
         {
-            var primaryRole = roles.FirstOrDefault() ?? "Candidate";
             using var connection = CreateConnection();
+            var role = roles.FirstOrDefault() ?? "Candidate";
             var sql = @"UPDATE ""Users"" SET ""Role"" = @role, ""UpdatedAt"" = @now WHERE ""Id"" = @userId";
-            var rows = await connection.ExecuteAsync(sql, new { userId, role = primaryRole, now = DateTime.UtcNow });
+            var rows = await connection.ExecuteAsync(sql, new { userId, role, now = DateTime.UtcNow });
             return rows > 0;
         }
 
@@ -219,34 +187,32 @@ namespace Online_Job_Management_System.Services.Admin
         public async Task<PagedResult<AdminCompanyListDto>> GetCompaniesAsync(AdminCompanyQueryDto query)
         {
             using var connection = CreateConnection();
-            var where = new List<string> { "c.\"IsDeleted\" = false" };
+            var where = new List<string> { };
             var parameters = new DynamicParameters();
 
             if (!string.IsNullOrEmpty(query.Search))
             {
-                where.Add("(c.\"Name\" ILIKE @search OR c.\"Email\" ILIKE @search)");
+                where.Add("(\"Name\" ILIKE @search OR \"Email\" ILIKE @search)");
                 parameters.Add("search", $"%{query.Search}%");
             }
 
-            if (query.Verified.HasValue)
+            if (query.IsVerified.HasValue)
             {
-                where.Add("c.\"IsVerified\" = @verified");
-                parameters.Add("verified", query.Verified.Value);
+                where.Add("\"IsVerified\" = @isVerified");
+                parameters.Add("isVerified", query.IsVerified.Value);
             }
 
-            var whereClause = string.Join(" AND ", where);
+            var whereClause = where.Count > 0 ? "WHERE " + string.Join(" AND ", where) : "";
             var offset = (query.PageNumber - 1) * query.PageSize;
 
-            var countSql = $@"SELECT COUNT(*) FROM ""Companies"" c WHERE {whereClause}";
+            var countSql = $@"SELECT COUNT(*) FROM ""Companies"" {whereClause}";
             var totalCount = await connection.ExecuteScalarAsync<int>(countSql, parameters);
 
             var dataSql = $@"
-                SELECT 
-                    c.""Id"", c.""Name"", c.""LogoUrl"", c.""Email"", c.""Website"",
-                    c.""Industry"", c.""Size"", c.""IsVerified"", c.""CreatedAt"",
-                    (SELECT COUNT(*) FROM ""Jobs"" j WHERE j.""CompanyId"" = c.""Id"" AND j.""IsDeleted"" = false) as JobsCount
+                SELECT c.""Id"", c.""Name"", c.""LogoUrl"", c.""Email"", c.""Website"", c.""Industry"", c.""Size"", c.""IsVerified"", 
+                       (SELECT COUNT(*) FROM ""Jobs"" WHERE ""CompanyId"" = c.""Id"") as JobsCount, c.""CreatedAt""
                 FROM ""Companies"" c
-                WHERE {whereClause}
+                {whereClause}
                 ORDER BY c.""CreatedAt"" DESC
                 LIMIT @pageSize OFFSET @offset";
 
@@ -271,8 +237,7 @@ namespace Online_Job_Management_System.Services.Admin
                 SELECT c.*, u.""Email"" as OwnerEmail
                 FROM ""Companies"" c
                 LEFT JOIN ""Users"" u ON u.""Id"" = c.""OwnerId""
-                WHERE c.""Id"" = @companyId AND c.""IsDeleted"" = false";
-            
+                WHERE c.""Id"" = @companyId";
             return await connection.QuerySingleOrDefaultAsync<AdminCompanyDetailDto>(sql, new { companyId });
         }
 
@@ -288,12 +253,12 @@ namespace Online_Job_Management_System.Services.Admin
         public async Task<PagedResult<AdminJobListDto>> GetJobsAsync(AdminJobQueryDto query)
         {
             using var connection = CreateConnection();
-            var where = new List<string> { "j.\"IsDeleted\" = false" };
+            var where = new List<string> { };
             var parameters = new DynamicParameters();
 
             if (!string.IsNullOrEmpty(query.Search))
             {
-                where.Add("(j.\"Title\" ILIKE @search OR c.\"Name\" ILIKE @search)");
+                where.Add("(\"Title\" ILIKE @search OR c.\"Name\" ILIKE @search)");
                 parameters.Add("search", $"%{query.Search}%");
             }
 
@@ -303,22 +268,26 @@ namespace Online_Job_Management_System.Services.Admin
                 parameters.Add("status", query.Status);
             }
 
-            var whereClause = string.Join(" AND ", where);
+            if (query.CompanyId.HasValue)
+            {
+                where.Add("j.\"CompanyId\" = @companyId");
+                parameters.Add("companyId", query.CompanyId.Value);
+            }
+
+            var whereClause = where.Count > 0 ? "WHERE " + string.Join(" AND ", where) : "";
             var offset = (query.PageNumber - 1) * query.PageSize;
 
-            var countSql = $@"SELECT COUNT(*) FROM ""Jobs"" j LEFT JOIN ""Companies"" c ON c.""Id"" = j.""CompanyId"" WHERE {whereClause}";
+            var countSql = $@"SELECT COUNT(*) FROM ""Jobs"" j LEFT JOIN ""Companies"" c ON c.""Id"" = j.""CompanyId"" {whereClause}";
             var totalCount = await connection.ExecuteScalarAsync<int>(countSql, parameters);
 
             var dataSql = $@"
-                SELECT 
-                    j.""Id"", j.""Title"", c.""Name"" as CompanyName,
-                    j.""JobType"", j.""ExperienceLevel"", j.""SalaryMin"", j.""SalaryMax"",
-                    j.""SalaryType"", j.""Status"", j.""IsHot"", j.""CreatedAt"", j.""ExpiresAt"",
-                    (SELECT COUNT(*) FROM ""Applications"" a WHERE a.""JobId"" = j.""Id"" AND a.""IsDeleted"" = false) as ApplicationsCount,
-                    j.""ViewsCount""
+                SELECT j.""Id"", j.""Title"", c.""Name"" as CompanyName, j.""JobType"", j.""ExperienceLevel"", j.""SalaryMin"", j.""SalaryMax"", j.""SalaryType"", j.""Status"", j.""IsHot"", 
+                       (SELECT COUNT(*) FROM ""Applications"" WHERE ""JobId"" = j.""Id"") as ApplicationsCount,
+                       (SELECT COUNT(*) FROM ""JobViews"" WHERE ""JobId"" = j.""Id"") as ViewsCount,
+                       j.""CreatedAt"", j.""ExpiresAt""
                 FROM ""Jobs"" j
                 LEFT JOIN ""Companies"" c ON c.""Id"" = j.""CompanyId""
-                WHERE {whereClause}
+                {whereClause}
                 ORDER BY j.""CreatedAt"" DESC
                 LIMIT @pageSize OFFSET @offset";
 
@@ -347,8 +316,8 @@ namespace Online_Job_Management_System.Services.Admin
         public async Task<bool> DeleteJobAsync(int jobId)
         {
             using var connection = CreateConnection();
-            var sql = @"UPDATE ""Jobs"" SET ""IsDeleted"" = true, ""UpdatedAt"" = @now WHERE ""Id"" = @jobId";
-            var rows = await connection.ExecuteAsync(sql, new { jobId, now = DateTime.UtcNow });
+            var sql = @"DELETE FROM ""Jobs"" WHERE ""Id"" = @jobId";
+            var rows = await connection.ExecuteAsync(sql, new { jobId });
             return rows > 0;
         }
 
@@ -361,24 +330,22 @@ namespace Online_Job_Management_System.Services.Admin
 
             if (!string.IsNullOrEmpty(query.Search))
             {
-                where.Add("cat.\"Name\" ILIKE @search");
+                where.Add("(\"Name\" ILIKE @search OR \"Description\" ILIKE @search)");
                 parameters.Add("search", $"%{query.Search}%");
             }
 
             var whereClause = where.Count > 0 ? "WHERE " + string.Join(" AND ", where) : "";
             var offset = (query.PageNumber - 1) * query.PageSize;
 
-            var countSql = $@"SELECT COUNT(*) FROM ""Categories"" cat {whereClause}";
+            var countSql = $@"SELECT COUNT(*) FROM ""Categories"" {whereClause}";
             var totalCount = await connection.ExecuteScalarAsync<int>(countSql, parameters);
 
             var dataSql = $@"
-                SELECT 
-                    cat.""Id"", cat.""Name"", cat.""Description"", cat.""IconClass"",
-                    cat.""IconColor"", cat.""DisplayOrder"", cat.""CreatedAt"",
-                    (SELECT COUNT(*) FROM ""Jobs"" j WHERE j.""CategoryId"" = cat.""Id"" AND j.""IsDeleted"" = false) as JobsCount
-                FROM ""Categories"" cat
+                SELECT c.""Id"", c.""Name"", c.""Description"", c.""IconClass"", c.""IconColor"", c.""DisplayOrder"", 
+                       (SELECT COUNT(*) FROM ""Jobs"" WHERE ""CategoryId"" = c.""Id"") as JobsCount, c.""CreatedAt""
+                FROM ""Categories"" c
                 {whereClause}
-                ORDER BY cat.""DisplayOrder"", cat.""Name""
+                ORDER BY c.""DisplayOrder"", c.""CreatedAt""
                 LIMIT @pageSize OFFSET @offset";
 
             parameters.Add("pageSize", query.PageSize);
@@ -448,6 +415,110 @@ namespace Online_Job_Management_System.Services.Admin
             using var connection = CreateConnection();
             var sql = @"DELETE FROM ""Categories"" WHERE ""Id"" = @categoryId";
             var rows = await connection.ExecuteAsync(sql, new { categoryId });
+            return rows > 0;
+        }
+
+        // Applications
+        public async Task<PagedResult<AdminApplicationListDto>> GetApplicationsAsync(AdminApplicationQueryDto query)
+        {
+            using var connection = CreateConnection();
+            var where = new List<string> { };
+            var parameters = new DynamicParameters();
+
+            if (!string.IsNullOrEmpty(query.Search))
+            {
+                where.Add("(a.\"CoverLetter\" ILIKE @search OR j.\"Title\" ILIKE @search OR u.\"FullName\" ILIKE @search OR u.\"Email\" ILIKE @search)");
+                parameters.Add("search", $"%{query.Search}%");
+            }
+
+            if (!string.IsNullOrEmpty(query.Status))
+            {
+                where.Add("a.\"Status\" = @status");
+                parameters.Add("status", query.Status);
+            }
+
+            if (query.JobId.HasValue)
+            {
+                where.Add("a.\"JobId\" = @jobId");
+                parameters.Add("jobId", query.JobId.Value);
+            }
+
+            if (query.CompanyId.HasValue)
+            {
+                where.Add("j.\"CompanyId\" = @companyId");
+                parameters.Add("companyId", query.CompanyId.Value);
+            }
+
+            var whereClause = where.Count > 0 ? "WHERE " + string.Join(" AND ", where) : "";
+            var offset = (query.PageNumber - 1) * query.PageSize;
+
+            var countSql = $@"SELECT COUNT(*) FROM ""Applications"" a
+                LEFT JOIN ""Jobs"" j ON j.""Id"" = a.""JobId""
+                LEFT JOIN ""Users"" u ON u.""Id"" = a.""UserId""
+                {whereClause}";
+            var totalCount = await connection.ExecuteScalarAsync<int>(countSql, parameters);
+
+            var dataSql = $@"
+                SELECT 
+                    a.""Id"", j.""Title"" as JobTitle, c.""Name"" as CompanyName,
+                    u.""FullName"" as CandidateName, u.""Email"" as CandidateEmail,
+                    a.""Status"", a.""AppliedAt"", a.""ReviewedAt"",
+                    a.""CoverLetter"", a.""ResumeUrl""
+                FROM ""Applications"" a
+                LEFT JOIN ""Jobs"" j ON j.""Id"" = a.""JobId""
+                LEFT JOIN ""Companies"" c ON c.""Id"" = j.""CompanyId""
+                LEFT JOIN ""Users"" u ON u.""Id"" = a.""UserId""
+                {whereClause}
+                ORDER BY a.""AppliedAt"" DESC
+                LIMIT @pageSize OFFSET @offset";
+
+            parameters.Add("pageSize", query.PageSize);
+            parameters.Add("offset", offset);
+
+            var applications = await connection.QueryAsync<AdminApplicationListDto>(dataSql, parameters);
+
+            return new PagedResult<AdminApplicationListDto>
+            {
+                Items = applications.ToList(),
+                TotalCount = totalCount,
+                PageNumber = query.PageNumber,
+                PageSize = query.PageSize
+            };
+        }
+
+        public async Task<AdminApplicationDetailDto?> GetApplicationByIdAsync(int applicationId)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                SELECT 
+                    a.*, j.""Title"" as JobTitle, c.""Name"" as CompanyName, j.""Id"" as JobId,
+                    u.""FullName"" as CandidateName, u.""Email"" as CandidateEmail,
+                    u.""PhoneNumber"" as CandidatePhone, u.""Address"" as CandidateAddress
+                FROM ""Applications"" a
+                LEFT JOIN ""Jobs"" j ON j.""Id"" = a.""JobId""
+                LEFT JOIN ""Companies"" c ON c.""Id"" = j.""CompanyId""
+                LEFT JOIN ""Users"" u ON u.""Id"" = a.""UserId""
+                WHERE a.""Id"" = @applicationId";
+            
+            return await connection.QuerySingleOrDefaultAsync<AdminApplicationDetailDto>(sql, new { applicationId });
+        }
+
+        public async Task<bool> UpdateApplicationStatusAsync(int applicationId, UpdateApplicationStatusDto dto)
+        {
+            using var connection = CreateConnection();
+            var sql = @"
+                UPDATE ""Applications"" 
+                SET ""Status"" = @status, ""ReviewedAt"" = @now, ""RejectionReason"" = @rejectionReason, ""Note"" = @note, ""UpdatedAt"" = @now
+                WHERE ""Id"" = @applicationId";
+            
+            var rows = await connection.ExecuteAsync(sql, new
+            {
+                applicationId,
+                status = dto.Status,
+                rejectionReason = dto.RejectionReason,
+                note = dto.Note,
+                now = DateTime.UtcNow
+            });
             return rows > 0;
         }
     }

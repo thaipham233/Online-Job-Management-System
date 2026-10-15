@@ -1,0 +1,16 @@
+2026-10-15 11:54:20.365 +07:00 [INF] HTTP GET /swagger started
+2026-10-15 11:54:20.393 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-15 11:54:20.427 +07:00 [INF] HTTP GET /index.html responded 200 in 34.1948 ms
+2026-10-15 11:54:20.429 +07:00 [INF] HTTP GET /index.html responded 200 in 67ms
+2026-10-15 11:54:29.734 +07:00 [INF] HTTP GET /api/admin/stats/dashboard started
+2026-10-15 11:54:29.741 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 5.9109 ms
+2026-10-15 11:54:29.741 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 6ms
+2026-10-15 11:54:51.685 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-15 11:54:51.881 +07:00 [INF] HTTP GET /api/jobs responded 200 in 196.0072 ms
+2026-10-15 11:54:51.881 +07:00 [INF] HTTP GET /api/jobs responded 200 in 196ms
+2026-10-15 11:55:03.353 +07:00 [INF] HTTP GET /api/companies started
+2026-10-15 11:55:03.409 +07:00 [INF] HTTP GET /api/companies responded 200 in 56.2245 ms
+2026-10-15 11:55:03.409 +07:00 [INF] HTTP GET /api/companies responded 200 in 56ms
+2026-10-15 11:55:23.617 +07:00 [INF] HTTP GET /api/categories started
+2026-10-15 11:55:23.628 +07:00 [INF] HTTP GET /api/categories responded 200 in 10.6704 ms
+2026-10-15 11:55:23.628 +07:00 [INF] HTTP GET /api/categories responded 200 in 11ms

@@ -5,18 +5,21 @@ namespace Online_Job_Management_System.DTOs.Admin
         public string? Role { get; set; }
         public string? Search { get; set; }
         public string? Status { get; set; }
+        public bool? IsActive { get; set; }
     }
 
     public class AdminCompanyQueryDto : PagedRequest
     {
         public string? Search { get; set; }
         public bool? Verified { get; set; }
+        public bool? IsVerified { get; set; }
     }
 
     public class AdminJobQueryDto : PagedRequest
     {
         public string? Search { get; set; }
         public string? Status { get; set; }
+        public int? CompanyId { get; set; }
     }
 
     public class AdminCategoryQueryDto : PagedRequest

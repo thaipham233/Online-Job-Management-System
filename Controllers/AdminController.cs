@@ -176,5 +176,30 @@ namespace Online_Job_Management_System.Controllers
             if (!result) return NotFound();
             return NoContent();
         }
+
+        // ==================== APPLICATIONS ====================
+
+        [HttpGet("applications")]
+        public async Task<IActionResult> GetApplications([FromQuery] AdminApplicationQueryDto query)
+        {
+            var result = await _adminService.GetApplicationsAsync(query);
+            return Ok(result);
+        }
+
+        [HttpGet("applications/{applicationId}")]
+        public async Task<IActionResult> GetApplicationById(int applicationId)
+        {
+            var application = await _adminService.GetApplicationByIdAsync(applicationId);
+            if (application == null) return NotFound();
+            return Ok(application);
+        }
+
+        [HttpPut("applications/{applicationId}/status")]
+        public async Task<IActionResult> UpdateApplicationStatus(int applicationId, [FromBody] UpdateApplicationStatusDto dto)
+        {
+            var result = await _adminService.UpdateApplicationStatusAsync(applicationId, dto);
+            if (!result) return NotFound();
+            return Ok(new { message = $"Application status updated to {dto.Status}" });
+        }
     }
 }

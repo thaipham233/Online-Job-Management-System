@@ -332,6 +332,7 @@ function setupRoutes() {
     router.add('/admin/companies', () => requireRole(['Admin'], () => loadPage('admin-companies')));
     router.add('/admin/jobs', () => requireRole(['Admin'], () => loadPage('admin-jobs')));
     router.add('/admin/categories', () => requireRole(['Admin'], () => loadPage('admin-categories')));
+    router.add('/admin/applications', () => requireRole(['Admin'], () => loadPage('admin-applications')));
     
     // 404 fallback
     router.add('*', () => router.render404());
@@ -418,6 +419,7 @@ async function renderPageInline(pageName, container, param) {
         'admin-companies': renderAdminCompaniesPage,
         'admin-jobs': renderAdminJobsPage,
         'admin-categories': renderAdminCategoriesPage,
+        'admin-applications': renderAdminApplicationsPage,
     };
     
     const renderer = pages[pageName];

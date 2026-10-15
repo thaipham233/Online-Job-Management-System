@@ -34,5 +34,10 @@ namespace Online_Job_Management_System.Services.Admin
         Task<AdminCategoryDetailDto> CreateCategoryAsync(CreateCategoryDto dto);
         Task<AdminCategoryDetailDto?> UpdateCategoryAsync(int categoryId, UpdateCategoryDto dto);
         Task<bool> DeleteCategoryAsync(int categoryId);
+
+        // Applications
+        Task<PagedResult<AdminApplicationListDto>> GetApplicationsAsync(AdminApplicationQueryDto query);
+        Task<AdminApplicationDetailDto?> GetApplicationByIdAsync(int applicationId);
+        Task<bool> UpdateApplicationStatusAsync(int applicationId, UpdateApplicationStatusDto dto);
     }
 }
