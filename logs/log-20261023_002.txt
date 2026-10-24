@@ -1,0 +1,175 @@
+2026-10-23 10:48:36.550 +07:00 [INF] HTTP GET / started
+2026-10-23 10:48:36.718 +07:00 [INF] HTTP GET /index.html responded 200 in 119.2815 ms
+2026-10-23 10:48:36.726 +07:00 [INF] HTTP GET /index.html responded 200 in 180ms
+2026-10-23 10:48:36.758 +07:00 [INF] HTTP GET /js/api.js started
+2026-10-23 10:48:36.758 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-23 10:48:36.758 +07:00 [INF] HTTP GET /css/main.css started
+2026-10-23 10:48:36.759 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-23 10:48:36.758 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-23 10:48:36.781 +07:00 [INF] HTTP GET /js/router.js responded 200 in 21.7257 ms
+2026-10-23 10:48:36.783 +07:00 [INF] HTTP GET /js/app.js responded 200 in 24.0003 ms
+2026-10-23 10:48:36.783 +07:00 [INF] HTTP GET /css/main.css responded 200 in 24.1015 ms
+2026-10-23 10:48:36.784 +07:00 [INF] HTTP GET /js/app.js responded 200 in 25ms
+2026-10-23 10:48:36.783 +07:00 [INF] HTTP GET /js/router.js responded 200 in 25ms
+2026-10-23 10:48:36.786 +07:00 [INF] HTTP GET /css/main.css responded 200 in 27ms
+2026-10-23 10:48:36.785 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 26.2571 ms
+2026-10-23 10:48:36.786 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 27ms
+2026-10-23 10:48:36.786 +07:00 [INF] HTTP GET /js/api.js responded 200 in 27.4402 ms
+2026-10-23 10:48:36.786 +07:00 [INF] HTTP GET /js/api.js responded 200 in 27ms
+2026-10-23 10:48:37.522 +07:00 [INF] HTTP GET /js/pages/home.js started
+2026-10-23 10:48:37.530 +07:00 [INF] HTTP GET /js/pages/home.js responded 200 in 7.4757 ms
+2026-10-23 10:48:37.530 +07:00 [INF] HTTP GET /js/pages/home.js responded 200 in 8ms
+2026-10-23 10:48:37.536 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 10:48:37.536 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 10:48:37.536 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 10:48:37.740 +07:00 [INF] HTTP GET /api/categories responded 200 in 204.2127 ms
+2026-10-23 10:48:37.740 +07:00 [INF] HTTP GET /api/categories responded 200 in 204ms
+2026-10-23 10:48:37.804 +07:00 [INF] HTTP GET /api/companies responded 200 in 268.0056 ms
+2026-10-23 10:48:37.804 +07:00 [INF] HTTP GET /api/companies responded 200 in 268ms
+2026-10-23 10:48:37.806 +07:00 [INF] HTTP GET /api/jobs responded 200 in 269.9423 ms
+2026-10-23 10:48:37.806 +07:00 [INF] HTTP GET /api/jobs responded 200 in 270ms
+2026-10-23 10:48:39.405 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 10:48:39.405 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 10:48:39.405 +07:00 [INF] HTTP GET /favicon.ico started
+2026-10-23 10:48:39.405 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 10:48:39.409 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 3.1453 ms
+2026-10-23 10:48:39.409 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 3ms
+2026-10-23 10:48:39.415 +07:00 [INF] HTTP GET /api/categories responded 200 in 9.6433 ms
+2026-10-23 10:48:39.416 +07:00 [INF] HTTP GET /api/categories responded 200 in 10ms
+2026-10-23 10:48:39.427 +07:00 [INF] HTTP GET /api/companies responded 200 in 21.1639 ms
+2026-10-23 10:48:39.427 +07:00 [INF] HTTP GET /api/companies responded 200 in 21ms
+2026-10-23 10:48:39.433 +07:00 [INF] HTTP GET /api/jobs responded 200 in 27.7561 ms
+2026-10-23 10:48:39.434 +07:00 [INF] HTTP GET /api/jobs responded 200 in 28ms
+2026-10-23 10:48:46.450 +07:00 [INF] HTTP GET /js/pages/login.js started
+2026-10-23 10:48:46.455 +07:00 [INF] HTTP GET /js/pages/login.js responded 200 in 4.3493 ms
+2026-10-23 10:48:46.455 +07:00 [INF] HTTP GET /js/pages/login.js responded 200 in 4ms
+2026-10-23 10:48:47.538 +07:00 [INF] HTTP GET /js/pages/register.js started
+2026-10-23 10:48:47.544 +07:00 [INF] HTTP GET /js/pages/register.js responded 200 in 5.3177 ms
+2026-10-23 10:48:47.544 +07:00 [INF] HTTP GET /js/pages/register.js responded 200 in 5ms
+2026-10-23 10:48:49.860 +07:00 [INF] HTTP GET /js/pages/companies-list.js started
+2026-10-23 10:48:49.866 +07:00 [INF] HTTP GET /js/pages/companies-list.js responded 200 in 5.9653 ms
+2026-10-23 10:48:49.866 +07:00 [INF] HTTP GET /js/pages/companies-list.js responded 200 in 6ms
+2026-10-23 10:48:49.871 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 10:48:49.877 +07:00 [INF] HTTP GET /api/companies responded 200 in 6.4127 ms
+2026-10-23 10:48:49.877 +07:00 [INF] HTTP GET /api/companies responded 200 in 6ms
+2026-10-23 10:48:51.079 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 10:48:51.079 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 10:48:51.079 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 10:48:51.089 +07:00 [INF] HTTP GET /api/companies responded 200 in 9.5382 ms
+2026-10-23 10:48:51.090 +07:00 [INF] HTTP GET /api/companies responded 200 in 10ms
+2026-10-23 10:48:51.094 +07:00 [INF] HTTP GET /api/categories responded 200 in 13.1185 ms
+2026-10-23 10:48:51.095 +07:00 [INF] HTTP GET /api/categories responded 200 in 16ms
+2026-10-23 10:48:51.101 +07:00 [INF] HTTP GET /api/jobs responded 200 in 21.4292 ms
+2026-10-23 10:48:51.101 +07:00 [INF] HTTP GET /api/jobs responded 200 in 21ms
+2026-10-23 10:48:54.297 +07:00 [INF] HTTP GET /js/pages/salary.js started
+2026-10-23 10:48:54.301 +07:00 [INF] HTTP GET /js/pages/salary.js responded 200 in 4.4781 ms
+2026-10-23 10:48:54.302 +07:00 [INF] HTTP GET /js/pages/salary.js responded 200 in 4ms
+2026-10-23 10:48:57.233 +07:00 [INF] HTTP GET /js/pages/career-advice.js started
+2026-10-23 10:48:57.237 +07:00 [INF] HTTP GET /js/pages/career-advice.js responded 200 in 3.7019 ms
+2026-10-23 10:48:57.237 +07:00 [INF] HTTP GET /js/pages/career-advice.js responded 200 in 4ms
+2026-10-23 10:49:08.308 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 10:49:08.313 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 10:49:08.313 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 10:49:08.322 +07:00 [INF] HTTP GET /api/jobs responded 200 in 14.1009 ms
+2026-10-23 10:49:08.323 +07:00 [INF] HTTP GET /api/jobs responded 200 in 15ms
+2026-10-23 10:49:08.325 +07:00 [INF] HTTP GET /api/companies responded 200 in 11.6729 ms
+2026-10-23 10:49:08.326 +07:00 [INF] HTTP GET /api/companies responded 200 in 12ms
+2026-10-23 10:49:08.332 +07:00 [INF] HTTP GET /api/categories responded 200 in 18.9518 ms
+2026-10-23 10:49:08.332 +07:00 [INF] HTTP GET /api/categories responded 200 in 19ms
+2026-10-23 11:13:31.361 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-23 11:13:31.444 +07:00 [INF] HTTP GET /js/app.js responded 304 in 38.1347 ms
+2026-10-23 11:13:31.448 +07:00 [INF] HTTP GET /js/app.js responded 304 in 89ms
+2026-10-23 11:13:31.471 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 11:13:31.471 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 11:13:31.471 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 11:13:31.775 +07:00 [INF] HTTP GET /api/categories responded 200 in 303.5530 ms
+2026-10-23 11:13:31.776 +07:00 [INF] HTTP GET /api/categories responded 200 in 304ms
+2026-10-23 11:13:31.838 +07:00 [INF] HTTP GET /api/companies responded 200 in 366.8844 ms
+2026-10-23 11:13:31.838 +07:00 [INF] HTTP GET /api/companies responded 200 in 367ms
+2026-10-23 11:13:31.849 +07:00 [INF] HTTP GET /api/jobs responded 200 in 378.0885 ms
+2026-10-23 11:13:31.850 +07:00 [INF] HTTP GET /api/jobs responded 200 in 378ms
+2026-10-23 11:13:32.755 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 11:13:32.755 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 11:13:32.755 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 11:13:32.764 +07:00 [INF] HTTP GET /api/categories responded 200 in 8.3719 ms
+2026-10-23 11:13:32.764 +07:00 [INF] HTTP GET /api/categories responded 200 in 9ms
+2026-10-23 11:13:32.899 +07:00 [INF] HTTP GET /api/companies responded 200 in 143.0834 ms
+2026-10-23 11:13:32.899 +07:00 [INF] HTTP GET /api/companies responded 200 in 143ms
+2026-10-23 11:13:32.916 +07:00 [INF] HTTP GET /api/jobs responded 200 in 160.8285 ms
+2026-10-23 11:13:32.917 +07:00 [INF] HTTP GET /api/jobs responded 200 in 161ms
+2026-10-23 11:13:46.363 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 11:13:46.371 +07:00 [INF] HTTP GET /api/companies responded 200 in 8.2347 ms
+2026-10-23 11:13:46.371 +07:00 [INF] HTTP GET /api/companies responded 200 in 8ms
+2026-10-23 11:13:48.161 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 11:13:48.162 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 11:13:48.162 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 11:13:48.179 +07:00 [INF] HTTP GET /api/categories responded 200 in 17.0645 ms
+2026-10-23 11:13:48.181 +07:00 [INF] HTTP GET /api/categories responded 200 in 18ms
+2026-10-23 11:13:48.181 +07:00 [INF] HTTP GET /api/companies responded 200 in 18.8331 ms
+2026-10-23 11:13:48.181 +07:00 [INF] HTTP GET /api/companies responded 200 in 19ms
+2026-10-23 11:13:48.190 +07:00 [INF] HTTP GET /api/jobs responded 200 in 28.6862 ms
+2026-10-23 11:13:48.191 +07:00 [INF] HTTP GET /api/jobs responded 200 in 29ms
+2026-10-23 11:13:52.438 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 11:13:52.455 +07:00 [INF] HTTP GET /api/companies responded 200 in 16.3640 ms
+2026-10-23 11:13:52.455 +07:00 [INF] HTTP GET /api/companies responded 200 in 17ms
+2026-10-23 11:14:04.167 +07:00 [INF] HTTP GET /js/pages/salary.js started
+2026-10-23 11:14:04.171 +07:00 [INF] HTTP GET /js/pages/salary.js responded 304 in 3.5343 ms
+2026-10-23 11:14:04.171 +07:00 [INF] HTTP GET /js/pages/salary.js responded 304 in 4ms
+2026-10-23 11:15:59.885 +07:00 [INF] HTTP GET / started
+2026-10-23 11:15:59.923 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-23 11:16:00.012 +07:00 [INF] HTTP GET /index.html responded 200 in 89.2712 ms
+2026-10-23 11:16:00.020 +07:00 [INF] HTTP GET /index.html responded 200 in 137ms
+2026-10-23 11:16:00.029 +07:00 [INF] HTTP GET /css/common.css started
+2026-10-23 11:16:00.029 +07:00 [INF] HTTP GET /js/api.js started
+2026-10-23 11:16:00.029 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-23 11:16:00.029 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-23 11:16:00.053 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 1.8761 ms
+2026-10-23 11:16:00.063 +07:00 [INF] HTTP GET /js/router.js responded 200 in 6.0295 ms
+2026-10-23 11:16:00.029 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-23 11:16:00.050 +07:00 [INF] HTTP GET /js/api.js responded 200 in 9.4453 ms
+2026-10-23 11:16:00.066 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 36ms
+2026-10-23 11:16:00.071 +07:00 [INF] HTTP GET /js/router.js responded 200 in 42ms
+2026-10-23 11:16:00.041 +07:00 [INF] HTTP GET /css/common.css responded 200 in 7.1707 ms
+2026-10-23 11:16:00.076 +07:00 [INF] HTTP GET /js/app.js responded 200 in 3.3090 ms
+2026-10-23 11:16:00.077 +07:00 [INF] HTTP GET /js/api.js responded 200 in 48ms
+2026-10-23 11:16:00.082 +07:00 [INF] HTTP GET /css/common.css responded 200 in 52ms
+2026-10-23 11:16:00.083 +07:00 [INF] HTTP GET /js/app.js responded 200 in 54ms
+2026-10-23 11:16:00.727 +07:00 [INF] HTTP GET /js/pages/home.js started
+2026-10-23 11:16:00.733 +07:00 [INF] HTTP GET /js/pages/home.js responded 200 in 4.6616 ms
+2026-10-23 11:16:00.736 +07:00 [INF] HTTP GET /js/pages/home.js responded 200 in 9ms
+2026-10-23 11:16:00.738 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 11:16:00.738 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 11:16:00.740 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 11:16:00.939 +07:00 [INF] HTTP GET /api/categories responded 200 in 199.7644 ms
+2026-10-23 11:16:00.942 +07:00 [INF] HTTP GET /api/categories responded 200 in 203ms
+2026-10-23 11:16:00.996 +07:00 [INF] HTTP GET /api/companies responded 200 in 256.1527 ms
+2026-10-23 11:16:00.999 +07:00 [INF] HTTP GET /api/companies responded 200 in 260ms
+2026-10-23 11:16:01.005 +07:00 [INF] HTTP GET /api/jobs responded 200 in 263.4848 ms
+2026-10-23 11:16:01.008 +07:00 [INF] HTTP GET /api/jobs responded 200 in 267ms
+2026-10-23 11:16:01.171 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 11:16:01.170 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 11:16:01.172 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 11:16:01.189 +07:00 [INF] HTTP GET /api/companies responded 200 in 16.7025 ms
+2026-10-23 11:16:01.193 +07:00 [INF] HTTP GET /api/companies responded 200 in 22ms
+2026-10-23 11:16:01.199 +07:00 [INF] HTTP GET /api/categories responded 200 in 23.1743 ms
+2026-10-23 11:16:01.205 +07:00 [INF] HTTP GET /api/categories responded 200 in 32ms
+2026-10-23 11:16:01.212 +07:00 [INF] HTTP GET /favicon.ico started
+2026-10-23 11:16:01.214 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 0.7842 ms
+2026-10-23 11:16:01.215 +07:00 [INF] HTTP GET /api/jobs responded 200 in 41.4407 ms
+2026-10-23 11:16:01.216 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 4ms
+2026-10-23 11:16:01.221 +07:00 [INF] HTTP GET /api/jobs responded 200 in 51ms
+2026-10-23 11:16:07.853 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-23 11:16:07.854 +07:00 [INF] HTTP GET /api/companies started
+2026-10-23 11:16:07.855 +07:00 [INF] HTTP GET /api/categories started
+2026-10-23 11:16:07.869 +07:00 [INF] HTTP GET /api/companies responded 200 in 12.8647 ms
+2026-10-23 11:16:07.873 +07:00 [INF] HTTP GET /api/companies responded 200 in 19ms
+2026-10-23 11:16:07.876 +07:00 [INF] HTTP GET /api/categories responded 200 in 16.6157 ms
+2026-10-23 11:16:07.876 +07:00 [INF] HTTP GET /api/jobs responded 200 in 20.9450 ms
+2026-10-23 11:16:07.878 +07:00 [INF] HTTP GET /api/categories responded 200 in 23ms
+2026-10-23 11:16:07.879 +07:00 [INF] HTTP GET /api/jobs responded 200 in 26ms
+2026-10-23 11:16:09.746 +07:00 [INF] HTTP GET /js/pages/login.js started
+2026-10-23 11:16:09.751 +07:00 [INF] HTTP GET /js/pages/login.js responded 200 in 1.9945 ms
+2026-10-23 11:16:09.753 +07:00 [INF] HTTP GET /js/pages/login.js responded 200 in 6ms
+2026-10-23 11:16:10.525 +07:00 [INF] HTTP GET /js/pages/register.js started
+2026-10-23 11:16:10.528 +07:00 [INF] HTTP GET /js/pages/register.js responded 200 in 1.6125 ms
+2026-10-23 11:16:10.531 +07:00 [INF] HTTP GET /js/pages/register.js responded 200 in 5ms

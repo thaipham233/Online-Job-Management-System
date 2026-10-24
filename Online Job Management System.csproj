@@ -26,15 +26,16 @@
     <!-- Identity - built into ASP.NET Core 8.0, only need JWT Bearer -->
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
     
-    <!-- AutoMapper - using compatible version with extension -->
+    <!-- AutoMapper - stable 12.x stable with security patches -->
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     
-    <!-- FluentValidation -->
-    <PackageReference Include="FluentValidation" Version="12.1.1" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.24.2-preview.1" />
-    <PackageReference Include="Ocelot" Version="25.0.1" />
+    <!-- MailKit / MimeKit - upgraded to latest stable 4.18.x with security patches -->
+    <PackageReference Include="MailKit" Version="4.18.1" />
+    <PackageReference Include="MimeKit" Version="4.18.1" />
+    
+    <!-- Swagger/OpenAPI -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.0" />
     
     <!-- Serilog -->
     <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
@@ -47,12 +48,9 @@
     <!-- BCrypt for password hashing -->
     <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
     
-    <!-- MailKit for email (updated to fix vulnerability) -->
-    <PackageReference Include="MailKit" Version="4.8.0" />
-    <PackageReference Include="MimeKit" Version="4.8.0" />
-    
-    <!-- Swagger/OpenAPI -->
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.0" />
+    <!-- FluentValidation -->
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
   </ItemGroup>
 
 </Project>

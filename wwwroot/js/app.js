@@ -309,6 +309,8 @@ function setupRoutes() {
     router.add('/login', () => loadPage('login'));
     router.add('/register', () => loadPage('register'));
     router.add('/forgot-password', () => loadPage('forgot-password'));
+    router.add('/salary', () => loadPage('salary'));
+    router.add('/career-advice', () => loadPage('career-advice'));
     
     // Protected routes (require auth)
     router.add('/profile', () => requireAuth(() => loadPage('profile')));
@@ -323,6 +325,10 @@ function setupRoutes() {
     router.add('/employer/jobs', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-jobs')));
     router.add('/employer/jobs/create', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-job-form')));
     router.add('/employer/jobs/:id/edit', (params) => requireRole(['Employer', 'Admin'], () => loadPage('employer-job-form', params.id)));
+    router.add('/employer/post-job', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-post-job')));
+    router.add('/employer/branding', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-branding')));
+    router.add('/employer/pricing', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-pricing')));
+    router.add('/employer/resources', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-resources')));
     router.add('/employer/applications', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-applications')));
     router.add('/employer/company', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-company')));
     

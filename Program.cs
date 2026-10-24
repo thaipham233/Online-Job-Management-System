@@ -15,6 +15,7 @@ using Online_Job_Management_System.Data;
 using Online_Job_Management_System.Mapping;
 using Online_Job_Management_System.Middleware;
 using Online_Job_Management_System.Validators;
+using Online_Job_Management_System.Services;
 using Serilog;
 using System.Text;
 using FluentValidation;
@@ -135,6 +136,13 @@ builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddScoped<IResumeService, ResumeService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 
+// Register Email and File Upload services
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IFileUploadService, FileUploadService>();
+
+// Add health checks for Docker/K8s monitoring
+builder.Services.AddHealthChecks();
+
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -200,9 +208,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Online Job Management System API v1");
-        c.RoutePrefix = "swagger"; // Serve Swagger UI at /swagger
+        c.RoutePrefix = "swagger";
     });
 }
+
+// Health check endpoint for Docker/K8s
+app.MapHealthChecks("/health");
 
 // Middleware pipeline
 app.UseMiddleware<GlobalExceptionMiddleware>();
