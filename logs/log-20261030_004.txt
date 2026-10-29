@@ -1,0 +1,185 @@
+2026-10-30 02:55:38.532 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5128: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-30 02:56:59.960 +07:00 [INF] HTTP GET / started
+2026-10-30 02:56:59.994 +07:00 [INF] Gateway: GET / from ::1 [40000021-0003-ff00-b63f-84710c7967bb]
+2026-10-30 02:57:00.035 +07:00 [INF] HTTP GET /index.html responded 304 in 45.3189 ms
+2026-10-30 02:57:00.037 +07:00 [INF] HTTP GET /index.html responded 304 in 79ms
+2026-10-30 02:57:00.099 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-30 02:57:00.101 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-30 02:57:00.099 +07:00 [INF] HTTP GET /js/views/profile.js started
+2026-10-30 02:57:00.099 +07:00 [INF] HTTP GET /js/views/login.js started
+2026-10-30 02:57:00.099 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js started
+2026-10-30 02:57:00.099 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/views/home.js started
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 0.9761 ms
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 0.9157 ms
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/app.js responded 304 in 0.8792 ms
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 2ms
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 2ms
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/router.js responded 304 in 1.2425 ms
+2026-10-30 02:57:00.103 +07:00 [INF] HTTP GET /js/auth.js responded 304 in 2.4877 ms
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 1.0090 ms
+2026-10-30 02:57:00.103 +07:00 [INF] HTTP GET /js/router.js responded 304 in 3ms
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/app.js responded 304 in 2ms
+2026-10-30 02:57:00.102 +07:00 [INF] HTTP GET /js/views/home.js responded 304 in 0.1313 ms
+2026-10-30 02:57:00.104 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 4ms
+2026-10-30 02:57:00.104 +07:00 [INF] HTTP GET /js/auth.js responded 304 in 4ms
+2026-10-30 02:57:00.104 +07:00 [INF] HTTP GET /js/views/home.js responded 304 in 1ms
+2026-10-30 02:57:00.105 +07:00 [INF] HTTP GET /js/views/employer-job-form.js started
+2026-10-30 02:57:00.105 +07:00 [INF] HTTP GET /js/views/employer-resources.js started
+2026-10-30 02:57:00.105 +07:00 [INF] HTTP GET /js/views/employer-pricing.js started
+2026-10-30 02:57:00.106 +07:00 [INF] HTTP GET /js/views/admin.js started
+2026-10-30 02:57:00.105 +07:00 [INF] HTTP GET /js/views/saved-jobs.js started
+2026-10-30 02:57:00.105 +07:00 [INF] HTTP GET /js/views/admin-jobs.js started
+2026-10-30 02:57:00.106 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0.1554 ms
+2026-10-30 02:57:00.106 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0.2180 ms
+2026-10-30 02:57:00.106 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0.4254 ms
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0ms
+2026-10-30 02:57:00.106 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0.1790 ms
+2026-10-30 02:57:00.106 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0ms
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 1.8824 ms
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 2ms
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 2ms
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 1.8356 ms
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 2ms
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 2ms
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/admin-applications.js started
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/employer-applications.js started
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/admin-companies.js started
+2026-10-30 02:57:00.108 +07:00 [INF] HTTP GET /js/views/admin-users.js started
+2026-10-30 02:57:00.109 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0.2031 ms
+2026-10-30 02:57:00.110 +07:00 [INF] HTTP GET /js/views/admin-categories.js started
+2026-10-30 02:57:00.109 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0.2781 ms
+2026-10-30 02:57:00.110 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 1ms
+2026-10-30 02:57:00.110 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 1.4399 ms
+2026-10-30 02:57:00.110 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 1ms
+2026-10-30 02:57:00.110 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0.3280 ms
+2026-10-30 02:57:00.110 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0.3071 ms
+2026-10-30 02:57:00.110 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 1ms
+2026-10-30 02:57:00.110 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 1ms
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/applications.js started
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/companies.js started
+2026-10-30 02:57:00.110 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0ms
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/company-detail.js started
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/salary.js started
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/employer-post-job.js started
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0.3662 ms
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/career-advice.js started
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0ms
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0.3537 ms
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/jobs.js started
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0.1507 ms
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0.3760 ms
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0.1309 ms
+2026-10-30 02:57:00.113 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 2ms
+2026-10-30 02:57:00.111 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0ms
+2026-10-30 02:57:00.112 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0.1495 ms
+2026-10-30 02:57:00.112 +07:00 [INF] HTTP GET /js/views/employer-branding.js started
+2026-10-30 02:57:00.113 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 2ms
+2026-10-30 02:57:00.113 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 2ms
+2026-10-30 02:57:00.113 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 2ms
+2026-10-30 02:57:00.113 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0.1797 ms
+2026-10-30 02:57:00.113 +07:00 [INF] HTTP GET /js/views/register.js started
+2026-10-30 02:57:00.113 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 1ms
+2026-10-30 02:57:00.114 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 0.4661 ms
+2026-10-30 02:57:00.115 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 2.1527 ms
+2026-10-30 02:57:00.115 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 1ms
+2026-10-30 02:57:00.115 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 4ms
+2026-10-30 02:57:03.487 +07:00 [INF] HTTP GET / started
+2026-10-30 02:57:03.487 +07:00 [INF] Gateway: GET / from ::1 [4000001f-0000-ff00-b63f-84710c7967bb]
+2026-10-30 02:57:03.488 +07:00 [INF] HTTP GET /index.html responded 304 in 1.4091 ms
+2026-10-30 02:57:03.488 +07:00 [INF] HTTP GET /index.html responded 304 in 1ms
+2026-10-30 02:57:26.551 +07:00 [INF] HTTP GET / started
+2026-10-30 02:57:26.553 +07:00 [INF] Gateway: GET / from ::1 [4000000a-000d-fd00-b63f-84710c7967bb]
+2026-10-30 02:57:26.556 +07:00 [INF] HTTP GET /index.html responded 304 in 2.8096 ms
+2026-10-30 02:57:26.556 +07:00 [INF] HTTP GET /index.html responded 304 in 4ms
+2026-10-30 02:57:41.927 +07:00 [INF] HTTP GET / started
+2026-10-30 02:57:41.927 +07:00 [INF] Gateway: GET / from ::1 [40000004-0009-fc00-b63f-84710c7967bb]
+2026-10-30 02:57:41.928 +07:00 [INF] HTTP GET /index.html responded 304 in 0.5310 ms
+2026-10-30 02:57:41.928 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 02:58:28.446 +07:00 [INF] HTTP GET / started
+2026-10-30 02:58:28.480 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-30 02:58:28.487 +07:00 [INF] Gateway: GET / from ::1 [0HNPLURV3P9AI:00000003]
+2026-10-30 02:58:28.531 +07:00 [INF] HTTP GET /index.html responded 304 in 50.8055 ms
+2026-10-30 02:58:28.535 +07:00 [INF] HTTP GET /index.html responded 304 in 91ms
+2026-10-30 02:58:28.581 +07:00 [INF] HTTP GET /js/views/companies.js started
+2026-10-30 02:58:28.585 +07:00 [INF] HTTP GET /js/views/career-advice.js started
+2026-10-30 02:58:28.587 +07:00 [INF] HTTP GET /js/views/company-detail.js started
+2026-10-30 02:58:28.585 +07:00 [INF] HTTP GET /js/views/salary.js started
+2026-10-30 02:58:28.590 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 3.2155 ms
+2026-10-30 02:58:28.581 +07:00 [INF] HTTP GET /js/views/jobs.js started
+2026-10-30 02:58:28.588 +07:00 [INF] HTTP GET /js/views/applications.js started
+2026-10-30 02:58:28.596 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0.8685 ms
+2026-10-30 02:58:28.597 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0.3696 ms
+2026-10-30 02:58:28.599 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0.2794 ms
+2026-10-30 02:58:28.600 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 19ms
+2026-10-30 02:58:28.602 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 0.3780 ms
+2026-10-30 02:58:28.603 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0.2996 ms
+2026-10-30 02:58:28.605 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 19ms
+2026-10-30 02:58:28.606 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 19ms
+2026-10-30 02:58:28.608 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 25ms
+2026-10-30 02:58:28.618 +07:00 [INF] HTTP GET /js/views/employer-post-job.js started
+2026-10-30 02:58:28.611 +07:00 [INF] HTTP GET /js/views/saved-jobs.js started
+2026-10-30 02:58:28.613 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 31ms
+2026-10-30 02:58:28.615 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 26ms
+2026-10-30 02:58:28.620 +07:00 [INF] HTTP GET /js/views/employer-branding.js started
+2026-10-30 02:58:28.623 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0.3094 ms
+2026-10-30 02:58:28.623 +07:00 [INF] HTTP GET /js/views/employer-pricing.js started
+2026-10-30 02:58:28.625 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0.2539 ms
+2026-10-30 02:58:28.627 +07:00 [INF] HTTP GET /js/views/employer-resources.js started
+2026-10-30 02:58:28.629 +07:00 [INF] HTTP GET /js/views/employer-job-form.js started
+2026-10-30 02:58:28.630 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0.3441 ms
+2026-10-30 02:58:28.632 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 14ms
+2026-10-30 02:58:28.633 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0.2535 ms
+2026-10-30 02:58:28.634 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 23ms
+2026-10-30 02:58:28.636 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0.3889 ms
+2026-10-30 02:58:28.637 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0.2295 ms
+2026-10-30 02:58:28.639 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 19ms
+2026-10-30 02:58:28.642 +07:00 [INF] HTTP GET /js/views/employer-applications.js started
+2026-10-30 02:58:28.643 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 20ms
+2026-10-30 02:58:28.646 +07:00 [INF] HTTP GET /js/views/admin-applications.js started
+2026-10-30 02:58:28.647 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 20ms
+2026-10-30 02:58:28.649 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 19ms
+2026-10-30 02:58:28.652 +07:00 [INF] HTTP GET /js/views/admin-categories.js started
+2026-10-30 02:58:28.652 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0.2991 ms
+2026-10-30 02:58:28.654 +07:00 [INF] HTTP GET /js/views/admin-companies.js started
+2026-10-30 02:58:28.656 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0.3510 ms
+2026-10-30 02:58:28.659 +07:00 [INF] HTTP GET /js/views/admin-jobs.js started
+2026-10-30 02:58:28.661 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0.3501 ms
+2026-10-30 02:58:28.661 +07:00 [INF] HTTP GET /js/views/admin-users.js started
+2026-10-30 02:58:28.663 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 20ms
+2026-10-30 02:58:28.664 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0.3316 ms
+2026-10-30 02:58:28.665 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 19ms
+2026-10-30 02:58:28.673 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 18ms
+2026-10-30 02:58:28.667 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0.2600 ms
+2026-10-30 02:58:28.669 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0.3002 ms
+2026-10-30 02:58:28.682 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 23ms
+2026-10-30 02:58:28.684 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 22ms
+2026-10-30 02:58:28.668 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 16ms
+2026-10-30 02:58:28.731 +07:00 [INF] HTTP GET /favicon.ico started
+2026-10-30 02:58:28.735 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 1.7428 ms
+2026-10-30 02:58:28.737 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 6ms

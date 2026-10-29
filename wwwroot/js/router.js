@@ -1,146 +1,108 @@
-// Router - Simple hash-based SPA router
+// SPA Router - Hash-based router for Single Page Application
+// Routes:
+//   #/            -> Home (jobs listing)
+//   #/login       -> Login
+//   #/admin       -> Admin Dashboard (requires Admin role)
+//   #/employer    -> Employer Dashboard (requires Employer role)
+//   #/profile     -> Profile (requires any authenticated user)
+//   #/register    -> Registration
 class Router {
     constructor() {
         this.routes = new Map();
-        this.currentRoute = null;
         this.beforeHooks = [];
-        this.afterHooks = [];
-        
+        this.notFound = null;
         window.addEventListener('hashchange', () => this.handleRouteChange());
         window.addEventListener('load', () => this.handleRouteChange());
+        this.currentPath = window.location.hash.slice(1) || '/';
     }
 
     // Register a route
-    add(path, handler) {
-        // Convert path to regex
-        const regexPath = path
-            .replace(/:(\w+)/g, '(?<$1>[^/]+)')
-            .replace(/\*/g, '.*');
-        const regex = new RegExp(`^${regexPath}$`);
-        this.routes.set(path, { regex, handler, path });
-        return this;
+    route(path, view) {
+        this.routes.set(path, view);
     }
 
-    // Add middleware
+    // Register a before hook (called on every navigation)
     before(hook) {
         this.beforeHooks.push(hook);
     }
 
-    after(hook) {
-        this.afterHooks.push(hook);
+    // Set 404 page
+    notFound(view) {
+        this.notFound = view;
     }
 
-    // Navigate to a path
+    // Navigate to a path (updates the hash URL)
     navigate(path) {
+        if (window.location.hash === '#' + path) return;
         window.location.hash = path;
+    }
+
+    // Handle route change (auth check, before hooks)
+    async handleRouteChange() {
+        const path = this.getCurrentPath();
+        this.currentPath = path;
+        window.scrollTo(0, 0);
+
+        // Run before hooks
+        for (const hook of this.beforeHooks) {
+            const result = await hook(path);
+            if (result === false) return;
+        }
+
+        const view = this.routes.get(path) || this.notFound;
+        if (view) {
+            const app = document.getElementById('app');
+            if (app) {
+                app.innerHTML = '';
+                const viewInstance = new view();
+                const html = await viewInstance.render();
+                app.innerHTML = html;
+                this.afterRender(path);
+            }
+        }
     }
 
     // Get current path
     getCurrentPath() {
-        return window.location.hash.slice(1) || '/';
+        return this.currentPath || window.location.hash.slice(1) || '/';
     }
 
-    // Handle route change
-    async handleRouteChange() {
-        const path = this.getCurrentPath();
-        
-        // Run before hooks
-        for (const hook of this.beforeHooks) {
-            const result = await hook(path);
-            if (result === false) return; // Cancel navigation
-        }
-
-        // Find matching route
-        let matchedRoute = null;
-        let params = {};
-
-        for (const [routePath, route] of this.routes) {
-            const match = path.match(route.regex);
-            if (match) {
-                matchedRoute = route;
-                params = match.groups || {};
+    // Hook called after rendering
+    afterRender(path) {
+        switch (path) {
+            case '/':
+                if (typeof JobHubHomeView !== 'undefined') {
+                    setTimeout(() => new JobHubHomeView().loadJobs(), 100);
+                }
                 break;
-            }
+            case '/login':
+                if (typeof JobHubLoginView !== 'undefined') {
+                    setTimeout(() => new JobHubLoginView().init(), 100);
+                }
+                break;
+            case '/register':
+                if (typeof JobHubRegisterView !== 'undefined') {
+                    setTimeout(() => new JobHubRegisterView().init(), 100);
+                }
+                break;
+            case '/admin':
+                if (typeof JobHubAdminView !== 'undefined') {
+                    setTimeout(() => new JobHubAdminView().init(), 100);
+                }
+                break;
+            case '/employer':
+                if (typeof JobHubEmployerDashboardView !== 'undefined') {
+                    setTimeout(() => new JobHubEmployerDashboardView().init(), 100);
+                }
+                break;
+            case '/profile':
+                if (typeof JobHubProfileView !== 'undefined') {
+                    setTimeout(() => new JobHubProfileView().init(), 100);
+                }
+                break;
         }
-
-        // Default to 404
-        if (!matchedRoute) {
-            matchedRoute = this.routes.get('*') || { handler: () => this.render404() };
-        }
-
-        this.currentRoute = { path, params, route: matchedRoute };
-
-        try {
-            // Render the route
-            await matchedRoute.handler(params, path);
-            
-            // Run after hooks
-            for (const hook of this.afterHooks) {
-                await hook(path);
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        } catch (error) {
-            console.error('Route error:', error);
-            this.renderError(error);
-        }
-    }
-
-    // Get route params
-    getParams() {
-        return this.currentRoute?.params || {};
-    }
-
-    // Render 404
-    render404() {
-        const app = document.getElementById('app');
-        app.innerHTML = `
-            <div class="min-h-[60vh] flex items-center justify-center">
-                <div class="text-center fade-in">
-                    <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
-                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Trang không tồn tại</h1>
-                    <p class="text-gray-500 mb-6">Không tìm thấy trang bạn đang tìm kiếm.</p>
-                    <a href="#/" class="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors" data-link>
-                        <i class="fas fa-home mr-2"></i>Về trang chủ
-                    </a>
-                </div>
-            </div>
-        `;
-    }
-
-    // Render error
-    renderError(error) {
-        const app = document.getElementById('app');
-        app.innerHTML = `
-            <div class="min-h-[60vh] flex items-center justify-center">
-                <div class="text-center fade-in">
-                    <i class="fas fa-exclamation-triangle text-6xl text-red-400 mb-4"></i>
-                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Đã có lỗi xảy ra</h1>
-                    <p class="text-gray-500 mb-6">${error.message || 'Không thể tải trang'}</p>
-                    <a href="#/" class="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors" data-link>
-                        <i class="fas fa-home mr-2"></i>Về trang chủ
-                    </a>
-                </div>
-            </div>
-        `;
-    }
-
-    // Helper to get query params
-    getQueryParams() {
-        const hash = window.location.hash;
-        const queryIndex = hash.indexOf('?');
-        if (queryIndex === -1) return {};
-        
-        const queryString = hash.slice(queryIndex + 1);
-        const params = new URLSearchParams(queryString);
-        const result = {};
-        for (const [key, value] of params) {
-            result[key] = value;
-        }
-        return result;
     }
 }
 
-// Global instance
+// Global router instance
 const router = new Router();

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Không tìm thấy trang - JobHub</title>
+    <meta name="description" content="404 trang không tìm thấy">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+    <nav class="no-print navbar">
+        <div class="flex container navbar-inner" style="height: 4rem;">
+            <a href="/" class="navbar-brand flex items-center gap-sm">
+                <div class="avatar" style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover)); color: white;"><i class="fas fa-briefcase"></i></div>
+                <span class="h4" style="margin: 0;">JobHub</span>
+            </a>
+            <div class="flex navbar-nav items-center gap-md hidden" style="display: none;">
+                <a href="/" class="text-muted hover-primary nav-link">Việc làm</a>
+                <a href="/companies.html" class="text-muted hover-primary nav-link">Công ty</a>
+            </div>
+            <div class="flex navbar-auth items-center gap-sm" id="auth-buttons">
+                <div id="guest-menu">
+                    <a href="/login.html" class="btn btn-secondary btn-sm">Đăng nhập</a>
+                    <a href="/register.html" class="btn btn-primary btn-sm">Đăng ký</a>
+                </div>
+                <div id="user-menu" class="hidden flex items-center gap-sm">
+                    <div class="dropdown" id="user-dropdown">
+                        <button id="user-btn" class="btn btn-secondary flex items-center gap-sm">
+                            <div class="avatar avatar-sm"><i class="fas fa-user"></i></div>
+                            <span id="user-name"></span>
+                            <i class="fas fa-chevron-down text-xs text-muted"></i>
+                        </button>
+                        <div class="dropdown-menu card" style="position: absolute; top: 100%; right: 0; margin-top: var(--space-sm); min-width: 14rem; box-shadow: var(--shadow-lg); display: none; z-index: 100;">
+                            <a href="/profile.html" class="dropdown-item flex items-center gap-sm px-md py-sm text-main hover-bg-gray-100" role="menuitem"><i class="fas fa-user"></i>Hồ sơ</a>
+                            <a href="/applications.html" class="dropdown-item flex items-center gap-sm px-md py-sm text-main hover-bg-gray-100" role="menuitem"><i class="fas fa-file-alt"></i>Đơn ứng tuyển</a>
+                            <a href="/saved-jobs.html" class="dropdown-item flex items-center gap-sm px-md py-sm text-main hover-bg-gray-100" role="menuitem"><i class="fas fa-bookmark"></i>Việc đã lưu</a>
+                            <hr class="divider">
+                            <a href="/employer-dashboard.html" class="dropdown-item flex items-center gap-sm px-md py-sm text-main hover-bg-gray-100" role="menuitem"><i class="fas fa-building"></i>Trang nhà tuyển dụng</a>
+                            <a href="/admin-dashboard.html" class="dropdown-item flex items-center gap-sm px-md py-sm text-main hover-bg-gray-100" role="menuitem"><i class="fas fa-cog"></i>Admin</a>
+                            <hr class="divider">
+                            <button class="dropdown-item flex items-center gap-sm px-md py-sm text-error hover-bg-gray-100 w-100 text-left" role="menuitem"><i class="fas fa-sign-out-alt"></i>Đăng xuất</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="mobile-menu-btn" class="btn btn-secondary d-none"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <main class="flex items-center justify-center min-h-[70vh] px-4">
+        <div class="text-center">
+            <div class="w-24 h-24 mx-auto rounded-full bg-gray-100 flex items-center justify-center mb-6">
+                <i class="fas fa-exclamation-triangle text-3xl text-gray-400"></i>
+            </div>
+            <h1 class="text-6xl font-bold text-gray-900 mb-4">404</h1>
+            <p class="text-xl text-gray-500 mb-8">Trang bạn tìm không tồn tại hoặc đã được di chuyển</p>
+            <a href="/" class="inline-block px-8 py-4 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700 transition-colors">
+                <i class="fas fa-home mr-2"></i>Về trang chủ
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer no-print" style="background-color: var(--color-gray-900); color: var(--color-gray-400); padding: var(--space-2xl) 0 var(--space-lg); margin-top: auto;">
+        <div class="container">
+            <div class="grid grid-cols-1 gap-xl" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div><div class="footer-brand flex items-center gap-sm mb-md"><div class="avatar" style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover)); color: white;"><i class="fas fa-briefcase"></i></div><span class="h3" style="margin: 0; color: white;">JobHub</span></div><p class="text-muted" style="margin: 0;">Kết nối nhân tài với cơ hội việc làm tốt nhất tại Việt Nam.</p></div>
+                <div><h4 class="footer-title" style="color: white; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-md);">Người tìm việc</h4><ul class="flex flex-col gap-sm"><li><a href="/" class="text-muted hover-primary">Tìm việc làm</a></li><li><a href="/companies.html" class="text-muted hover-primary">Khám phá công ty</a></li><li><a href="/salary.html" class="text-muted hover-primary">Bảng lương</a></li><li><a href="/career-advice.html" class="text-muted hover-primary">Tư vấn nghề nghiệp</a></li></ul></div>
+                <div><h4 class="footer-title" style="color: white; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-md);">Nhà tuyển dụng</h4><ul class="flex flex-col gap-sm"><li><a href="/employer-post-job.html" class="text-muted hover-primary">Đăng tuyển dụng</a></li><li><a href="/employer-branding.html" class="text-muted hover-primary">Employer Branding</a></li><li><a href="/employer-pricing.html" class="text-muted hover-primary">Bảng giá</a></li><li><a href="/employer-resources.html" class="text-muted hover-primary">Tài nguyên tuyển dụng</a></li></ul></div>
+                <div><h4 class="footer-title" style="color: white; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-md);">Liên hệ</h4><ul class="flex flex-col gap-md"><li class="flex items-center gap-sm"><i class="fas fa-envelope" style="color: var(--color-primary); width: 1.25rem; text-align: center;"></i><span>support@jobhub.vn</span></li><li class="flex items-center gap-sm"><i class="fas fa-phone" style="color: var(--color-primary); width: 1.25rem; text-align: center;"></i><span>1900-xxxx</span></li><li class="flex items-center gap-sm"><i class="fas fa-map-marker-alt" style="color: var(--color-primary); width: 1.25rem; text-align: center;"></i><span>Hà Nội, Việt Nam</span></li></ul></div>
+            </div>
+            <div class="footer-bottom text-center text-sm text-muted" style="padding-top: var(--space-xl); border-top: 1px solid var(--color-gray-800);"><p>&copy; 2024 JobHub. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

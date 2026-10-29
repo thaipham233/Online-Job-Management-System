@@ -389,24 +389,21 @@ INSERT INTO Roles (Name, NormalizedName, ConcurrencyStamp) VALUES
 ('Candidate', 'CANDIDATE', NEWID());
 
 -- 2. Insert Users (10 users: 1 admin, 3 employers, 6 candidates)
--- Password hash for "Test@123" (using BCrypt)
-DECLARE @PasswordHash NVARCHAR(MAX) = '$2a$11$8K1p/a0dhrxi7bw1rNvwfOmGv1.HWxVO5VJqZ9kLJP9B8qP8J8J8K';
+-- Passwords are stored as plain text for demo accounts only
 INSERT INTO Users (UserName, NormalizedUserName, Email, NormalizedEmail, EmailConfirmed, PasswordHash, SecurityStamp, ConcurrencyStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEnabled, AccessFailedCount, FullName, AvatarUrl, DateOfBirth, Gender, Address, Bio, IsActive, CreatedAt) VALUES
 -- Admin
-('admin@jobsystem.com', 'ADMIN@JOBSYSTEM.COM', 'admin@jobsystem.com', 'ADMIN@JOBSYSTEM.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234567', 1, 0, 1, 0, 'Quản trị hệ thống', NULL, '1990-01-01', 1, 'Hà Nội', 'Quản trị viên hệ thống', 1, GETUTCDATE()),
+('admin@jobsystem.com', 'ADMIN@JOBSYSTEM.COM', 'admin@jobsystem.com', 'ADMIN@JOBSYSTEM.COM', 1, N'admin123!', NEWID(), NEWID(), '0901234567', 1, 0, 1, 0, 'Quản trị hệ thống', NULL, '1990-01-01', 1, 'Hà Nội', 'Quản trị viên hệ thống', 1, GETUTCDATE()),
 -- Employers
-('employer1@company.com', 'EMPLOYER1@COMPANY.COM', 'employer1@company.com', 'EMPLOYER1@COMPANY.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234568', 1, 0, 1, 0, 'Nguyễn Văn An', NULL, '1985-05-15', 1, 'Hà Nội', 'CEO Công ty ABC', 1, GETUTCDATE()),
-('employer2@company.com', 'EMPLOYER2@COMPANY.COM', 'employer2@company.com', 'EMPLOYER2@COMPANY.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234569', 1, 0, 1, 0, 'Trần Thị Bình', NULL, '1988-08-20', 2, 'TP.HCM', 'HR Manager XYZ Corp', 1, GETUTCDATE()),
-('employer3@company.com', 'EMPLOYER3@COMPANY.COM', 'employer3@company.com', 'EMPLOYER3@COMPANY.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234570', 1, 0, 1, 0, 'Lê Văn Cường', NULL, '1982-12-10', 1, 'Đà Nẵng', 'CTO TechStart', 1, GETUTCDATE()),
+('employer1@company.com', 'EMPLOYER1@COMPANY.COM', 'employer1@company.com', 'EMPLOYER1@COMPANY.COM', 1, N'employer123!', NEWID(), NEWID(), '0901234568', 1, 0, 1, 0, 'Nguyễn Văn An', NULL, '1985-05-15', 1, 'Hà Nội', 'CEO Công ty ABC', 1, GETUTCDATE()),
+('employer2@company.com', 'EMPLOYER2@COMPANY.COM', 'employer2@company.com', 'EMPLOYER2@COMPANY.COM', 1, N'employer223!', NEWID(), NEWID(), '0901234569', 1, 0, 1, 0, 'Trần Thị Bình', NULL, '1988-08-20', 2, 'TP.HCM', 'HR Manager XYZ Corp', 1, GETUTCDATE()),
+('employer3@company.com', 'EMPLOYER3@COMPANY.COM', 'employer3@company.com', 'EMPLOYER3@COMPANY.COM', 1, N'employer323!', NEWID(), NEWID(), '0901234570', 1, 0, 1, 0, 'Lê Văn Cường', NULL, '1982-12-10', 1, 'Đà Nẵng', 'CTO TechStart', 1, GETUTCDATE()),
 -- Candidates
-('candidate1@email.com', 'CANDIDATE1@EMAIL.COM', 'candidate1@email.com', 'CANDIDATE1@EMAIL.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234571', 1, 0, 1, 0, 'Phạm Thị Dung', NULL, '1995-03-22', 2, 'Hà Nội', 'Lập trình viên .NET 3 năm kinh nghiệm', 1, GETUTCDATE()),
-('candidate2@email.com', 'CANDIDATE2@EMAIL.COM', 'candidate2@email.com', 'CANDIDATE2@EMAIL.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234572', 1, 0, 1, 0, 'Hoàng Văn Em', NULL, '1993-07-18', 1, 'TP.HCM', 'Frontend React Developer', 1, GETUTCDATE()),
-('candidate3@email.com', 'CANDIDATE3@EMAIL.COM', 'candidate3@email.com', 'CANDIDATE3@EMAIL.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234573', 1, 0, 1, 0, 'Võ Thị Phương', NULL, '1996-11-05', 2, 'Cần Thơ', 'Backend Java Spring Boot', 1, GETUTCDATE()),
-('candidate4@email.com', 'CANDIDATE4@EMAIL.COM', 'candidate4@email.com', 'CANDIDATE4@EMAIL.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234574', 1, 0, 1, 0, 'Đặng Văn Giang', NULL, '1994-09-30', 1, 'Hải Phòng', 'Fullstack Developer', 1, GETUTCDATE()),
-('candidate5@email.com', 'CANDIDATE5@EMAIL.COM', 'candidate5@email.com', 'CANDIDATE5@EMAIL.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234575', 1, 0, 1, 0, 'Bùi Thị Hạnh', NULL, '1997-02-14', 2, 'Hà Nội', 'DevOps Engineer', 1, GETUTCDATE()),
-('candidate6@email.com', 'CANDIDATE6@EMAIL.COM', 'candidate6@email.com', 'CANDIDATE6@EMAIL.COM', 1, @PasswordHash, NEWID(), NEWID(), '0901234576', 1, 0, 1, 0, 'Ngô Văn Khánh', NULL, '1992-06-25', 1, 'TP.HCM', 'Mobile Developer Flutter', 1, GETUTCDATE());
-GO
-
+('candidate1@email.com', 'CANDIDATE1@EMAIL.COM', 'candidate1@email.com', 'CANDIDATE1@EMAIL.COM', 1, N'candidate123!', NEWID(), NEWID(), '0901234571', 1, 0, 1, 0, 'Phạm Thị Dung', NULL, '1995-03-22', 2, 'Hà Nội', 'Lập trình viên .NET 3 năm kinh nghiệm', 1, GETUTCDATE()),
+('candidate2@email.com', 'CANDIDATE2@EMAIL.COM', 'candidate2@email.com', 'CANDIDATE2@EMAIL.COM', 1, N'candidate223!', NEWID(), NEWID(), '0901234572', 1, 0, 1, 0, 'Hoàng Văn Em', NULL, '1993-07-18', 1, 'TP.HCM', 'Frontend React Developer', 1, GETUTCDATE()),
+('candidate3@email.com', 'CANDIDATE3@EMAIL.COM', 'candidate3@email.com', 'CANDIDATE3@EMAIL.COM', 1, N'candidate323!', NEWID(), NEWID(), '0901234573', 1, 0, 1, 0, 'Võ Thị Phương', NULL, '1996-11-05', 2, 'Cần Thơ', 'Backend Java Spring Boot', 1, GETUTCDATE()),
+('candidate4@email.com', 'CANDIDATE4@EMAIL.COM', 'candidate4@email.com', 'CANDIDATE4@EMAIL.COM', 1, N'candidate423!', NEWID(), NEWID(), '0901234574', 1, 0, 1, 0, 'Đặng Văn Giang', NULL, '1994-09-30', 1, 'Hải Phòng', 'Fullstack Developer', 1, GETUTCDATE()),
+('candidate5@email.com', 'CANDIDATE5@EMAIL.COM', 'candidate5@email.com', 'CANDIDATE5@EMAIL.COM', 1, N'candidate523!', NEWID(), NEWID(), '0901234575', 1, 0, 1, 0, 'Bùi Thị Hạnh', NULL, '1997-02-14', 2, 'Hà Nội', 'DevOps Engineer', 1, GETUTCDATE()),
+('candidate6@email.com', 'CANDIDATE6@EMAIL.COM', 'candidate6@email.com', 'CANDIDATE6@EMAIL.COM', 1, N'candidate623!', NEWID(), NEWID(), '0901234576', 1, 0, 1, 0, 'Ngô Văn Khánh', NULL, '1992-06-25', 1, 'TP.HCM', 'Mobile Developer Flutter', 1, GETUTCDATE());
 -- 3. Insert UserRoles
 INSERT INTO UserRoles (UserId, RoleId) VALUES
 (1, 1),  -- Admin -> Admin

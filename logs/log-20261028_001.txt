@@ -1,0 +1,157 @@
+2026-10-28 16:45:22.612 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-28 16:46:25.415 +07:00 [INF] HTTP GET /api/categories started
+2026-10-28 16:46:25.441 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-28 16:46:25.451 +07:00 [INF] Gateway: GET /api/categories from ::1 [0HNPKR1AG54MJ:00000001]
+2026-10-28 16:46:25.586 +07:00 [INF] HTTP GET /api/categories responded 200 in 145.4948 ms
+2026-10-28 16:46:25.588 +07:00 [INF] HTTP GET /api/categories responded 200 in 174ms
+2026-10-28 22:20:22.641 +07:00 [INF] HTTP GET /api/companies started
+2026-10-28 22:20:22.641 +07:00 [INF] HTTP GET /api/categories started
+2026-10-28 22:20:22.641 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-28 22:20:22.693 +07:00 [INF] Gateway: GET /api/companies from ::1 [40000009-0008-fe00-b63f-84710c7967bb]
+2026-10-28 22:20:22.693 +07:00 [INF] Gateway: GET /api/jobs from ::1 [4000000f-0008-ff00-b63f-84710c7967bb]
+2026-10-28 22:20:22.693 +07:00 [INF] Gateway: GET /api/categories from ::1 [40000002-0008-fd00-b63f-84710c7967bb]
+2026-10-28 22:20:22.969 +07:00 [INF] HTTP GET /api/categories responded 200 in 286.8434 ms
+2026-10-28 22:20:22.973 +07:00 [INF] HTTP GET /api/categories responded 200 in 335ms
+2026-10-28 22:20:23.022 +07:00 [INF] HTTP GET /api/companies responded 200 in 341.0369 ms
+2026-10-28 22:20:23.022 +07:00 [INF] HTTP GET /api/companies responded 200 in 384ms
+2026-10-28 22:20:23.029 +07:00 [INF] HTTP GET /api/jobs responded 200 in 348.6560 ms
+2026-10-28 22:20:23.029 +07:00 [INF] HTTP GET /api/jobs responded 200 in 392ms
+2026-10-28 22:20:24.554 +07:00 [INF] HTTP GET /api/categories started
+2026-10-28 22:20:24.554 +07:00 [INF] HTTP GET /api/companies started
+2026-10-28 22:20:24.554 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-28 22:20:24.555 +07:00 [INF] Gateway: GET /api/categories from ::1 [40000002-0009-fd00-b63f-84710c7967bb]
+2026-10-28 22:20:24.555 +07:00 [INF] Gateway: GET /api/companies from ::1 [40000006-0009-ff00-b63f-84710c7967bb]
+2026-10-28 22:20:24.555 +07:00 [INF] Gateway: GET /api/jobs from ::1 [40000009-0009-fe00-b63f-84710c7967bb]
+2026-10-28 22:20:24.569 +07:00 [INF] HTTP GET /api/categories responded 200 in 14.3083 ms
+2026-10-28 22:20:24.572 +07:00 [INF] HTTP GET /api/categories responded 200 in 17ms
+2026-10-28 22:20:24.575 +07:00 [INF] HTTP GET /api/jobs responded 200 in 20.5615 ms
+2026-10-28 22:20:24.575 +07:00 [INF] HTTP GET /api/jobs responded 200 in 21ms
+2026-10-28 22:20:24.580 +07:00 [INF] HTTP GET /api/companies responded 200 in 26.0054 ms
+2026-10-28 22:20:24.580 +07:00 [INF] HTTP GET /api/companies responded 200 in 26ms
+2026-10-28 22:20:35.589 +07:00 [INF] HTTP GET /api/companies started
+2026-10-28 22:20:35.589 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-28 22:20:35.590 +07:00 [INF] Gateway: GET /api/companies from ::1 [40000008-0009-ff00-b63f-84710c7967bb]
+2026-10-28 22:20:35.590 +07:00 [INF] Gateway: GET /api/jobs from ::1 [40000009-0006-fc00-b63f-84710c7967bb]
+2026-10-28 22:20:35.596 +07:00 [INF] HTTP GET /api/categories started
+2026-10-28 22:20:35.596 +07:00 [INF] Gateway: GET /api/categories from ::1 [4000000b-0003-ff00-b63f-84710c7967bb]
+2026-10-28 22:20:35.601 +07:00 [INF] HTTP GET /api/companies responded 200 in 11.7994 ms
+2026-10-28 22:20:35.601 +07:00 [INF] HTTP GET /api/companies responded 200 in 12ms
+2026-10-28 22:20:35.607 +07:00 [INF] HTTP GET /api/categories responded 200 in 10.8577 ms
+2026-10-28 22:20:35.607 +07:00 [INF] HTTP GET /api/categories responded 200 in 11ms
+2026-10-28 22:20:35.610 +07:00 [INF] HTTP GET /api/jobs responded 200 in 20.8199 ms
+2026-10-28 22:20:35.611 +07:00 [INF] HTTP GET /api/jobs responded 200 in 21ms
+2026-10-28 22:20:42.438 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-28 22:20:42.438 +07:00 [INF] HTTP GET /api/companies started
+2026-10-28 22:20:42.438 +07:00 [INF] HTTP GET /api/categories started
+2026-10-28 22:20:42.438 +07:00 [INF] Gateway: GET /api/jobs from ::1 [40000002-000c-fc00-b63f-84710c7967bb]
+2026-10-28 22:20:42.439 +07:00 [INF] Gateway: GET /api/companies from ::1 [40000002-000a-fc00-b63f-84710c7967bb]
+2026-10-28 22:20:42.439 +07:00 [INF] Gateway: GET /api/categories from ::1 [40000002-000a-fb00-b63f-84710c7967bb]
+2026-10-28 22:20:42.465 +07:00 [INF] HTTP GET /api/categories responded 200 in 26.2723 ms
+2026-10-28 22:20:42.468 +07:00 [INF] HTTP GET /api/categories responded 200 in 29ms
+2026-10-28 22:20:42.472 +07:00 [INF] HTTP GET /api/companies responded 200 in 33.4132 ms
+2026-10-28 22:20:42.472 +07:00 [INF] HTTP GET /api/companies responded 200 in 33ms
+2026-10-28 22:20:42.473 +07:00 [INF] HTTP GET /api/jobs responded 200 in 35.0653 ms
+2026-10-28 22:20:42.474 +07:00 [INF] HTTP GET /api/jobs responded 200 in 35ms
+2026-10-28 22:20:46.624 +07:00 [INF] HTTP GET /api/companies/3 started
+2026-10-28 22:20:46.625 +07:00 [INF] Gateway: GET /api/companies/3 from ::1 [40000014-000d-ff00-b63f-84710c7967bb]
+2026-10-28 22:20:46.641 +07:00 [INF] HTTP GET /api/companies/3 responded 200 in 15.9586 ms
+2026-10-28 22:20:46.641 +07:00 [INF] HTTP GET /api/companies/3 responded 200 in 16ms
+2026-10-28 22:20:46.648 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-28 22:20:46.648 +07:00 [INF] Gateway: GET /api/jobs from ::1 [40000019-0001-ff00-b63f-84710c7967bb]
+2026-10-28 22:20:46.660 +07:00 [INF] HTTP GET /api/jobs responded 200 in 12.5061 ms
+2026-10-28 22:20:46.661 +07:00 [INF] HTTP GET /api/jobs responded 200 in 12ms
+2026-10-28 22:20:49.784 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-28 22:20:49.784 +07:00 [INF] Gateway: GET /api/jobs from ::1 [40000010-0005-ff00-b63f-84710c7967bb]
+2026-10-28 22:20:49.785 +07:00 [INF] HTTP GET /api/companies started
+2026-10-28 22:20:49.785 +07:00 [INF] Gateway: GET /api/companies from ::1 [4000000e-0004-fe00-b63f-84710c7967bb]
+2026-10-28 22:20:49.786 +07:00 [INF] HTTP GET /api/categories started
+2026-10-28 22:20:49.786 +07:00 [INF] Gateway: GET /api/categories from ::1 [4000001b-0001-ff00-b63f-84710c7967bb]
+2026-10-28 22:20:49.798 +07:00 [INF] HTTP GET /api/companies responded 200 in 12.9011 ms
+2026-10-28 22:20:49.798 +07:00 [INF] HTTP GET /api/companies responded 200 in 13ms
+2026-10-28 22:20:49.803 +07:00 [INF] HTTP GET /api/categories responded 200 in 17.0749 ms
+2026-10-28 22:20:49.803 +07:00 [INF] HTTP GET /api/jobs responded 200 in 18.6916 ms
+2026-10-28 22:20:49.803 +07:00 [INF] HTTP GET /api/categories responded 200 in 17ms
+2026-10-28 22:20:49.803 +07:00 [INF] HTTP GET /api/jobs responded 200 in 19ms
+2026-10-28 22:21:09.425 +07:00 [INF] HTTP GET /js/pages/forgot-password.js started
+2026-10-28 22:21:09.457 +07:00 [INF] HTTP GET /js/pages/forgot-password.js responded 200 in 31.9387 ms
+2026-10-28 22:21:09.457 +07:00 [INF] HTTP GET /js/pages/forgot-password.js responded 200 in 32ms
+2026-10-28 22:21:13.627 +07:00 [INF] HTTP POST /api/auth/forgot-password started
+2026-10-28 22:21:13.628 +07:00 [INF] Gateway: POST /api/auth/forgot-password from ::1 [40000004-0007-fd00-b63f-84710c7967bb]
+2026-10-28 22:21:13.643 +07:00 [INF] HTTP POST /api/auth/forgot-password responded 200 in 15.9601 ms
+2026-10-28 22:21:13.644 +07:00 [INF] HTTP POST /api/auth/forgot-password responded 200 in 16ms
+2026-10-28 22:22:16.404 +07:00 [INF] HTTP GET / started
+2026-10-28 22:22:16.404 +07:00 [INF] Gateway: GET / from ::1 [40000006-0007-fd00-b63f-84710c7967bb]
+2026-10-28 22:22:16.423 +07:00 [INF] HTTP GET /index.html responded 200 in 19.2627 ms
+2026-10-28 22:22:16.423 +07:00 [INF] HTTP GET /index.html responded 200 in 19ms
+2026-10-28 22:22:20.833 +07:00 [INF] HTTP GET /api/companies started
+2026-10-28 22:22:20.833 +07:00 [INF] HTTP GET /api/categories started
+2026-10-28 22:22:20.833 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-28 22:22:20.833 +07:00 [INF] Gateway: GET /api/companies from ::1 [4000000a-0009-ff00-b63f-84710c7967bb]
+2026-10-28 22:22:20.833 +07:00 [INF] Gateway: GET /api/categories from ::1 [4000000b-0009-fe00-b63f-84710c7967bb]
+2026-10-28 22:22:20.833 +07:00 [INF] Gateway: GET /api/jobs from ::1 [40000011-0008-ff00-b63f-84710c7967bb]
+2026-10-28 22:22:20.853 +07:00 [INF] HTTP GET /api/categories responded 200 in 20.1189 ms
+2026-10-28 22:22:20.853 +07:00 [INF] HTTP GET /api/companies responded 200 in 20.1300 ms
+2026-10-28 22:22:20.853 +07:00 [INF] HTTP GET /api/categories responded 200 in 20ms
+2026-10-28 22:22:20.854 +07:00 [INF] HTTP GET /api/companies responded 200 in 20ms
+2026-10-28 22:22:20.863 +07:00 [INF] HTTP GET /api/jobs responded 200 in 30.7647 ms
+2026-10-28 22:22:20.864 +07:00 [INF] HTTP GET /api/jobs responded 200 in 31ms
+2026-10-28 22:22:42.056 +07:00 [INF] HTTP GET / started
+2026-10-28 22:22:42.056 +07:00 [INF] Gateway: GET / from ::1 [4000000c-0009-ff00-b63f-84710c7967bb]
+2026-10-28 22:22:42.057 +07:00 [INF] HTTP GET /index.html responded 304 in 1.2928 ms
+2026-10-28 22:22:42.057 +07:00 [INF] HTTP GET /index.html responded 304 in 1ms
+2026-10-28 22:22:43.864 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-28 22:22:43.864 +07:00 [INF] HTTP GET /api/companies started
+2026-10-28 22:22:43.864 +07:00 [INF] HTTP GET /api/categories started
+2026-10-28 22:22:43.864 +07:00 [INF] Gateway: GET /api/companies from ::1 [4000000e-0005-fe00-b63f-84710c7967bb]
+2026-10-28 22:22:43.864 +07:00 [INF] Gateway: GET /api/jobs from ::1 [40000014-0005-ff00-b63f-84710c7967bb]
+2026-10-28 22:22:43.864 +07:00 [INF] Gateway: GET /api/categories from ::1 [4000000a-000b-fe00-b63f-84710c7967bb]
+2026-10-28 22:22:43.871 +07:00 [INF] HTTP GET /api/categories responded 200 in 7.2180 ms
+2026-10-28 22:22:43.871 +07:00 [INF] HTTP GET /api/categories responded 200 in 7ms
+2026-10-28 22:22:43.884 +07:00 [INF] HTTP GET /api/jobs responded 200 in 19.9607 ms
+2026-10-28 22:22:43.884 +07:00 [INF] HTTP GET /api/companies responded 200 in 19.9505 ms
+2026-10-28 22:22:43.884 +07:00 [INF] HTTP GET /api/jobs responded 200 in 20ms
+2026-10-28 22:22:43.884 +07:00 [INF] HTTP GET /api/companies responded 200 in 20ms
+2026-10-28 22:22:49.670 +07:00 [INF] HTTP GET /api/companies started
+2026-10-28 22:22:49.670 +07:00 [INF] Gateway: GET /api/companies from ::1 [40000010-0005-fe00-b63f-84710c7967bb]
+2026-10-28 22:22:49.676 +07:00 [INF] HTTP GET /api/companies responded 200 in 6.1266 ms
+2026-10-28 22:22:49.677 +07:00 [INF] HTTP GET /api/companies responded 200 in 6ms
+2026-10-28 22:22:52.960 +07:00 [INF] HTTP GET /js/pages/salary.js started
+2026-10-28 22:22:52.964 +07:00 [INF] HTTP GET /js/pages/salary.js responded 200 in 4.2452 ms
+2026-10-28 22:22:52.964 +07:00 [INF] HTTP GET /js/pages/salary.js responded 200 in 4ms
+2026-10-28 22:23:07.246 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-28 22:23:07.246 +07:00 [INF] HTTP GET /api/companies started
+2026-10-28 22:23:07.246 +07:00 [INF] HTTP GET /api/categories started
+2026-10-28 22:23:07.246 +07:00 [INF] Gateway: GET /api/jobs from ::1 [40000009-0000-fe00-b63f-84710c7967bb]
+2026-10-28 22:23:07.246 +07:00 [INF] Gateway: GET /api/companies from ::1 [40000006-000a-fd00-b63f-84710c7967bb]
+2026-10-28 22:23:07.246 +07:00 [INF] Gateway: GET /api/categories from ::1 [40000006-000a-fc00-b63f-84710c7967bb]
+2026-10-28 22:23:07.255 +07:00 [INF] HTTP GET /api/categories responded 200 in 8.9777 ms
+2026-10-28 22:23:07.257 +07:00 [INF] HTTP GET /api/categories responded 200 in 10ms
+2026-10-28 22:23:07.263 +07:00 [INF] HTTP GET /api/jobs responded 200 in 16.5468 ms
+2026-10-28 22:23:07.265 +07:00 [INF] HTTP GET /api/jobs responded 200 in 17ms
+2026-10-28 22:23:07.265 +07:00 [INF] HTTP GET /api/companies responded 200 in 19.1722 ms
+2026-10-28 22:23:07.266 +07:00 [INF] HTTP GET /api/companies responded 200 in 19ms

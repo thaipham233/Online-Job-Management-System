@@ -30,7 +30,7 @@ namespace Online_Job_Management_System.Controllers
         {
             var userId = int.Parse(User.FindFirst("sub")?.Value ?? User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "0");
             var company = await _companyService.GetByUserIdAsync(userId);
-            if (company == null) return NotFound();
+            if (company == null) return NotFound(new { message = "Company not found" });
             return Ok(company);
         }
 

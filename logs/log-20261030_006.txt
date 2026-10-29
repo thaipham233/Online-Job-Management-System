@@ -1,0 +1,917 @@
+2026-10-30 03:12:30.016 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5128: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-30 03:16:57.329 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5128: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-30 03:41:06.141 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5128: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-30 04:39:39.906 +07:00 [INF] HTTP GET / started
+2026-10-30 04:39:39.934 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-30 04:39:39.944 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0F:00000001]
+2026-10-30 04:39:39.971 +07:00 [INF] HTTP GET /index.html responded 200 in 38.3265 ms
+2026-10-30 04:39:39.974 +07:00 [INF] HTTP GET /index.html responded 200 in 69ms
+2026-10-30 04:39:49.996 +07:00 [INF] HTTP GET / started
+2026-10-30 04:39:49.997 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0G:00000001]
+2026-10-30 04:39:50.002 +07:00 [INF] HTTP GET /index.html responded 200 in 5.7912 ms
+2026-10-30 04:39:50.003 +07:00 [INF] HTTP GET /index.html responded 200 in 6ms
+2026-10-30 04:39:50.058 +07:00 [INF] HTTP GET /js/api.js started
+2026-10-30 04:39:50.059 +07:00 [INF] HTTP GET /js/api.js responded 200 in 0.7652 ms
+2026-10-30 04:39:50.059 +07:00 [INF] HTTP GET /js/api.js responded 200 in 1ms
+2026-10-30 04:39:50.089 +07:00 [INF] HTTP GET /js/views/home.js started
+2026-10-30 04:39:50.089 +07:00 [INF] HTTP GET /js/views/home.js responded 200 in 0.4827 ms
+2026-10-30 04:39:50.090 +07:00 [INF] HTTP GET /js/views/home.js responded 200 in 0ms
+2026-10-30 04:42:41.621 +07:00 [INF] HTTP GET / started
+2026-10-30 04:42:41.622 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0J:00000004]
+2026-10-30 04:42:41.625 +07:00 [INF] HTTP GET /index.html responded 200 in 2.9729 ms
+2026-10-30 04:42:41.625 +07:00 [INF] HTTP GET /index.html responded 200 in 3ms
+2026-10-30 04:42:41.764 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-30 04:42:41.765 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 0.6564 ms
+2026-10-30 04:42:41.765 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 1ms
+2026-10-30 04:42:41.767 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-30 04:42:41.767 +07:00 [INF] HTTP GET /js/router.js responded 200 in 0.4965 ms
+2026-10-30 04:42:41.767 +07:00 [INF] HTTP GET /js/router.js responded 200 in 0ms
+2026-10-30 04:42:41.773 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-30 04:42:41.773 +07:00 [INF] HTTP GET /js/views/home.js started
+2026-10-30 04:42:41.774 +07:00 [INF] HTTP GET /js/views/login.js started
+2026-10-30 04:42:41.774 +07:00 [INF] HTTP GET /js/app.js responded 200 in 0.5330 ms
+2026-10-30 04:42:41.774 +07:00 [INF] HTTP GET /js/views/home.js responded 200 in 0.4844 ms
+2026-10-30 04:42:41.774 +07:00 [INF] HTTP GET /js/app.js responded 200 in 0ms
+2026-10-30 04:42:41.774 +07:00 [INF] HTTP GET /js/views/home.js responded 200 in 0ms
+2026-10-30 04:42:41.774 +07:00 [INF] HTTP GET /js/views/login.js responded 200 in 0.3474 ms
+2026-10-30 04:42:41.774 +07:00 [INF] HTTP GET /js/views/login.js responded 200 in 0ms
+2026-10-30 04:42:41.778 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js started
+2026-10-30 04:42:41.778 +07:00 [INF] HTTP GET /js/views/admin.js started
+2026-10-30 04:42:41.778 +07:00 [INF] HTTP GET /js/views/register.js started
+2026-10-30 04:42:41.779 +07:00 [INF] HTTP GET /js/views/admin.js responded 200 in 0.4828 ms
+2026-10-30 04:42:41.779 +07:00 [INF] HTTP GET /js/views/register.js responded 200 in 0.4529 ms
+2026-10-30 04:42:41.779 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 200 in 0.5716 ms
+2026-10-30 04:42:41.779 +07:00 [INF] HTTP GET /js/views/admin.js responded 200 in 0ms
+2026-10-30 04:42:41.779 +07:00 [INF] HTTP GET /js/views/register.js responded 200 in 0ms
+2026-10-30 04:42:41.779 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 200 in 0ms
+2026-10-30 04:42:41.783 +07:00 [INF] HTTP GET /js/views/profile.js started
+2026-10-30 04:42:41.783 +07:00 [INF] HTTP GET /js/views/companies.js started
+2026-10-30 04:42:41.783 +07:00 [INF] HTTP GET /js/views/jobs.js started
+2026-10-30 04:42:41.784 +07:00 [INF] HTTP GET /js/views/companies.js responded 200 in 0.4537 ms
+2026-10-30 04:42:41.784 +07:00 [INF] HTTP GET /js/views/profile.js responded 200 in 0.4919 ms
+2026-10-30 04:42:41.784 +07:00 [INF] HTTP GET /js/views/jobs.js responded 200 in 0.4161 ms
+2026-10-30 04:42:41.784 +07:00 [INF] HTTP GET /js/views/companies.js responded 200 in 0ms
+2026-10-30 04:42:41.784 +07:00 [INF] HTTP GET /js/views/jobs.js responded 200 in 0ms
+2026-10-30 04:42:41.784 +07:00 [INF] HTTP GET /js/views/profile.js responded 200 in 0ms
+2026-10-30 04:42:41.788 +07:00 [INF] HTTP GET /js/views/company-detail.js started
+2026-10-30 04:42:41.788 +07:00 [INF] HTTP GET /js/views/salary.js started
+2026-10-30 04:42:41.788 +07:00 [INF] HTTP GET /js/views/career-advice.js started
+2026-10-30 04:42:41.789 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 200 in 0.4292 ms
+2026-10-30 04:42:41.789 +07:00 [INF] HTTP GET /js/views/salary.js responded 200 in 0.4585 ms
+2026-10-30 04:42:41.789 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 200 in 0.5049 ms
+2026-10-30 04:42:41.789 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 200 in 0ms
+2026-10-30 04:42:41.789 +07:00 [INF] HTTP GET /js/views/salary.js responded 200 in 0ms
+2026-10-30 04:42:41.789 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 200 in 0ms
+2026-10-30 04:42:41.793 +07:00 [INF] HTTP GET /js/views/employer-post-job.js started
+2026-10-30 04:42:41.793 +07:00 [INF] HTTP GET /js/views/saved-jobs.js started
+2026-10-30 04:42:41.793 +07:00 [INF] HTTP GET /js/views/applications.js started
+2026-10-30 04:42:41.794 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 200 in 0.4998 ms
+2026-10-30 04:42:41.794 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 200 in 0.5198 ms
+2026-10-30 04:42:41.794 +07:00 [INF] HTTP GET /js/views/applications.js responded 200 in 0.4601 ms
+2026-10-30 04:42:41.794 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 200 in 0ms
+2026-10-30 04:42:41.794 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 200 in 0ms
+2026-10-30 04:42:41.794 +07:00 [INF] HTTP GET /js/views/applications.js responded 200 in 0ms
+2026-10-30 04:42:41.799 +07:00 [INF] HTTP GET /js/views/employer-job-form.js started
+2026-10-30 04:42:41.799 +07:00 [INF] HTTP GET /js/views/employer-applications.js started
+2026-10-30 04:42:41.799 +07:00 [INF] HTTP GET /js/views/admin-applications.js started
+2026-10-30 04:42:41.799 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 200 in 0.5479 ms
+2026-10-30 04:42:41.799 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 200 in 0.5194 ms
+2026-10-30 04:42:41.799 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 200 in 0.4705 ms
+2026-10-30 04:42:41.800 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 200 in 0ms
+2026-10-30 04:42:41.800 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 200 in 0ms
+2026-10-30 04:42:41.800 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 200 in 0ms
+2026-10-30 04:42:41.814 +07:00 [INF] HTTP GET /js/views/admin-companies.js started
+2026-10-30 04:42:41.814 +07:00 [INF] HTTP GET /js/views/admin-categories.js started
+2026-10-30 04:42:41.814 +07:00 [INF] HTTP GET /js/views/admin-jobs.js started
+2026-10-30 04:42:41.814 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 200 in 0.5640 ms
+2026-10-30 04:42:41.814 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 200 in 0.5239 ms
+2026-10-30 04:42:41.814 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 200 in 0.4184 ms
+2026-10-30 04:42:41.814 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 200 in 0ms
+2026-10-30 04:42:41.815 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 200 in 0ms
+2026-10-30 04:42:41.815 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 200 in 0ms
+2026-10-30 04:42:41.819 +07:00 [INF] HTTP GET /js/views/employer-pricing.js started
+2026-10-30 04:42:41.819 +07:00 [INF] HTTP GET /js/views/employer-branding.js started
+2026-10-30 04:42:41.819 +07:00 [INF] HTTP GET /js/views/admin-users.js started
+2026-10-30 04:42:41.820 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 200 in 0.5526 ms
+2026-10-30 04:42:41.820 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 200 in 0.5063 ms
+2026-10-30 04:42:41.820 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 200 in 0ms
+2026-10-30 04:42:41.820 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 200 in 0ms
+2026-10-30 04:42:41.821 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 200 in 1.0649 ms
+2026-10-30 04:42:41.821 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 200 in 1ms
+2026-10-30 04:42:41.824 +07:00 [INF] HTTP GET /js/views/employer-resources.js started
+2026-10-30 04:42:41.825 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 200 in 0.5010 ms
+2026-10-30 04:42:41.825 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 200 in 0ms
+2026-10-30 04:42:42.251 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:42:42.251 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:0000000A]
+2026-10-30 04:42:42.416 +07:00 [INF] HTTP GET /api/jobs responded 200 in 164.3841 ms
+2026-10-30 04:42:42.416 +07:00 [INF] HTTP GET /api/jobs responded 200 in 164ms
+2026-10-30 04:42:42.417 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:42:42.417 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0K:00000009]
+2026-10-30 04:42:42.421 +07:00 [INF] HTTP GET /api/jobs responded 200 in 3.7669 ms
+2026-10-30 04:42:42.421 +07:00 [INF] HTTP GET /api/jobs responded 200 in 3ms
+2026-10-30 04:42:42.422 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:42:42.422 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:0000000B]
+2026-10-30 04:42:42.427 +07:00 [INF] HTTP GET /api/jobs responded 200 in 4.9501 ms
+2026-10-30 04:42:42.427 +07:00 [INF] HTTP GET /api/jobs responded 200 in 5ms
+2026-10-30 04:42:53.729 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:42:53.730 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:0000000C]
+2026-10-30 04:42:53.732 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.3056 ms
+2026-10-30 04:42:53.732 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:42:55.319 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:42:55.319 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:0000000D]
+2026-10-30 04:42:55.321 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.2306 ms
+2026-10-30 04:42:55.321 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:04.400 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:04.400 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:0000000E]
+2026-10-30 04:43:04.402 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.2555 ms
+2026-10-30 04:43:04.402 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:05.658 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:05.658 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:0000000F]
+2026-10-30 04:43:05.660 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.0621 ms
+2026-10-30 04:43:05.660 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:08.512 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:08.512 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000010]
+2026-10-30 04:43:08.514 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.1331 ms
+2026-10-30 04:43:08.514 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:09.768 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:09.769 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000011]
+2026-10-30 04:43:09.771 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.0897 ms
+2026-10-30 04:43:09.771 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:10.961 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:10.961 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000012]
+2026-10-30 04:43:10.963 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8388 ms
+2026-10-30 04:43:10.963 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:11.998 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:11.999 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000013]
+2026-10-30 04:43:12.000 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.9582 ms
+2026-10-30 04:43:12.001 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:12.677 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:12.677 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000014]
+2026-10-30 04:43:12.679 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8679 ms
+2026-10-30 04:43:12.679 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:13.477 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:13.478 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000015]
+2026-10-30 04:43:13.480 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.1569 ms
+2026-10-30 04:43:13.480 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:14.253 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:14.253 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000016]
+2026-10-30 04:43:14.255 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8287 ms
+2026-10-30 04:43:14.255 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:14.882 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:14.882 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000017]
+2026-10-30 04:43:14.884 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.9323 ms
+2026-10-30 04:43:14.884 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:15.472 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:15.472 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000018]
+2026-10-30 04:43:15.475 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.3452 ms
+2026-10-30 04:43:15.475 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:15.961 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:15.961 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:00000019]
+2026-10-30 04:43:15.963 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.7377 ms
+2026-10-30 04:43:15.963 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:43:17.377 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:17.377 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:0000001A]
+2026-10-30 04:43:17.379 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8048 ms
+2026-10-30 04:43:17.379 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:17.935 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:17.935 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:0000001B]
+2026-10-30 04:43:17.937 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8407 ms
+2026-10-30 04:43:17.937 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:18.579 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:18.579 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0L:0000001C]
+2026-10-30 04:43:18.581 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6805 ms
+2026-10-30 04:43:18.581 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:43:21.106 +07:00 [INF] HTTP GET / started
+2026-10-30 04:43:21.106 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0L:0000001D]
+2026-10-30 04:43:21.107 +07:00 [INF] HTTP GET /index.html responded 304 in 0.7158 ms
+2026-10-30 04:43:21.107 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:43:21.145 +07:00 [INF] HTTP GET /js/views/admin-categories.js started
+2026-10-30 04:43:21.145 +07:00 [INF] HTTP GET /js/views/admin-jobs.js started
+2026-10-30 04:43:21.145 +07:00 [INF] HTTP GET /js/views/admin-companies.js started
+2026-10-30 04:43:21.145 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0.1137 ms
+2026-10-30 04:43:21.145 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0.3278 ms
+2026-10-30 04:43:21.145 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0ms
+2026-10-30 04:43:21.145 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0.1360 ms
+2026-10-30 04:43:21.145 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0ms
+2026-10-30 04:43:21.145 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0ms
+2026-10-30 04:43:21.146 +07:00 [INF] HTTP GET /js/views/admin-users.js started
+2026-10-30 04:43:21.147 +07:00 [INF] HTTP GET /js/views/employer-branding.js started
+2026-10-30 04:43:21.147 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0.2250 ms
+2026-10-30 04:43:21.147 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0ms
+2026-10-30 04:43:21.147 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0.2720 ms
+2026-10-30 04:43:21.147 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0ms
+2026-10-30 04:43:21.150 +07:00 [INF] HTTP GET /js/views/employer-pricing.js started
+2026-10-30 04:43:21.150 +07:00 [INF] HTTP GET /js/views/employer-resources.js started
+2026-10-30 04:43:21.151 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0.2028 ms
+2026-10-30 04:43:21.151 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0.2273 ms
+2026-10-30 04:43:21.151 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0ms
+2026-10-30 04:43:21.151 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0ms
+2026-10-30 04:43:21.282 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:21.282 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000003]
+2026-10-30 04:43:21.284 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8483 ms
+2026-10-30 04:43:21.284 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:21.333 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:21.333 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000004]
+2026-10-30 04:43:21.335 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.7273 ms
+2026-10-30 04:43:21.335 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:43:21.383 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:21.384 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000005]
+2026-10-30 04:43:21.385 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.7399 ms
+2026-10-30 04:43:21.385 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:23.207 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:23.207 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000006]
+2026-10-30 04:43:23.209 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6075 ms
+2026-10-30 04:43:23.209 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:43:28.479 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:28.479 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000007]
+2026-10-30 04:43:28.481 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.7429 ms
+2026-10-30 04:43:28.481 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:43:31.995 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:31.996 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000008]
+2026-10-30 04:43:31.997 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.7317 ms
+2026-10-30 04:43:31.997 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:43:35.305 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:35.305 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000009]
+2026-10-30 04:43:35.307 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.9385 ms
+2026-10-30 04:43:35.307 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:37.996 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:37.996 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:0000000A]
+2026-10-30 04:43:37.998 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6362 ms
+2026-10-30 04:43:37.998 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:43:41.764 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:41.764 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:0000000B]
+2026-10-30 04:43:41.766 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.9166 ms
+2026-10-30 04:43:41.766 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:43:44.525 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started
+2026-10-30 04:43:44.525 +07:00 [INF] Gateway: GET /.well-known/appspecific/com.chrome.devtools.json from ::1 [0HNPM0KHERL0N:0000000C]
+2026-10-30 04:43:44.525 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0.4803 ms
+2026-10-30 04:43:44.525 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0ms
+2026-10-30 04:43:58.371 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started
+2026-10-30 04:43:58.372 +07:00 [INF] Gateway: GET /.well-known/appspecific/com.chrome.devtools.json from ::1 [0HNPM0KHERL0N:0000000D]
+2026-10-30 04:43:58.372 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0.2482 ms
+2026-10-30 04:43:58.372 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0ms
+2026-10-30 04:43:58.464 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:43:58.464 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:0000000E]
+2026-10-30 04:43:58.467 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2.6511 ms
+2026-10-30 04:43:58.467 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:44:01.730 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:01.730 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:0000000F]
+2026-10-30 04:44:01.731 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.5851 ms
+2026-10-30 04:44:01.731 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:02.459 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:02.459 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000010]
+2026-10-30 04:44:02.461 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.5186 ms
+2026-10-30 04:44:02.461 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:06.429 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:06.429 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000011]
+2026-10-30 04:44:06.431 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8276 ms
+2026-10-30 04:44:06.431 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:44:15.452 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:15.452 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000012]
+2026-10-30 04:44:15.454 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.5910 ms
+2026-10-30 04:44:15.454 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:15.994 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:15.994 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000013]
+2026-10-30 04:44:15.995 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.4329 ms
+2026-10-30 04:44:15.995 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:17.888 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:17.888 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000014]
+2026-10-30 04:44:17.889 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.3345 ms
+2026-10-30 04:44:17.889 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:18.575 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:18.575 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000015]
+2026-10-30 04:44:18.576 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.3693 ms
+2026-10-30 04:44:18.577 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:19.218 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:19.219 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000016]
+2026-10-30 04:44:19.220 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.1548 ms
+2026-10-30 04:44:19.220 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:19.814 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:19.814 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000017]
+2026-10-30 04:44:19.815 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.2190 ms
+2026-10-30 04:44:19.816 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:20.977 +07:00 [INF] HTTP GET / started
+2026-10-30 04:44:20.977 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0N:00000018]
+2026-10-30 04:44:20.977 +07:00 [INF] HTTP GET /index.html responded 304 in 0.3331 ms
+2026-10-30 04:44:20.977 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:44:21.018 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-30 04:44:21.018 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-30 04:44:21.018 +07:00 [INF] HTTP GET /js/auth.js responded 304 in 0.1795 ms
+2026-10-30 04:44:21.018 +07:00 [INF] HTTP GET /js/router.js responded 304 in 0.1341 ms
+2026-10-30 04:44:21.018 +07:00 [INF] HTTP GET /js/auth.js responded 304 in 0ms
+2026-10-30 04:44:21.018 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-30 04:44:21.018 +07:00 [INF] HTTP GET /js/router.js responded 304 in 0ms
+2026-10-30 04:44:21.018 +07:00 [INF] HTTP GET /js/app.js responded 304 in 0.1149 ms
+2026-10-30 04:44:21.018 +07:00 [INF] HTTP GET /js/app.js responded 304 in 0ms
+2026-10-30 04:44:21.019 +07:00 [INF] HTTP GET /js/views/home.js started
+2026-10-30 04:44:21.019 +07:00 [INF] HTTP GET /js/views/login.js started
+2026-10-30 04:44:21.019 +07:00 [INF] HTTP GET /js/views/home.js responded 304 in 0.1347 ms
+2026-10-30 04:44:21.019 +07:00 [INF] HTTP GET /js/views/home.js responded 304 in 0ms
+2026-10-30 04:44:21.019 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 0.1215 ms
+2026-10-30 04:44:21.019 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 0ms
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/register.js started
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/admin.js started
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js started
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 0.1578 ms
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0.1212 ms
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 0ms
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0ms
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/profile.js started
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 0.1007 ms
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 0ms
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 0.1027 ms
+2026-10-30 04:44:21.020 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 0ms
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/jobs.js started
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/companies.js started
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/salary.js started
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0.1152 ms
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 0.1624 ms
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0.0794 ms
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0ms
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/career-advice.js started
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0ms
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 0ms
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/company-detail.js started
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0.0997 ms
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0ms
+2026-10-30 04:44:21.021 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0.1006 ms
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0ms
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/applications.js started
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0.0952 ms
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0ms
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/saved-jobs.js started
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/employer-post-job.js started
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0.1184 ms
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0ms
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0.1267 ms
+2026-10-30 04:44:21.022 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0ms
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/employer-job-form.js started
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/employer-applications.js started
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0.1252 ms
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0.0806 ms
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0ms
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0ms
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/admin-applications.js started
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/admin-categories.js started
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0.1065 ms
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0ms
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0.1379 ms
+2026-10-30 04:44:21.023 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0ms
+2026-10-30 04:44:21.025 +07:00 [INF] HTTP GET /js/views/admin-companies.js started
+2026-10-30 04:44:21.025 +07:00 [INF] HTTP GET /js/views/admin-jobs.js started
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0.1946 ms
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0.2217 ms
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0ms
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0ms
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/admin-users.js started
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/employer-branding.js started
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0.1324 ms
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/employer-pricing.js started
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0ms
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0.1015 ms
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0ms
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/employer-resources.js started
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0.1149 ms
+2026-10-30 04:44:21.026 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0ms
+2026-10-30 04:44:21.027 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0.1089 ms
+2026-10-30 04:44:21.027 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0ms
+2026-10-30 04:44:21.320 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:21.320 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0M:00000007]
+2026-10-30 04:44:21.322 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.4988 ms
+2026-10-30 04:44:21.322 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:21.323 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:21.323 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:0000001E]
+2026-10-30 04:44:21.324 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.5247 ms
+2026-10-30 04:44:21.324 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:21.437 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:21.437 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:0000001F]
+2026-10-30 04:44:21.438 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.1912 ms
+2026-10-30 04:44:21.438 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:24.901 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:24.902 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000020]
+2026-10-30 04:44:24.903 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.2703 ms
+2026-10-30 04:44:24.903 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:25.482 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:25.482 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000021]
+2026-10-30 04:44:25.483 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.3475 ms
+2026-10-30 04:44:25.483 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:25.848 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:25.848 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000022]
+2026-10-30 04:44:25.849 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.3643 ms
+2026-10-30 04:44:25.849 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:26.283 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:26.283 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000023]
+2026-10-30 04:44:26.284 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.2432 ms
+2026-10-30 04:44:26.284 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:33.209 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:33.209 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000024]
+2026-10-30 04:44:33.210 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.3319 ms
+2026-10-30 04:44:33.210 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:38.800 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:38.800 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000025]
+2026-10-30 04:44:38.801 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.2519 ms
+2026-10-30 04:44:38.801 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:43.966 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:44:43.966 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0N:00000026]
+2026-10-30 04:44:43.967 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.1702 ms
+2026-10-30 04:44:43.968 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:44:46.798 +07:00 [INF] HTTP GET / started
+2026-10-30 04:44:46.799 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0N:00000027]
+2026-10-30 04:44:46.799 +07:00 [INF] HTTP GET /index.html responded 304 in 0.3701 ms
+2026-10-30 04:44:46.799 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:44:56.077 +07:00 [INF] HTTP GET / started
+2026-10-30 04:44:56.077 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0N:00000028]
+2026-10-30 04:44:56.078 +07:00 [INF] HTTP GET /index.html responded 304 in 0.3944 ms
+2026-10-30 04:44:56.078 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:44:59.783 +07:00 [INF] HTTP GET / started
+2026-10-30 04:44:59.783 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0N:00000029]
+2026-10-30 04:44:59.783 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2701 ms
+2026-10-30 04:44:59.783 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:44:59.811 +07:00 [INF] HTTP GET /js/views/employer-resources.js started
+2026-10-30 04:44:59.812 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0.1404 ms
+2026-10-30 04:44:59.812 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0ms
+2026-10-30 04:45:01.604 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 04:45:01.604 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 04:45:01.604 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 04:45:01.605 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPM0KHERL0M:00000008]
+2026-10-30 04:45:01.605 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPM0KHERL0N:0000002B]
+2026-10-30 04:45:01.605 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPM0KHERL0O:00000006]
+2026-10-30 04:45:01.638 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 34.2980 ms
+2026-10-30 04:45:01.638 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 34.3191 ms
+2026-10-30 04:45:01.639 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 34ms
+2026-10-30 04:45:01.638 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 34.2711 ms
+2026-10-30 04:45:01.639 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 34ms
+2026-10-30 04:45:01.639 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 34ms
+2026-10-30 04:45:03.510 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:03.511 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0M:00000009]
+2026-10-30 04:45:03.511 +07:00 [INF] HTTP GET /index.html responded 304 in 0.3095 ms
+2026-10-30 04:45:03.511 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:03.538 +07:00 [INF] HTTP GET /js/views/employer-branding.js started
+2026-10-30 04:45:03.539 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0.1451 ms
+2026-10-30 04:45:03.539 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0ms
+2026-10-30 04:45:03.540 +07:00 [INF] HTTP GET /js/views/employer-pricing.js started
+2026-10-30 04:45:03.540 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0.1268 ms
+2026-10-30 04:45:03.540 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0ms
+2026-10-30 04:45:10.716 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:10.716 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0O:00000008]
+2026-10-30 04:45:10.716 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2764 ms
+2026-10-30 04:45:10.716 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:10.743 +07:00 [INF] HTTP GET /js/views/admin-categories.js started
+2026-10-30 04:45:10.744 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0.2211 ms
+2026-10-30 04:45:10.744 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0ms
+2026-10-30 04:45:10.745 +07:00 [INF] HTTP GET /js/views/admin-companies.js started
+2026-10-30 04:45:10.745 +07:00 [INF] HTTP GET /js/views/admin-jobs.js started
+2026-10-30 04:45:10.745 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0.1259 ms
+2026-10-30 04:45:10.745 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0.1491 ms
+2026-10-30 04:45:10.745 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0ms
+2026-10-30 04:45:10.745 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0ms
+2026-10-30 04:45:10.746 +07:00 [INF] HTTP GET /js/views/admin-users.js started
+2026-10-30 04:45:10.746 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0.1418 ms
+2026-10-30 04:45:10.746 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0ms
+2026-10-30 04:45:19.684 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:19.684 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0O:0000000B]
+2026-10-30 04:45:19.684 +07:00 [INF] HTTP GET /index.html responded 304 in 0.3541 ms
+2026-10-30 04:45:19.684 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:19.718 +07:00 [INF] HTTP GET /js/views/employer-post-job.js started
+2026-10-30 04:45:19.718 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0.1092 ms
+2026-10-30 04:45:19.718 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0ms
+2026-10-30 04:45:19.718 +07:00 [INF] HTTP GET /js/views/employer-job-form.js started
+2026-10-30 04:45:19.718 +07:00 [INF] HTTP GET /js/views/employer-applications.js started
+2026-10-30 04:45:19.719 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0.1321 ms
+2026-10-30 04:45:19.719 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0.1357 ms
+2026-10-30 04:45:19.719 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0ms
+2026-10-30 04:45:19.719 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0ms
+2026-10-30 04:45:19.720 +07:00 [INF] HTTP GET /js/views/admin-applications.js started
+2026-10-30 04:45:19.721 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0.1254 ms
+2026-10-30 04:45:19.721 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0ms
+2026-10-30 04:45:23.078 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:23.078 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0M:0000000E]
+2026-10-30 04:45:23.078 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2024 ms
+2026-10-30 04:45:23.078 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:23.117 +07:00 [INF] HTTP GET /js/views/saved-jobs.js started
+2026-10-30 04:45:23.117 +07:00 [INF] HTTP GET /js/views/applications.js started
+2026-10-30 04:45:23.117 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0.1058 ms
+2026-10-30 04:45:23.117 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0.1306 ms
+2026-10-30 04:45:23.117 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0ms
+2026-10-30 04:45:23.117 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0ms
+2026-10-30 04:45:25.713 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:25.713 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0N:0000002F]
+2026-10-30 04:45:25.713 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2600 ms
+2026-10-30 04:45:25.713 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:25.744 +07:00 [INF] HTTP GET /js/views/career-advice.js started
+2026-10-30 04:45:25.744 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0.1446 ms
+2026-10-30 04:45:25.744 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0ms
+2026-10-30 04:45:25.746 +07:00 [INF] HTTP GET /js/views/company-detail.js started
+2026-10-30 04:45:25.746 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0.1482 ms
+2026-10-30 04:45:25.746 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0ms
+2026-10-30 04:45:33.009 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:33.009 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0M:00000011]
+2026-10-30 04:45:33.009 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2369 ms
+2026-10-30 04:45:33.009 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:33.039 +07:00 [INF] HTTP GET /js/views/jobs.js started
+2026-10-30 04:45:33.039 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 0.1249 ms
+2026-10-30 04:45:33.039 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 0ms
+2026-10-30 04:45:33.040 +07:00 [INF] HTTP GET /js/views/companies.js started
+2026-10-30 04:45:33.040 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0.1032 ms
+2026-10-30 04:45:33.040 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0ms
+2026-10-30 04:45:33.041 +07:00 [INF] HTTP GET /js/views/salary.js started
+2026-10-30 04:45:33.041 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0.1986 ms
+2026-10-30 04:45:33.041 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0ms
+2026-10-30 04:45:35.567 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:35.567 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0M:00000014]
+2026-10-30 04:45:35.567 +07:00 [INF] HTTP GET /index.html responded 304 in 0.1935 ms
+2026-10-30 04:45:35.567 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:42.609 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:42.609 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0M:00000015]
+2026-10-30 04:45:42.609 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2052 ms
+2026-10-30 04:45:42.609 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:42.640 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js started
+2026-10-30 04:45:42.640 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 0.2433 ms
+2026-10-30 04:45:42.640 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 0ms
+2026-10-30 04:45:42.640 +07:00 [INF] HTTP GET /js/views/profile.js started
+2026-10-30 04:45:42.641 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 0.1109 ms
+2026-10-30 04:45:42.641 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 0ms
+2026-10-30 04:45:42.641 +07:00 [INF] HTTP GET /js/views/employer-resources.js started
+2026-10-30 04:45:42.641 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0.1314 ms
+2026-10-30 04:45:42.641 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0ms
+2026-10-30 04:45:46.389 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:46.390 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0O:0000000E]
+2026-10-30 04:45:46.390 +07:00 [INF] HTTP GET /index.html responded 304 in 0.3143 ms
+2026-10-30 04:45:46.390 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:46.416 +07:00 [INF] HTTP GET /js/views/admin.js started
+2026-10-30 04:45:46.416 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0.0938 ms
+2026-10-30 04:45:46.416 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0ms
+2026-10-30 04:45:51.008 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:51.008 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0O:00000010]
+2026-10-30 04:45:51.008 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2167 ms
+2026-10-30 04:45:51.008 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:51.047 +07:00 [INF] HTTP GET /js/views/register.js started
+2026-10-30 04:45:51.047 +07:00 [INF] HTTP GET /js/views/login.js started
+2026-10-30 04:45:51.048 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 0.1574 ms
+2026-10-30 04:45:51.048 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 0.1348 ms
+2026-10-30 04:45:51.048 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 0ms
+2026-10-30 04:45:51.048 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 0ms
+2026-10-30 04:45:51.048 +07:00 [INF] HTTP GET /js/views/employer-branding.js started
+2026-10-30 04:45:51.048 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0.1236 ms
+2026-10-30 04:45:51.048 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0ms
+2026-10-30 04:45:51.049 +07:00 [INF] HTTP GET /js/views/employer-pricing.js started
+2026-10-30 04:45:51.049 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0.1081 ms
+2026-10-30 04:45:51.049 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0ms
+2026-10-30 04:45:53.292 +07:00 [INF] HTTP GET / started
+2026-10-30 04:45:53.292 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0N:00000035]
+2026-10-30 04:45:53.292 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2103 ms
+2026-10-30 04:45:53.292 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:45:53.320 +07:00 [INF] HTTP GET /js/views/home.js started
+2026-10-30 04:45:53.320 +07:00 [INF] HTTP GET /js/views/home.js responded 304 in 0.0986 ms
+2026-10-30 04:45:53.320 +07:00 [INF] HTTP GET /js/views/home.js responded 304 in 0ms
+2026-10-30 04:46:04.553 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json started
+2026-10-30 04:46:04.553 +07:00 [INF] Gateway: GET /.well-known/appspecific/com.chrome.devtools.json from ::1 [0HNPM0KHERL0N:00000037]
+2026-10-30 04:46:04.553 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0.3886 ms
+2026-10-30 04:46:04.553 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0ms
+2026-10-30 04:46:21.840 +07:00 [INF] HTTP GET / started
+2026-10-30 04:46:21.840 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0N:00000038]
+2026-10-30 04:46:21.841 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2668 ms
+2026-10-30 04:46:21.841 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:46:21.883 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-30 04:46:21.883 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-30 04:46:21.884 +07:00 [INF] HTTP GET /js/app.js responded 304 in 0.1236 ms
+2026-10-30 04:46:21.884 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-30 04:46:21.884 +07:00 [INF] HTTP GET /js/app.js responded 304 in 0ms
+2026-10-30 04:46:21.884 +07:00 [INF] HTTP GET /js/auth.js responded 304 in 0.0933 ms
+2026-10-30 04:46:21.884 +07:00 [INF] HTTP GET /js/auth.js responded 304 in 0ms
+2026-10-30 04:46:21.884 +07:00 [INF] HTTP GET /js/router.js responded 304 in 0.4610 ms
+2026-10-30 04:46:21.884 +07:00 [INF] HTTP GET /js/router.js responded 304 in 0ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/employer-job-form.js started
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/employer-applications.js started
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/admin-applications.js started
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0.1337 ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0.1542 ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0.1287 ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/admin-categories.js started
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/admin-companies.js started
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0.0873 ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0.1000 ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0ms
+2026-10-30 04:46:21.885 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0ms
+2026-10-30 04:46:21.886 +07:00 [INF] HTTP GET /js/views/admin-jobs.js started
+2026-10-30 04:46:21.886 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0.0959 ms
+2026-10-30 04:46:21.886 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0ms
+2026-10-30 04:46:21.886 +07:00 [INF] HTTP GET /js/views/admin-users.js started
+2026-10-30 04:46:21.886 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0.0872 ms
+2026-10-30 04:46:21.886 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0ms
+2026-10-30 04:46:25.166 +07:00 [INF] HTTP GET / started
+2026-10-30 04:46:25.166 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0O:00000015]
+2026-10-30 04:46:25.166 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2137 ms
+2026-10-30 04:46:25.166 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:46:25.203 +07:00 [INF] HTTP GET /js/views/employer-post-job.js started
+2026-10-30 04:46:25.204 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0.1669 ms
+2026-10-30 04:46:25.204 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0ms
+2026-10-30 04:46:25.353 +07:00 [INF] HTTP GET /api/resumes started
+2026-10-30 04:46:25.353 +07:00 [INF] Gateway: GET /api/resumes from ::1 [0HNPM0KHERL0K:00000010]
+2026-10-30 04:46:25.354 +07:00 [INF] HTTP GET /api/auth/profile started
+2026-10-30 04:46:25.354 +07:00 [INF] Gateway: GET /api/auth/profile from ::1 [0HNPM0KHERL0O:00000017]
+2026-10-30 04:46:25.385 +07:00 [INF] HTTP GET /index.html responded 200 in 32.4174 ms
+2026-10-30 04:46:25.385 +07:00 [INF] HTTP GET /index.html responded 200 in 32ms
+2026-10-30 04:46:25.386 +07:00 [INF] HTTP GET /index.html responded 200 in 31.7580 ms
+2026-10-30 04:46:25.386 +07:00 [INF] HTTP GET /index.html responded 200 in 31ms
+2026-10-30 04:46:44.479 +07:00 [INF] HTTP GET / started
+2026-10-30 04:46:44.479 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0O:00000018]
+2026-10-30 04:46:44.479 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2101 ms
+2026-10-30 04:46:44.479 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:46:44.508 +07:00 [INF] HTTP GET /js/views/career-advice.js started
+2026-10-30 04:46:44.508 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0.1409 ms
+2026-10-30 04:46:44.508 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0ms
+2026-10-30 04:46:44.509 +07:00 [INF] HTTP GET /js/views/company-detail.js started
+2026-10-30 04:46:44.509 +07:00 [INF] HTTP GET /js/views/applications.js started
+2026-10-30 04:46:44.509 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0.1207 ms
+2026-10-30 04:46:44.509 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0.1140 ms
+2026-10-30 04:46:44.509 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0ms
+2026-10-30 04:46:44.509 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0ms
+2026-10-30 04:46:44.510 +07:00 [INF] HTTP GET /js/views/saved-jobs.js started
+2026-10-30 04:46:44.510 +07:00 [INF] HTTP GET /js/views/employer-branding.js started
+2026-10-30 04:46:44.510 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0.1164 ms
+2026-10-30 04:46:44.510 +07:00 [INF] HTTP GET /js/views/employer-pricing.js started
+2026-10-30 04:46:44.510 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0ms
+2026-10-30 04:46:44.510 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0.0877 ms
+2026-10-30 04:46:44.510 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0ms
+2026-10-30 04:46:44.510 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0.0839 ms
+2026-10-30 04:46:44.510 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0ms
+2026-10-30 04:46:44.511 +07:00 [INF] HTTP GET /js/views/employer-resources.js started
+2026-10-30 04:46:44.511 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0.0967 ms
+2026-10-30 04:46:44.511 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0ms
+2026-10-30 04:46:46.661 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 04:46:46.661 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 04:46:46.661 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPM0KHERL0N:0000003C]
+2026-10-30 04:46:46.661 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPM0KHERL0M:0000001B]
+2026-10-30 04:46:46.661 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 04:46:46.661 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPM0KHERL0L:00000026]
+2026-10-30 04:46:46.669 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 8.3551 ms
+2026-10-30 04:46:46.669 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 8.7200 ms
+2026-10-30 04:46:46.669 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 8.7351 ms
+2026-10-30 04:46:46.670 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 8ms
+2026-10-30 04:46:46.670 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 8ms
+2026-10-30 04:46:46.670 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 8ms
+2026-10-30 04:46:49.035 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 04:46:49.035 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPM0KHERL0N:0000003D]
+2026-10-30 04:46:49.036 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 1.7484 ms
+2026-10-30 04:46:49.037 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 1ms
+2026-10-30 04:46:50.396 +07:00 [INF] HTTP GET / started
+2026-10-30 04:46:50.396 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0N:0000003E]
+2026-10-30 04:46:50.396 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2240 ms
+2026-10-30 04:46:50.396 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:46:50.423 +07:00 [INF] HTTP GET /js/views/companies.js started
+2026-10-30 04:46:50.423 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0.1528 ms
+2026-10-30 04:46:50.423 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0ms
+2026-10-30 04:46:50.424 +07:00 [INF] HTTP GET /js/views/salary.js started
+2026-10-30 04:46:50.424 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0.1222 ms
+2026-10-30 04:46:50.424 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0ms
+2026-10-30 04:47:00.626 +07:00 [INF] HTTP GET / started
+2026-10-30 04:47:00.626 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0M:0000001D]
+2026-10-30 04:47:00.626 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2707 ms
+2026-10-30 04:47:00.626 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:47:00.667 +07:00 [INF] HTTP GET /js/views/jobs.js started
+2026-10-30 04:47:00.667 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 0.1250 ms
+2026-10-30 04:47:00.667 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 0ms
+2026-10-30 04:47:21.859 +07:00 [INF] HTTP GET / started
+2026-10-30 04:47:21.859 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0M:0000001F]
+2026-10-30 04:47:21.859 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2695 ms
+2026-10-30 04:47:21.859 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:47:21.887 +07:00 [INF] HTTP GET /js/views/admin.js started
+2026-10-30 04:47:21.887 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0.1543 ms
+2026-10-30 04:47:21.887 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0ms
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js started
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/profile.js started
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/admin-companies.js started
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 0.1177 ms
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 0.0995 ms
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 0ms
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 0ms
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0.0929 ms
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0ms
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/admin-jobs.js started
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0.0913 ms
+2026-10-30 04:47:21.889 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0ms
+2026-10-30 04:47:21.892 +07:00 [INF] HTTP GET /js/views/admin-users.js started
+2026-10-30 04:47:21.892 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0.1720 ms
+2026-10-30 04:47:21.892 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0ms
+2026-10-30 04:47:24.282 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:47:24.282 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0M:00000022]
+2026-10-30 04:47:24.294 +07:00 [INF] HTTP GET /api/jobs responded 400 in 11.6869 ms
+2026-10-30 04:47:24.294 +07:00 [INF] HTTP GET /api/jobs responded 400 in 11ms
+2026-10-30 04:47:25.256 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:47:25.256 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0M:00000023]
+2026-10-30 04:47:25.257 +07:00 [INF] HTTP GET /api/jobs responded 400 in 0.8628 ms
+2026-10-30 04:47:25.257 +07:00 [INF] HTTP GET /api/jobs responded 400 in 1ms
+2026-10-30 04:47:26.288 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:47:26.288 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0M:00000024]
+2026-10-30 04:47:26.289 +07:00 [INF] HTTP GET /api/jobs responded 400 in 0.8187 ms
+2026-10-30 04:47:26.289 +07:00 [INF] HTTP GET /api/jobs responded 400 in 1ms
+2026-10-30 04:47:31.639 +07:00 [INF] HTTP GET / started
+2026-10-30 04:47:31.639 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0M:00000025]
+2026-10-30 04:47:31.639 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2335 ms
+2026-10-30 04:47:31.639 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:47:31.670 +07:00 [INF] HTTP GET /js/views/login.js started
+2026-10-30 04:47:31.670 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 0.1201 ms
+2026-10-30 04:47:31.670 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 0ms
+2026-10-30 04:47:31.670 +07:00 [INF] HTTP GET /js/views/register.js started
+2026-10-30 04:47:31.670 +07:00 [INF] HTTP GET /js/views/employer-job-form.js started
+2026-10-30 04:47:31.671 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 0.1235 ms
+2026-10-30 04:47:31.671 +07:00 [INF] HTTP GET /js/views/employer-applications.js started
+2026-10-30 04:47:31.671 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 0ms
+2026-10-30 04:47:31.671 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0.1022 ms
+2026-10-30 04:47:31.671 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0.0721 ms
+2026-10-30 04:47:31.671 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0ms
+2026-10-30 04:47:31.671 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0ms
+2026-10-30 04:47:31.671 +07:00 [INF] HTTP GET /js/views/admin-applications.js started
+2026-10-30 04:47:31.672 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0.1320 ms
+2026-10-30 04:47:31.672 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0ms
+2026-10-30 04:47:31.672 +07:00 [INF] HTTP GET /js/views/admin-categories.js started
+2026-10-30 04:47:31.672 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0.1509 ms
+2026-10-30 04:47:31.672 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0ms
+2026-10-30 04:50:16.906 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:50:16.906 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0P:00000001]
+2026-10-30 04:50:16.907 +07:00 [INF] HTTP GET /api/jobs responded 400 in 1.5297 ms
+2026-10-30 04:50:16.907 +07:00 [INF] HTTP GET /api/jobs responded 400 in 1ms
+2026-10-30 04:50:23.274 +07:00 [INF] HTTP GET / started
+2026-10-30 04:50:23.274 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0P:00000002]
+2026-10-30 04:50:23.275 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2355 ms
+2026-10-30 04:50:23.275 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms
+2026-10-30 04:50:23.312 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-30 04:50:23.313 +07:00 [INF] HTTP GET /js/auth.js responded 304 in 0.1347 ms
+2026-10-30 04:50:23.313 +07:00 [INF] HTTP GET /js/auth.js responded 304 in 0ms
+2026-10-30 04:50:23.313 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-30 04:50:23.313 +07:00 [INF] HTTP GET /js/router.js responded 304 in 0.1187 ms
+2026-10-30 04:50:23.313 +07:00 [INF] HTTP GET /js/router.js responded 304 in 0ms
+2026-10-30 04:50:23.313 +07:00 [INF] HTTP GET /js/views/home.js started
+2026-10-30 04:50:23.313 +07:00 [INF] HTTP GET /js/views/home.js responded 304 in 0.1243 ms
+2026-10-30 04:50:23.313 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-30 04:50:23.314 +07:00 [INF] HTTP GET /js/views/home.js responded 304 in 0ms
+2026-10-30 04:50:23.314 +07:00 [INF] HTTP GET /js/app.js responded 304 in 0.1002 ms
+2026-10-30 04:50:23.314 +07:00 [INF] HTTP GET /js/app.js responded 304 in 0ms
+2026-10-30 04:50:23.315 +07:00 [INF] HTTP GET /js/views/login.js started
+2026-10-30 04:50:23.315 +07:00 [INF] HTTP GET /js/views/register.js started
+2026-10-30 04:50:23.315 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 0.1046 ms
+2026-10-30 04:50:23.315 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 0.1432 ms
+2026-10-30 04:50:23.315 +07:00 [INF] HTTP GET /js/views/register.js responded 304 in 0ms
+2026-10-30 04:50:23.315 +07:00 [INF] HTTP GET /js/views/login.js responded 304 in 0ms
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/admin.js started
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0.0967 ms
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js started
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/admin.js responded 304 in 0ms
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/jobs.js started
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/profile.js started
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 0.1676 ms
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 0.0846 ms
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/employer-dashboard.js responded 304 in 0ms
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/jobs.js responded 304 in 0ms
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 0.0885 ms
+2026-10-30 04:50:23.316 +07:00 [INF] HTTP GET /js/views/profile.js responded 304 in 0ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/companies.js started
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/salary.js started
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0.0936 ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/career-advice.js started
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/companies.js responded 304 in 0ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0.1031 ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/company-detail.js started
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/salary.js responded 304 in 0ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0.0885 ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/career-advice.js responded 304 in 0ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0.1107 ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/company-detail.js responded 304 in 0ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/applications.js started
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0.0771 ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/applications.js responded 304 in 0ms
+2026-10-30 04:50:23.317 +07:00 [INF] HTTP GET /js/views/saved-jobs.js started
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0.0923 ms
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/saved-jobs.js responded 304 in 0ms
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/employer-post-job.js started
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0.0944 ms
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/employer-job-form.js started
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/employer-post-job.js responded 304 in 0ms
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/employer-applications.js started
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0.0985 ms
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/employer-job-form.js responded 304 in 0ms
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0.0965 ms
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/employer-applications.js responded 304 in 0ms
+2026-10-30 04:50:23.318 +07:00 [INF] HTTP GET /js/views/admin-applications.js started
+2026-10-30 04:50:23.319 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0.0906 ms
+2026-10-30 04:50:23.319 +07:00 [INF] HTTP GET /js/views/admin-applications.js responded 304 in 0ms
+2026-10-30 04:50:23.319 +07:00 [INF] HTTP GET /js/views/admin-categories.js started
+2026-10-30 04:50:23.319 +07:00 [INF] HTTP GET /js/views/admin-companies.js started
+2026-10-30 04:50:23.319 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 0.1087 ms
+2026-10-30 04:50:23.320 +07:00 [INF] HTTP GET /js/views/employer-branding.js started
+2026-10-30 04:50:23.320 +07:00 [INF] HTTP GET /js/views/admin-users.js started
+2026-10-30 04:50:23.319 +07:00 [INF] HTTP GET /js/views/admin-jobs.js started
+2026-10-30 04:50:23.319 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 0.0998 ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/admin-categories.js responded 304 in 18ms
+2026-10-30 04:50:23.320 +07:00 [INF] HTTP GET /js/views/employer-pricing.js started
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/admin-companies.js responded 304 in 18ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 0.1975 ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 0.1765 ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/admin-users.js responded 304 in 18ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/admin-jobs.js responded 304 in 19ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 0.1102 ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 0.2175 ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/employer-pricing.js responded 304 in 18ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/employer-branding.js responded 304 in 18ms
+2026-10-30 04:50:23.338 +07:00 [INF] HTTP GET /js/views/employer-resources.js started
+2026-10-30 04:50:23.339 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0.0913 ms
+2026-10-30 04:50:23.339 +07:00 [INF] HTTP GET /js/views/employer-resources.js responded 304 in 0ms
+2026-10-30 04:50:23.466 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:50:23.466 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0U:00000006]
+2026-10-30 04:50:23.467 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.8252 ms
+2026-10-30 04:50:23.468 +07:00 [INF] HTTP GET /api/jobs responded 200 in 2ms
+2026-10-30 04:50:23.497 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:50:23.497 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0U:00000007]
+2026-10-30 04:50:23.498 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.6305 ms
+2026-10-30 04:50:23.499 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:50:23.544 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:50:23.544 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0U:00000008]
+2026-10-30 04:50:23.546 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.7348 ms
+2026-10-30 04:50:23.546 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:50:32.534 +07:00 [INF] HTTP GET /api/jobs started
+2026-10-30 04:50:32.534 +07:00 [INF] Gateway: GET /api/jobs from ::1 [0HNPM0KHERL0U:00000009]
+2026-10-30 04:50:32.536 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1.3110 ms
+2026-10-30 04:50:32.536 +07:00 [INF] HTTP GET /api/jobs responded 200 in 1ms
+2026-10-30 04:50:33.577 +07:00 [INF] HTTP GET / started
+2026-10-30 04:50:33.578 +07:00 [INF] Gateway: GET / from ::1 [0HNPM0KHERL0U:0000000A]
+2026-10-30 04:50:33.578 +07:00 [INF] HTTP GET /index.html responded 304 in 0.2551 ms
+2026-10-30 04:50:33.578 +07:00 [INF] HTTP GET /index.html responded 304 in 0ms

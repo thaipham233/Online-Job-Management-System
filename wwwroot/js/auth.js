@@ -9,7 +9,7 @@ class AuthManager {
     init() {
         const storedUser = localStorage.getItem('user');
         const token = localStorage.getItem('access_token');
-        
+
         if (storedUser && token) {
             try {
                 this.user = JSON.parse(storedUser);
@@ -27,6 +27,20 @@ class AuthManager {
         this.isAuthenticated = true;
         localStorage.setItem('user', JSON.stringify(user));
         this.updateUI();
+    }
+
+    // Login: gọi API và lưu token/user, hướng về trang chủ
+    async login(email, password) {
+        const result = await api.login(email, password);
+        if (result.error) {
+            showToast(result.error, 'error');
+        }
+        if (result.data?.token) {
+            this.setUser(result.data.user);
+            api.setToken(result.data.token);
+            this.redirectAfterLogin();
+        }
+        return result;
     }
 
     clear() {
@@ -59,6 +73,10 @@ class AuthManager {
 
     isCandidate() {
         return this.hasRole('Candidate');
+    }
+
+    isAuthenticated() {
+        return this.isAuthenticated;
     }
 
     updateUI() {
@@ -106,7 +124,7 @@ class AuthManager {
 
     async refreshUser() {
         if (!this.isAuthenticated) return;
-        
+
         const result = await api.getProfile();
         if (result.data) {
             this.setUser(result.data);
@@ -124,6 +142,16 @@ class AuthManager {
                     this.logout();
                 }
             }
+        }
+    }
+
+    redirectAfterLogin() {
+        if (this.isAdmin()) {
+            router.navigate('/admin');
+        } else if (this.isEmployer()) {
+            router.navigate('/employer');
+        } else {
+            router.navigate('/');
         }
     }
 }

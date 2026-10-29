@@ -126,7 +126,7 @@ namespace Online_Job_Management_System.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<string> GetEmailAsync(User user, CancellationToken cancellationToken)
+        public Task<string?> GetEmailAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.Email);
 
         public Task<bool> GetEmailConfirmedAsync(User user, CancellationToken cancellationToken)
@@ -221,7 +221,7 @@ namespace Online_Job_Management_System.Repositories
             return Task.CompletedTask;
         }
 
-        public Task<string> GetPasswordHashAsync(User user, CancellationToken cancellationToken)
+        public Task<string?> GetPasswordHashAsync(User user, CancellationToken cancellationToken)
             => Task.FromResult(user.PasswordHash);
 
         public Task<bool> HasPasswordAsync(User user, CancellationToken cancellationToken)

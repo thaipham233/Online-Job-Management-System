@@ -1,20 +1,47 @@
-// Main App - Route definitions and initialization
+// SPA App - Shared initialization for Single Page Application
+// In SPA, a single HTML page (index.html) is the shell; all "pages" are
+// rendered dynamically by JS views based on hash routes. Shared JS handles
+// navbar, modal, toast, and guards - no dynamic routing.
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize components
     initNavbar();
     initMobileMenu();
     initUserDropdown();
-    
-    // Define routes
-    setupRoutes();
-    
-    // Start router
-    router.handleRouteChange();
+    initDropdowns();
+    initModal();
+    initToast();
+    // Apply route guards after DOM is ready
+    applyRouteGuards();
+    // Handle initial hash route
+    if (window.location.hash) {
+        window.dispatchEvent(new HashChangeEvent('hashchange'));
+    } else {
+        router.handleRouteChange();
+    }
 });
 
-// Navbar initialization
+async function applyRouteGuards() {
+    // Check if user is trying to access role-protected routes
+    const path = window.location.hash.slice(1) || '/';
+    if (path === '/admin' && !auth.isAdmin()) {
+        showToast('Bạn không có quyền truy cập trang này', 'error');
+        router.navigate('/');
+        return false;
+    }
+    if (path === '/employer' && !auth.isEmployer()) {
+        showToast('Bạn không có quyền truy cập trang này', 'error');
+        router.navigate('/');
+        return false;
+    }
+    if (path === '/profile' && !auth.isAuthenticated()) {
+        showToast('Vui lòng đăng nhập để xem hồ sơ', 'error');
+        router.navigate('/login');
+        return false;
+    }
+    // Allow navigation
+    return true;
+}
+
 function initNavbar() {
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[data-link]').forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
@@ -26,11 +53,9 @@ function initNavbar() {
     });
 }
 
-// Mobile menu toggle
 function initMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
-    
     if (btn && menu) {
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
@@ -38,13 +63,12 @@ function initMobileMenu() {
     }
 }
 
-// User dropdown
 function initUserDropdown() {
     const btn = document.getElementById('user-btn');
-    const dropdown = document.getElementById('dropdown-menu');
+    const dropdown = document.getElementById('user-dropdown');
     const logoutBtn = document.getElementById('logout-btn');
     const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
-    
+
     if (btn && dropdown) {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -56,16 +80,14 @@ function initUserDropdown() {
             dropdown.classList.toggle('translate-y-0');
         });
     }
-    
-    // Close dropdown on outside click
+
     document.addEventListener('click', (e) => {
         if (dropdown && !dropdown.contains(e.target) && e.target !== btn) {
             dropdown.classList.add('opacity-0', 'invisible', 'translate-y-2');
             dropdown.classList.remove('opacity-100', 'visible', 'translate-y-0');
         }
     });
-    
-    // Logout handlers
+
     [logoutBtn, mobileLogoutBtn].forEach(el => {
         if (el) {
             el.addEventListener('click', () => auth.logout());
@@ -73,126 +95,79 @@ function initUserDropdown() {
     });
 }
 
-// Toast notification system
-function showToast(message, type = 'info', duration = 4000) {
-    const container = document.getElementById('toast-container');
-    if (!container) return;
-    
-    const icons = {
-        success: 'fa-check-circle text-green-500',
-        error: 'fa-exclamation-circle text-red-500',
-        warning: 'fa-exclamation-triangle text-yellow-500',
-        info: 'fa-info-circle text-blue-500'
-    };
-    
-    const bgColors = {
-        success: 'bg-green-50 border-green-200',
-        error: 'bg-red-50 border-red-200',
-        warning: 'bg-yellow-50 border-yellow-200',
-        info: 'bg-blue-50 border-blue-200'
-    };
-    
-    const toast = document.createElement('div');
-    toast.className = `flex items-center p-4 rounded-lg shadow-lg border min-w-[300px] max-w-md animate-slide-right ${bgColors[type]}`;
-    toast.innerHTML = `
-        <i class="fas ${icons[type]} mr-3 text-lg"></i>
-        <span class="text-gray-800 flex-1">${message}</span>
-        <button class="ml-4 text-gray-400 hover:text-gray-600"><i class="fas fa-times"></i></button>
-    `;
-    
-    toast.querySelector('button').addEventListener('click', () => toast.remove());
-    container.appendChild(toast);
-    
-    setTimeout(() => {
-        toast.style.animation = 'slideOut 0.3s ease-in forwards';
-        setTimeout(() => toast.remove(), 300);
-    }, duration);
+function initDropdowns() {
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+        const toggle = dropdown.querySelector('[data-dropdown-toggle]');
+        if (toggle) {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const target = document.getElementById(toggle.dataset.dropdownToggle);
+                if (target) {
+                    target.classList.toggle('hidden');
+                }
+            });
+        }
+    });
 }
 
-// Modal system
-function showModal(content, options = {}) {
-    const root = document.getElementById('modal-root');
-    const { size = 'md', closable = true, onClose } = options;
-    
-    const sizes = {
-        sm: 'max-w-md',
-        md: 'max-w-lg',
-        lg: 'max-w-2xl',
-        xl: 'max-w-4xl',
-        full: 'max-w-full mx-4'
-    };
-    
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 z-50 flex items-center justify-center p-4';
-    modal.innerHTML = `
-        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" data-modal-backdrop></div>
-        <div class="relative w-full ${sizes[size]} bg-white rounded-2xl shadow-xl animate-scale-in">
-            ${closable ? `
-                <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 z-10" data-modal-close>
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            ` : ''}
-            <div class="p-6">${content}</div>
-        </div>
-    `;
-    
-    const closeModal = () => {
-        modal.querySelector('.animate-scale-in').classList.replace('animate-scale-in', 'animate-scale-out');
-        setTimeout(() => {
-            modal.remove();
-            if (onClose) onClose();
-        }, 200);
-    };
-    
-    modal.querySelector('[data-modal-backdrop]')?.addEventListener('click', closeModal);
-    modal.querySelector('[data-modal-close]')?.addEventListener('click', closeModal);
-    
-    root.appendChild(modal);
-    return { close: closeModal };
-}
-
-function closeModal() {
-    const modal = document.querySelector('#modal-root > div');
+function initModal() {
+    const modal = document.getElementById('modal-root');
     if (modal) {
-        modal.querySelector('.animate-scale-in')?.classList.replace('animate-scale-in', 'animate-scale-out');
-        setTimeout(() => modal.remove(), 200);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     }
 }
 
-// Loading state helper
-function showLoading(container, message = 'Đang tải...') {
-    container.innerHTML = `
-        <div class="flex flex-col items-center justify-center py-12">
-            <div class="w-10 h-10 border-3 border-primary-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-            <p class="text-gray-500">${message}</p>
-        </div>
-    `;
+function initToast() {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    window.showToast = showToast;
 }
 
-function showEmptyState(container, icon, title, message, action = null) {
-    container.innerHTML = `
-        <div class="text-center py-12 fade-in">
-            <i class="fas ${icon} text-5xl text-gray-300 mb-4"></i>
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">${title}</h3>
-            <p class="text-gray-500 mb-6">${message}</p>
-            ${action ? `<a href="${action.href}" class="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors" data-link>${action.label}</a>` : ''}
-        </div>
-    `;
+function showToast(message, type = 'info', duration = 4000) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'toast toast-' + type + ' flex items-center gap-sm px-md py-sm rounded-xl shadow-lg transition-all';
+    toast.style.display = 'none';
+
+    let icon = '';
+    if (type === 'success') icon = 'fas fa-check-circle';
+    else if (type === 'error') icon = 'fas fa-exclamation-circle';
+    else if (type === 'warning') icon = 'fas fa-exclamation-triangle';
+    else icon = 'fas fa-info-circle';
+
+    toast.innerHTML = '<i class="' + icon + ' text-sm"></i><span class="text-sm font-medium">' + message + '</span>';
+    container.appendChild(toast);
+    setTimeout(() => {
+        toast.style.display = 'flex';
+        toast.style.opacity = '1';
+    }, 10);
+
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => {
+            if (toast.parentNode) container.removeChild(toast);
+        }, 300);
+    }, duration);
 }
 
-// Format helpers
-function formatSalary(min, max, type = 'Monthly') {
+function formatSalary(min, max, type) {
     if (!min && !max) return 'Thương lượng';
-    
     const format = (num) => {
         if (num >= 1e9) return (num / 1e9).toFixed(1).replace('.0', '') + ' tỷ';
         if (num >= 1e6) return (num / 1e6).toFixed(1).replace('.0', '') + ' triệu';
         return num.toLocaleString('vi-VN');
     };
-    
-    if (min && max) return `${format(min)} - ${format(max)}/${type === 'Monthly' ? 'tháng' : 'năm'}`;
-    if (min) return `Từ ${format(min)}/${type === 'Monthly' ? 'tháng' : 'năm'}`;
-    return `Đến ${format(max)}/${type === 'Monthly' ? 'tháng' : 'năm'}`;
+    if (min && max) return format(min) + ' - ' + format(max) + '/' + (type === 'Monthly' ? 'tháng' : 'năm');
+    if (min) return 'Từ ' + format(min) + '/' + (type === 'Monthly' ? 'tháng' : 'năm');
+    return 'Đến ' + format(max) + '/' + (type === 'Monthly' ? 'tháng' : 'năm');
 }
 
 function formatDate(dateString) {
@@ -205,13 +180,12 @@ function formatRelativeTime(dateString) {
     const now = new Date();
     const diffMs = now - date;
     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    
     if (diffDays === 0) return 'Hôm nay';
     if (diffDays === 1) return 'Hôm qua';
-    if (diffDays < 7) return `${diffDays} ngày trước`;
-    if (diffDays < 30) return `${Math.floor(diffDays / 7)} tuần trước`;
-    if (diffDays < 365) return `${Math.floor(diffDays / 30)} tháng trước`;
-    return `${Math.floor(diffDays / 365)} năm trước`;
+    if (diffDays < 7) return diffDays + ' ngày trước';
+    if (diffDays < 30) return Math.floor(diffDays / 7) + ' tuần trước';
+    if (diffDays < 365) return Math.floor(diffDays / 30) + ' tháng trước';
+    return Math.floor(diffDays / 365) + ' năm trước';
 }
 
 function getJobTypeLabel(type) {
@@ -279,17 +253,7 @@ function getApplicationStatusColor(status) {
     return colors[status] || 'bg-gray-100 text-gray-800';
 }
 
-// Debounce helper
-function debounce(fn, delay) {
-    let timeoutId;
-    return (...args) => {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => fn(...args), delay);
-    };
-}
-
-// Copy to clipboard
-async function copyToClipboard(text, successMsg = 'Đã sao chép!') {
+async function copyToClipboard(text, successMsg) {
     try {
         await navigator.clipboard.writeText(text);
         showToast(successMsg, 'success');
@@ -298,145 +262,6 @@ async function copyToClipboard(text, successMsg = 'Đã sao chép!') {
     }
 }
 
-// Setup all routes
-function setupRoutes() {
-    // Public routes
-    router.add('/', () => loadPage('home'));
-    router.add('/jobs', () => loadPage('jobs-list'));
-    router.add('/jobs/:id', (params) => loadPage('job-detail', params.id));
-    router.add('/companies', () => loadPage('companies-list'));
-    router.add('/companies/:id', (params) => loadPage('company-detail', params.id));
-    router.add('/login', () => loadPage('login'));
-    router.add('/register', () => loadPage('register'));
-    router.add('/forgot-password', () => loadPage('forgot-password'));
-    router.add('/salary', () => loadPage('salary'));
-    router.add('/career-advice', () => loadPage('career-advice'));
-    
-    // Protected routes (require auth)
-    router.add('/profile', () => requireAuth(() => loadPage('profile')));
-    router.add('/applications', () => requireAuth(() => loadPage('my-applications')));
-    router.add('/saved-jobs', () => requireAuth(() => loadPage('saved-jobs')));
-    router.add('/resumes', () => requireAuth(() => loadPage('my-resumes')));
-    router.add('/resumes/create', () => requireAuth(() => loadPage('resume-form')));
-    router.add('/resumes/:id/edit', (params) => requireAuth(() => loadPage('resume-form', params.id)));
-    
-    // Employer routes
-    router.add('/employer/dashboard', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-dashboard')));
-    router.add('/employer/jobs', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-jobs')));
-    router.add('/employer/jobs/create', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-job-form')));
-    router.add('/employer/jobs/:id/edit', (params) => requireRole(['Employer', 'Admin'], () => loadPage('employer-job-form', params.id)));
-    router.add('/employer/post-job', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-post-job')));
-    router.add('/employer/branding', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-branding')));
-    router.add('/employer/pricing', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-pricing')));
-    router.add('/employer/resources', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-resources')));
-    router.add('/employer/applications', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-applications')));
-    router.add('/employer/company', () => requireRole(['Employer', 'Admin'], () => loadPage('employer-company')));
-    
-    // Admin routes
-    router.add('/admin/dashboard', () => requireRole(['Admin'], () => loadPage('admin-dashboard')));
-    router.add('/admin/users', () => requireRole(['Admin'], () => loadPage('admin-users')));
-    router.add('/admin/companies', () => requireRole(['Admin'], () => loadPage('admin-companies')));
-    router.add('/admin/jobs', () => requireRole(['Admin'], () => loadPage('admin-jobs')));
-    router.add('/admin/categories', () => requireRole(['Admin'], () => loadPage('admin-categories')));
-    router.add('/admin/applications', () => requireRole(['Admin'], () => loadPage('admin-applications')));
-    
-    // 404 fallback
-    router.add('*', () => router.render404());
-}
-
-// Auth middleware
-function requireAuth(callback) {
-    if (!auth.isAuthenticated) {
-        showToast('Vui lòng đăng nhập để tiếp tục', 'warning');
-        router.navigate('/login');
-        return;
-    }
-    callback();
-}
-
-function requireRole(roles, callback) {
-    if (!auth.isAuthenticated) {
-        showToast('Vui lòng đăng nhập để tiếp tục', 'warning');
-        router.navigate('/login');
-        return;
-    }
-    if (!auth.hasRole(...roles)) {
-        showToast('Bạn không có quyền truy cập trang này', 'error');
-        router.navigate('/');
-        return;
-    }
-    callback();
-}
-
-// Dynamic page loader
-async function loadPage(pageName, param = null) {
-    const app = document.getElementById('app');
-    showLoading(app);
-    
-    try {
-        // Import page module dynamically
-        const module = await import(`./pages/${pageName}.js`);
-        if (module.default) {
-            await module.default(app, param);
-        } else if (module.render) {
-            await module.render(app, param);
-        }
-    } catch (error) {
-        console.error(`Failed to load page ${pageName}:`, error);
-        // Fallback to inline rendering
-        await renderPageInline(pageName, app, param);
-    }
-    
-    // Re-attach link handlers
-    document.querySelectorAll('a[data-link]').forEach(link => {
-        link.onclick = (e) => {
-            const href = link.getAttribute('href');
-            if (href && href.startsWith('#')) {
-                e.preventDefault();
-                router.navigate(href.slice(1));
-            }
-        };
-    });
-}
-
-// Inline page rendering (fallback)
-async function renderPageInline(pageName, container, param) {
-    const pages = {
-        'home': renderHomePage,
-        'jobs-list': renderJobsListPage,
-        'job-detail': renderJobDetailPage,
-        'companies-list': renderCompaniesListPage,
-        'company-detail': renderCompanyDetailPage,
-        'login': renderLoginPage,
-        'register': renderRegisterPage,
-        'forgot-password': renderForgotPasswordPage,
-        'profile': renderProfilePage,
-        'my-applications': renderMyApplicationsPage,
-        'saved-jobs': renderSavedJobsPage,
-        'my-resumes': renderMyResumesPage,
-        'resume-form': renderResumeFormPage,
-        'employer-dashboard': renderEmployerDashboardPage,
-        'employer-jobs': renderEmployerJobsPage,
-        'employer-job-form': renderEmployerJobFormPage,
-        'employer-applications': renderEmployerApplicationsPage,
-        'employer-company': renderEmployerCompanyPage,
-        'admin-dashboard': renderAdminDashboardPage,
-        'admin-users': renderAdminUsersPage,
-        'admin-companies': renderAdminCompaniesPage,
-        'admin-jobs': renderAdminJobsPage,
-        'admin-categories': renderAdminCategoriesPage,
-        'admin-applications': renderAdminApplicationsPage,
-    };
-    
-    const renderer = pages[pageName];
-    if (renderer) {
-        await renderer(container, param);
-    } else {
-        router.render404();
-    }
-}
-
-// Add animation styles
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideRight {

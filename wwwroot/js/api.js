@@ -37,7 +37,7 @@ class ApiClient {
 
         try {
             const response = await fetch(url, config);
-            
+
             // Handle 401 - token expired
             if (response.status === 401) {
                 auth.logout();
@@ -46,9 +46,12 @@ class ApiClient {
             }
 
             const data = await response.json().catch(() => ({}));
-            
             if (!response.ok) {
-                return { error: data.message || data.title || `HTTP ${response.status}`, status: response.status, details: data };
+                return {
+                    error: data.message || data.title || `HTTP ${response.status}`,
+                    status: response.status,
+                    details: data
+                };
             }
 
             return { data };
@@ -103,7 +106,7 @@ class ApiClient {
     }
 
     async refreshToken() {
-        const result = await this.post('/auth/refresh');
+        const result = await this.post('/auth/refresh-token');
         if (result.data?.token) {
             this.setToken(result.data.token);
         }
@@ -162,7 +165,7 @@ class ApiClient {
     }
 
     applyJob(jobId, data) {
-        return this.post(`/jobs/${jobId}/apply`, data);
+        return this.post('/applications', { ...data, jobId });
     }
 
     updateApplicationStatus(id, status, data = {}) {

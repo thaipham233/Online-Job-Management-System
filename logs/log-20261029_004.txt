@@ -1,0 +1,107 @@
+2026-10-29 23:21:56.423 +07:00 [INF] HTTP GET / started
+2026-10-29 23:21:56.472 +07:00 [INF] Gateway: GET / from ::1 [4000001e-0005-fe00-b63f-84710c7967bb]
+2026-10-29 23:21:56.598 +07:00 [INF] HTTP GET /index.html responded 200 in 132.6400 ms
+2026-10-29 23:21:56.603 +07:00 [INF] HTTP GET /index.html responded 200 in 183ms
+2026-10-29 23:21:56.639 +07:00 [INF] HTTP GET /js/api.js started
+2026-10-29 23:21:56.639 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-29 23:21:56.639 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-29 23:21:56.639 +07:00 [INF] HTTP GET /css/common.css started
+2026-10-29 23:21:56.639 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-29 23:21:56.650 +07:00 [INF] HTTP GET /js/api.js responded 200 in 9.8598 ms
+2026-10-29 23:21:56.655 +07:00 [INF] HTTP GET /js/api.js responded 200 in 14ms
+2026-10-29 23:21:56.660 +07:00 [INF] HTTP GET /js/router.js responded 200 in 16.6043 ms
+2026-10-29 23:21:56.660 +07:00 [INF] HTTP GET /js/app.js responded 200 in 15.3335 ms
+2026-10-29 23:21:56.661 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 14.6709 ms
+2026-10-29 23:21:56.661 +07:00 [INF] HTTP GET /js/router.js responded 200 in 21ms
+2026-10-29 23:21:56.664 +07:00 [INF] HTTP GET /js/app.js responded 200 in 24ms
+2026-10-29 23:21:56.664 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 24ms
+2026-10-29 23:21:56.665 +07:00 [INF] HTTP GET /css/common.css responded 200 in 19.6476 ms
+2026-10-29 23:21:56.667 +07:00 [INF] HTTP GET /css/common.css responded 200 in 26ms
+2026-10-29 23:22:01.767 +07:00 [INF] HTTP GET /login started
+2026-10-29 23:22:01.767 +07:00 [INF] Gateway: GET /login from ::1 [4000001b-0006-fc00-b63f-84710c7967bb]
+2026-10-29 23:22:01.772 +07:00 [INF] HTTP GET /index.html responded 200 in 5.1087 ms
+2026-10-29 23:22:01.773 +07:00 [INF] HTTP GET /index.html responded 200 in 6ms
+2026-10-29 23:22:02.652 +07:00 [INF] HTTP GET /register started
+2026-10-29 23:22:02.653 +07:00 [INF] Gateway: GET /register from ::1 [40000020-0005-fe00-b63f-84710c7967bb]
+2026-10-29 23:22:02.659 +07:00 [INF] HTTP GET /index.html responded 200 in 6.2752 ms
+2026-10-29 23:22:02.659 +07:00 [INF] HTTP GET /index.html responded 200 in 6ms
+2026-10-29 23:22:07.820 +07:00 [INF] HTTP GET /employer/pricing started
+2026-10-29 23:22:07.823 +07:00 [INF] Gateway: GET /employer/pricing from ::1 [40000008-0007-fc00-b63f-84710c7967bb]
+2026-10-29 23:22:07.833 +07:00 [INF] HTTP GET /index.html responded 200 in 12.6653 ms
+2026-10-29 23:22:07.836 +07:00 [INF] HTTP GET /index.html responded 200 in 15ms
+2026-10-29 23:22:07.869 +07:00 [INF] HTTP GET /employer/css/common.css started
+2026-10-29 23:22:07.873 +07:00 [INF] Gateway: GET /employer/css/common.css from ::1 [4000000f-0000-ff00-b63f-84710c7967bb]
+2026-10-29 23:22:07.875 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 2.7031 ms
+2026-10-29 23:22:07.876 +07:00 [INF] HTTP GET /employer/js/api.js started
+2026-10-29 23:22:07.876 +07:00 [INF] HTTP GET /employer/js/router.js started
+2026-10-29 23:22:07.876 +07:00 [INF] HTTP GET /employer/js/auth.js started
+2026-10-29 23:22:07.877 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 7ms
+2026-10-29 23:22:07.877 +07:00 [INF] Gateway: GET /employer/js/api.js from ::1 [4000000f-0001-fe00-b63f-84710c7967bb]
+2026-10-29 23:22:07.877 +07:00 [INF] Gateway: GET /employer/js/router.js from ::1 [40000002-0001-fd00-b63f-84710c7967bb]
+2026-10-29 23:22:07.878 +07:00 [INF] Gateway: GET /employer/js/auth.js from ::1 [40000026-0001-ff00-b63f-84710c7967bb]
+2026-10-29 23:22:07.878 +07:00 [INF] HTTP GET /employer/js/app.js started
+2026-10-29 23:22:07.878 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 1.9907 ms
+2026-10-29 23:22:07.878 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 0.7630 ms
+2026-10-29 23:22:07.878 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 1.0250 ms
+2026-10-29 23:22:07.878 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 2ms
+2026-10-29 23:22:07.878 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 2ms
+2026-10-29 23:22:07.878 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 2ms
+2026-10-29 23:22:07.878 +07:00 [INF] Gateway: GET /employer/js/app.js from ::1 [4000000a-0007-fc00-b63f-84710c7967bb]
+2026-10-29 23:22:07.879 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 0.8517 ms
+2026-10-29 23:22:07.879 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 1ms
+2026-10-29 23:22:13.117 +07:00 [INF] HTTP GET /companies started
+2026-10-29 23:22:13.118 +07:00 [INF] Gateway: GET /companies from ::1 [40000008-000c-fb00-b63f-84710c7967bb]
+2026-10-29 23:22:13.119 +07:00 [INF] HTTP GET /index.html responded 200 in 1.8607 ms
+2026-10-29 23:22:13.120 +07:00 [INF] HTTP GET /index.html responded 200 in 2ms
+2026-10-29 23:22:13.847 +07:00 [INF] HTTP GET /salary started
+2026-10-29 23:22:13.847 +07:00 [INF] Gateway: GET /salary from ::1 [4000000a-000c-fb00-b63f-84710c7967bb]
+2026-10-29 23:22:13.850 +07:00 [INF] HTTP GET /index.html responded 200 in 3.1255 ms
+2026-10-29 23:22:13.850 +07:00 [INF] HTTP GET /index.html responded 200 in 3ms
+2026-10-29 23:22:14.537 +07:00 [INF] HTTP GET /career-advice started
+2026-10-29 23:22:14.538 +07:00 [INF] Gateway: GET /career-advice from ::1 [40000011-0000-ff00-b63f-84710c7967bb]
+2026-10-29 23:22:14.542 +07:00 [INF] HTTP GET /index.html responded 200 in 3.9879 ms
+2026-10-29 23:22:14.542 +07:00 [INF] HTTP GET /index.html responded 200 in 4ms
+2026-10-29 23:22:15.722 +07:00 [INF] HTTP GET /employer/resources started
+2026-10-29 23:22:15.723 +07:00 [INF] Gateway: GET /employer/resources from ::1 [4000000f-0008-fe00-b63f-84710c7967bb]
+2026-10-29 23:22:15.726 +07:00 [INF] HTTP GET /index.html responded 200 in 3.1442 ms
+2026-10-29 23:22:15.727 +07:00 [INF] HTTP GET /index.html responded 200 in 4ms
+2026-10-29 23:22:15.758 +07:00 [INF] HTTP GET /employer/css/common.css started
+2026-10-29 23:22:15.758 +07:00 [INF] Gateway: GET /employer/css/common.css from ::1 [4000000a-0003-fe00-b63f-84710c7967bb]
+2026-10-29 23:22:15.758 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 0.5272 ms
+2026-10-29 23:22:15.759 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 0ms
+2026-10-29 23:22:15.760 +07:00 [INF] HTTP GET /employer/js/router.js started
+2026-10-29 23:22:15.760 +07:00 [INF] HTTP GET /employer/js/app.js started
+2026-10-29 23:22:15.760 +07:00 [INF] HTTP GET /employer/js/api.js started
+2026-10-29 23:22:15.761 +07:00 [INF] Gateway: GET /employer/js/app.js from ::1 [40000002-0000-fb00-b63f-84710c7967bb]
+2026-10-29 23:22:15.761 +07:00 [INF] Gateway: GET /employer/js/router.js from ::1 [40000002-0000-fc00-b63f-84710c7967bb]
+2026-10-29 23:22:15.761 +07:00 [INF] Gateway: GET /employer/js/api.js from ::1 [40000013-0000-ff00-b63f-84710c7967bb]
+2026-10-29 23:22:15.763 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 1.8721 ms
+2026-10-29 23:22:15.763 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 1.9298 ms
+2026-10-29 23:22:15.763 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 1.8407 ms
+2026-10-29 23:22:15.763 +07:00 [INF] HTTP GET /employer/js/auth.js started
+2026-10-29 23:22:15.763 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 2ms
+2026-10-29 23:22:15.763 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 2ms
+2026-10-29 23:22:15.763 +07:00 [INF] Gateway: GET /employer/js/auth.js from ::1 [40000004-0000-fd00-b63f-84710c7967bb]
+2026-10-29 23:22:15.763 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 2ms
+2026-10-29 23:22:15.764 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 1.0071 ms
+2026-10-29 23:22:15.764 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 1ms
+2026-10-29 23:22:17.991 +07:00 [INF] HTTP GET /employer/css/common.css started
+2026-10-29 23:22:17.991 +07:00 [INF] Gateway: GET /employer/css/common.css from ::1 [40000011-0008-fe00-b63f-84710c7967bb]
+2026-10-29 23:22:17.991 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 0.6558 ms
+2026-10-29 23:22:17.992 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 1ms
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/router.js started
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/app.js started
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/api.js started
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/auth.js started
+2026-10-29 23:22:17.993 +07:00 [INF] Gateway: GET /employer/js/app.js from ::1 [40000002-0008-fc00-b63f-84710c7967bb]
+2026-10-29 23:22:17.993 +07:00 [INF] Gateway: GET /employer/js/router.js from ::1 [4000000c-0008-fd00-b63f-84710c7967bb]
+2026-10-29 23:22:17.993 +07:00 [INF] Gateway: GET /employer/js/api.js from ::1 [40000002-000c-fa00-b63f-84710c7967bb]
+2026-10-29 23:22:17.993 +07:00 [INF] Gateway: GET /employer/js/auth.js from ::1 [4000000c-000b-fc00-b63f-84710c7967bb]
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 0.4070 ms
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 0.3404 ms
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 0.4256 ms
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 0ms
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 0ms
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 0.3741 ms
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 0ms
+2026-10-29 23:22:17.993 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 0ms

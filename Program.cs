@@ -16,11 +16,17 @@ using Online_Job_Management_System.Mapping;
 using Online_Job_Management_System.Middleware;
 using Online_Job_Management_System.Validators;
 using Online_Job_Management_System.Services;
+using Online_Job_Management_System.Filters;
+using Online_Job_Management_System.Gateway;
 using Serilog;
 using System.Text;
 using FluentValidation;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    WebRootPath = "wwwroot"
+});
 
 // Configure Serilog
 builder.Host.UseSerilog((context, services, configuration) => configuration
@@ -143,6 +149,9 @@ builder.Services.AddScoped<IFileUploadService, FileUploadService>();
 // Add health checks for Docker/K8s monitoring
 builder.Services.AddHealthChecks();
 
+// Add API Gateway services
+builder.Services.AddApiGateway(builder.Configuration);
+
 // Configure Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -169,6 +178,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer"
     });
 
+    // Add global security requirement - will be applied to all endpoints with [Authorize]
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -183,6 +193,9 @@ builder.Services.AddSwaggerGen(c =>
             Array.Empty<string>()
         }
     });
+
+    // Automatically apply security requirements based on [Authorize] attributes
+    c.OperationFilter<AuthorizeCheckOperationFilter>();
 });
 
 var app = builder.Build();
@@ -224,6 +237,9 @@ app.UseSerilogRequestLogging();
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
+
+// API Gateway middleware (rate limiting, logging, timeout)
+app.UseApiGateway();
 
 app.UseStaticFiles();
 

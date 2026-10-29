@@ -1,0 +1,646 @@
+2026-10-30 00:06:19.398 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5128: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-30 00:08:38.577 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5128: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-30 00:11:36.311 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5128: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-30 00:13:23.712 +07:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5128: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-10-30 00:37:29.012 +07:00 [INF] HTTP GET /health started
+2026-10-30 00:37:29.039 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-30 00:37:29.061 +07:00 [INF] HTTP GET /health responded 200 in 22.0646 ms
+2026-10-30 00:37:29.063 +07:00 [INF] HTTP GET /health responded 200 in 52ms
+2026-10-30 00:37:44.371 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 00:37:44.378 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPLSD6TFBE9:00000001]
+2026-10-30 00:37:44.415 +07:00 [ERR] Gateway error for POST /api/auth/login [0HNPLSD6TFBE9:00000001]
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+2026-10-30 00:37:44.421 +07:00 [ERR] HTTP POST /api/auth/login responded 500 in 50.3540 ms
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-10-30 00:37:44.423 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 51ms
+2026-10-30 00:37:44.423 +07:00 [ERR] Unhandled exception occurred: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Online_Job_Management_System.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Middleware\RequestLoggingMiddleware.cs:line 28
+   at Online_Job_Management_System.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Middleware\GlobalExceptionMiddleware.cs:line 23
+2026-10-30 00:37:44.484 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 00:37:44.484 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPLSD6TFBEA:00000001]
+2026-10-30 00:37:44.489 +07:00 [ERR] Gateway error for POST /api/auth/login [0HNPLSD6TFBEA:00000001]
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+2026-10-30 00:37:44.490 +07:00 [ERR] HTTP POST /api/auth/login responded 500 in 6.2607 ms
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-10-30 00:37:44.491 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 7ms
+2026-10-30 00:37:44.492 +07:00 [ERR] Unhandled exception occurred: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Online_Job_Management_System.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Middleware\RequestLoggingMiddleware.cs:line 28
+   at Online_Job_Management_System.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Middleware\GlobalExceptionMiddleware.cs:line 23
+2026-10-30 00:37:44.529 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 00:37:44.529 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPLSD6TFBEB:00000001]
+2026-10-30 00:37:44.536 +07:00 [ERR] Gateway error for POST /api/auth/login [0HNPLSD6TFBEB:00000001]
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+2026-10-30 00:37:44.538 +07:00 [ERR] HTTP POST /api/auth/login responded 500 in 8.6785 ms
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-10-30 00:37:44.538 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 9ms
+2026-10-30 00:37:44.539 +07:00 [ERR] Unhandled exception occurred: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Online_Job_Management_System.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Middleware\RequestLoggingMiddleware.cs:line 28
+   at Online_Job_Management_System.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Middleware\GlobalExceptionMiddleware.cs:line 23
+2026-10-30 00:37:44.592 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 00:37:44.593 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPLSD6TFBEC:00000001]
+2026-10-30 00:37:44.594 +07:00 [ERR] Gateway error for POST /api/auth/login [0HNPLSD6TFBEC:00000001]
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+2026-10-30 00:37:44.595 +07:00 [ERR] HTTP POST /api/auth/login responded 500 in 2.6154 ms
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-10-30 00:37:44.596 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 3ms
+2026-10-30 00:37:44.596 +07:00 [ERR] Unhandled exception occurred: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+System.FormatException: The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.
+   at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword(TUser user, String hashedPassword, String providedPassword)
+   at Microsoft.AspNetCore.Identity.UserManager`1.VerifyPasswordAsync(IUserPasswordStore`1 store, TUser user, String password)
+   at Microsoft.AspNetCore.Identity.UserManager`1.CheckPasswordAsync(TUser user, String password)
+   at Online_Job_Management_System.Services.Auth.AuthService.LoginAsync(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Services\Auth\AuthService.cs:line 109
+   at Online_Job_Management_System.Controllers.AuthController.Login(LoginDto dto) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Controllers\AuthController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Online_Job_Management_System.Gateway.ApiGatewayMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Gateway\ApiGatewayMiddleware.cs:line 164
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Online_Job_Management_System.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Middleware\RequestLoggingMiddleware.cs:line 28
+   at Online_Job_Management_System.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\ADMIN\source\repos\Đồ án 2\Online Job Management System\Middleware\GlobalExceptionMiddleware.cs:line 23
+2026-10-30 00:40:12.243 +07:00 [INF] HTTP GET /health started
+2026-10-30 00:40:12.269 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-30 00:40:12.291 +07:00 [INF] HTTP GET /health responded 200 in 22.5045 ms
+2026-10-30 00:40:12.294 +07:00 [INF] HTTP GET /health responded 200 in 52ms
+2026-10-30 00:40:20.040 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 00:40:20.048 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPLSENI5PGL:00000001]
+2026-10-30 00:40:20.150 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 109.3414 ms
+2026-10-30 00:40:20.150 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 110ms
+2026-10-30 00:40:20.182 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 00:40:20.183 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPLSENI5PGM:00000001]
+2026-10-30 00:40:20.188 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 5.0870 ms
+2026-10-30 00:40:20.188 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 5ms
+2026-10-30 00:40:20.242 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 00:40:20.242 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPLSENI5PGN:00000001]
+2026-10-30 00:40:20.250 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 7.7842 ms
+2026-10-30 00:40:20.250 +07:00 [INF] HTTP POST /api/auth/login responded 200 in 8ms
+2026-10-30 00:40:20.305 +07:00 [INF] HTTP POST /api/auth/login started
+2026-10-30 00:40:20.305 +07:00 [INF] Gateway: POST /api/auth/login from ::1 [0HNPLSENI5PGO:00000001]
+2026-10-30 00:40:20.307 +07:00 [INF] HTTP POST /api/auth/login responded 401 in 1.7106 ms
+2026-10-30 00:40:20.307 +07:00 [INF] HTTP POST /api/auth/login responded 401 in 2ms
+2026-10-30 00:43:08.997 +07:00 [INF] HTTP POST /api/Auth/login started
+2026-10-30 00:43:08.998 +07:00 [INF] Gateway: POST /api/Auth/login from ::1 [0HNPLSENI5PGP:00000004]
+2026-10-30 00:43:09.002 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 4.5869 ms
+2026-10-30 00:43:09.002 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 5ms
+2026-10-30 00:45:27.576 +07:00 [INF] HTTP GET /api/Auth/me started
+2026-10-30 00:45:27.576 +07:00 [INF] Gateway: GET /api/Auth/me from ::1 [0HNPLSENI5PGR:00000001]
+2026-10-30 00:45:27.581 +07:00 [INF] HTTP GET /api/Auth/me responded 401 in 5.4357 ms
+2026-10-30 00:45:27.582 +07:00 [INF] HTTP GET /api/Auth/me responded 401 in 5ms
+2026-10-30 00:45:48.382 +07:00 [INF] HTTP GET /api/admin/stats/dashboard started
+2026-10-30 00:45:48.383 +07:00 [INF] Gateway: GET /api/admin/stats/dashboard from ::1 [0HNPLSENI5PGR:00000002]
+2026-10-30 00:45:48.385 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 1.9661 ms
+2026-10-30 00:45:48.385 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 2ms
+2026-10-30 00:45:56.542 +07:00 [INF] HTTP POST /api/Auth/login started
+2026-10-30 00:45:56.543 +07:00 [INF] Gateway: POST /api/Auth/login from ::1 [0HNPLSENI5PGR:00000003]
+2026-10-30 00:45:56.545 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 2.1940 ms
+2026-10-30 00:45:56.545 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 2ms
+2026-10-30 00:46:18.970 +07:00 [INF] HTTP POST /api/Auth/login started
+2026-10-30 00:46:18.971 +07:00 [INF] Gateway: POST /api/Auth/login from ::1 [0HNPLSENI5PGR:00000004]
+2026-10-30 00:46:18.973 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 2.2139 ms
+2026-10-30 00:46:18.973 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 2ms
+2026-10-30 00:46:52.363 +07:00 [INF] HTTP GET /api/admin/stats/dashboard started
+2026-10-30 00:46:52.363 +07:00 [INF] Gateway: GET /api/admin/stats/dashboard from ::1 [0HNPLSENI5PGR:00000005]
+2026-10-30 00:46:52.365 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 1.6422 ms
+2026-10-30 00:46:52.365 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 1ms
+2026-10-30 00:46:53.611 +07:00 [INF] HTTP GET /api/admin/stats/dashboard started
+2026-10-30 00:46:53.611 +07:00 [INF] Gateway: GET /api/admin/stats/dashboard from ::1 [0HNPLSENI5PGR:00000006]
+2026-10-30 00:46:53.611 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 0.2342 ms
+2026-10-30 00:46:53.611 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 0ms
+2026-10-30 00:46:54.096 +07:00 [INF] HTTP GET /api/admin/stats/dashboard started
+2026-10-30 00:46:54.096 +07:00 [INF] Gateway: GET /api/admin/stats/dashboard from ::1 [0HNPLSENI5PGR:00000007]
+2026-10-30 00:46:54.096 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 0.2944 ms
+2026-10-30 00:46:54.096 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 0ms
+2026-10-30 00:47:07.032 +07:00 [INF] HTTP GET /api/admin/stats/dashboard started
+2026-10-30 00:47:07.032 +07:00 [INF] Gateway: GET /api/admin/stats/dashboard from ::1 [0HNPLSENI5PGR:0000000B]
+2026-10-30 00:47:07.033 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 0.3459 ms
+2026-10-30 00:47:07.033 +07:00 [INF] HTTP GET /api/admin/stats/dashboard responded 401 in 0ms
+2026-10-30 00:48:23.357 +07:00 [INF] HTTP GET / started
+2026-10-30 00:48:23.357 +07:00 [INF] Gateway: GET / from ::1 [0HNPLSENI5PGR:0000000C]
+2026-10-30 00:48:23.366 +07:00 [INF] HTTP GET /index.html responded 200 in 8.7723 ms
+2026-10-30 00:48:23.366 +07:00 [INF] HTTP GET /index.html responded 200 in 9ms
+2026-10-30 00:48:23.397 +07:00 [INF] HTTP GET /css/common.css started
+2026-10-30 00:48:23.399 +07:00 [INF] HTTP GET /js/api.js started
+2026-10-30 00:48:23.399 +07:00 [INF] HTTP GET /js/auth.js started
+2026-10-30 00:48:23.400 +07:00 [INF] HTTP GET /js/router.js started
+2026-10-30 00:48:23.400 +07:00 [INF] HTTP GET /js/app.js started
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /js/api.js responded 200 in 2.2964 ms
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 2.2544 ms
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /css/common.css responded 200 in 4.4624 ms
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /js/auth.js responded 200 in 2ms
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /js/router.js responded 200 in 1.9881 ms
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /js/api.js responded 200 in 2ms
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /js/router.js responded 200 in 2ms
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /css/common.css responded 200 in 4ms
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /js/app.js responded 200 in 1.8713 ms
+2026-10-30 00:48:23.402 +07:00 [INF] HTTP GET /js/app.js responded 200 in 2ms
+2026-10-30 00:48:32.385 +07:00 [INF] HTTP GET /ind started
+2026-10-30 00:48:32.385 +07:00 [INF] Gateway: GET /ind from ::1 [0HNPLSENI5PGU:00000002]
+2026-10-30 00:48:32.386 +07:00 [INF] HTTP GET /index.html responded 200 in 0.7964 ms
+2026-10-30 00:48:32.386 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:48:35.339 +07:00 [INF] HTTP GET /ind started
+2026-10-30 00:48:35.339 +07:00 [INF] Gateway: GET /ind from ::1 [0HNPLSENI5PGU:00000003]
+2026-10-30 00:48:35.340 +07:00 [INF] HTTP GET /index.html responded 304 in 1.2637 ms
+2026-10-30 00:48:35.340 +07:00 [INF] HTTP GET /index.html responded 304 in 1ms
+2026-10-30 00:48:41.249 +07:00 [INF] HTTP GET /index.html started
+2026-10-30 00:48:41.249 +07:00 [INF] Gateway: GET /index.html from ::1 [0HNPLSENI5PGU:00000004]
+2026-10-30 00:48:41.249 +07:00 [INF] HTTP GET /index.html responded 200 in 0.6999 ms
+2026-10-30 00:48:41.250 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:48:43.540 +07:00 [INF] HTTP GET /companies started
+2026-10-30 00:48:43.540 +07:00 [INF] Gateway: GET /companies from ::1 [0HNPLSENI5PGU:00000005]
+2026-10-30 00:48:43.541 +07:00 [INF] HTTP GET /index.html responded 200 in 0.7524 ms
+2026-10-30 00:48:43.541 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:48:44.059 +07:00 [INF] HTTP GET /salary started
+2026-10-30 00:48:44.059 +07:00 [INF] Gateway: GET /salary from ::1 [0HNPLSENI5PGU:00000006]
+2026-10-30 00:48:44.060 +07:00 [INF] HTTP GET /index.html responded 200 in 0.6718 ms
+2026-10-30 00:48:44.060 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:48:44.614 +07:00 [INF] HTTP GET /career-advice started
+2026-10-30 00:48:44.614 +07:00 [INF] Gateway: GET /career-advice from ::1 [0HNPLSENI5PGU:00000007]
+2026-10-30 00:48:44.614 +07:00 [INF] HTTP GET /index.html responded 200 in 0.7652 ms
+2026-10-30 00:48:44.615 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:48:45.702 +07:00 [INF] HTTP GET /employer/post-job started
+2026-10-30 00:48:45.702 +07:00 [INF] Gateway: GET /employer/post-job from ::1 [0HNPLSENI5PGU:00000008]
+2026-10-30 00:48:45.703 +07:00 [INF] HTTP GET /index.html responded 200 in 0.6724 ms
+2026-10-30 00:48:45.703 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:48:45.730 +07:00 [INF] HTTP GET /employer/css/common.css started
+2026-10-30 00:48:45.730 +07:00 [INF] Gateway: GET /employer/css/common.css from ::1 [0HNPLSENI5PGU:00000009]
+2026-10-30 00:48:45.730 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 0.5868 ms
+2026-10-30 00:48:45.731 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 1ms
+2026-10-30 00:48:45.731 +07:00 [INF] HTTP GET /employer/js/api.js started
+2026-10-30 00:48:45.731 +07:00 [INF] HTTP GET /employer/js/auth.js started
+2026-10-30 00:48:45.731 +07:00 [INF] HTTP GET /employer/js/router.js started
+2026-10-30 00:48:45.731 +07:00 [INF] Gateway: GET /employer/js/api.js from ::1 [0HNPLSENI5PGT:00000002]
+2026-10-30 00:48:45.731 +07:00 [INF] Gateway: GET /employer/js/auth.js from ::1 [0HNPLSENI5PH0:00000002]
+2026-10-30 00:48:45.731 +07:00 [INF] Gateway: GET /employer/js/router.js from ::1 [0HNPLSENI5PGV:00000002]
+2026-10-30 00:48:45.732 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 0.3823 ms
+2026-10-30 00:48:45.732 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 0.3262 ms
+2026-10-30 00:48:45.732 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 0.3492 ms
+2026-10-30 00:48:45.732 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 0ms
+2026-10-30 00:48:45.732 +07:00 [INF] HTTP GET /employer/js/app.js started
+2026-10-30 00:48:45.732 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 0ms
+2026-10-30 00:48:45.732 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 0ms
+2026-10-30 00:48:45.732 +07:00 [INF] Gateway: GET /employer/js/app.js from ::1 [0HNPLSENI5PGR:0000000E]
+2026-10-30 00:48:45.732 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 0.2033 ms
+2026-10-30 00:48:45.732 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 0ms
+2026-10-30 00:48:49.649 +07:00 [INF] HTTP GET /employer/pricing started
+2026-10-30 00:48:49.649 +07:00 [INF] Gateway: GET /employer/pricing from ::1 [0HNPLSENI5PGR:0000000F]
+2026-10-30 00:48:49.650 +07:00 [INF] HTTP GET /index.html responded 200 in 0.5713 ms
+2026-10-30 00:48:49.650 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:48:49.684 +07:00 [INF] HTTP GET /employer/css/common.css started
+2026-10-30 00:48:49.684 +07:00 [INF] Gateway: GET /employer/css/common.css from ::1 [0HNPLSENI5PGR:00000010]
+2026-10-30 00:48:49.684 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 0.3631 ms
+2026-10-30 00:48:49.684 +07:00 [INF] HTTP GET /employer/css/common.css responded 404 in 0ms
+2026-10-30 00:48:49.686 +07:00 [INF] HTTP GET /employer/js/api.js started
+2026-10-30 00:48:49.686 +07:00 [INF] HTTP GET /employer/js/router.js started
+2026-10-30 00:48:49.686 +07:00 [INF] HTTP GET /employer/js/auth.js started
+2026-10-30 00:48:49.686 +07:00 [INF] Gateway: GET /employer/js/router.js from ::1 [0HNPLSENI5PGT:00000003]
+2026-10-30 00:48:49.686 +07:00 [INF] Gateway: GET /employer/js/api.js from ::1 [0HNPLSENI5PH0:00000003]
+2026-10-30 00:48:49.686 +07:00 [INF] Gateway: GET /employer/js/auth.js from ::1 [0HNPLSENI5PGV:00000003]
+2026-10-30 00:48:49.686 +07:00 [INF] HTTP GET /employer/js/app.js started
+2026-10-30 00:48:49.686 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 0.4034 ms
+2026-10-30 00:48:49.686 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 0.4185 ms
+2026-10-30 00:48:49.686 +07:00 [INF] HTTP GET /employer/js/router.js responded 404 in 0ms
+2026-10-30 00:48:49.686 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 0.4881 ms
+2026-10-30 00:48:49.686 +07:00 [INF] HTTP GET /employer/js/api.js responded 404 in 0ms
+2026-10-30 00:48:49.687 +07:00 [INF] Gateway: GET /employer/js/app.js from ::1 [0HNPLSENI5PGU:0000000A]
+2026-10-30 00:48:49.687 +07:00 [INF] HTTP GET /employer/js/auth.js responded 404 in 0ms
+2026-10-30 00:48:49.687 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 0.2616 ms
+2026-10-30 00:48:49.687 +07:00 [INF] HTTP GET /employer/js/app.js responded 404 in 0ms
+2026-10-30 00:49:02.742 +07:00 [INF] HTTP GET /login started
+2026-10-30 00:49:02.742 +07:00 [INF] Gateway: GET /login from ::1 [0HNPLSENI5PGU:0000000B]
+2026-10-30 00:49:02.743 +07:00 [INF] HTTP GET /index.html responded 200 in 0.8170 ms
+2026-10-30 00:49:02.743 +07:00 [INF] HTTP GET /index.html responded 200 in 1ms
+2026-10-30 00:49:04.375 +07:00 [INF] HTTP GET /register started
+2026-10-30 00:49:04.375 +07:00 [INF] Gateway: GET /register from ::1 [0HNPLSENI5PGU:0000000C]
+2026-10-30 00:49:04.376 +07:00 [INF] HTTP GET /index.html responded 200 in 0.7462 ms
+2026-10-30 00:49:04.376 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:52:12.901 +07:00 [INF] HTTP GET /health started
+2026-10-30 00:52:12.902 +07:00 [INF] HTTP GET /health responded 200 in 0.4082 ms
+2026-10-30 00:52:12.902 +07:00 [INF] HTTP GET /health responded 200 in 0ms
+2026-10-30 00:52:12.935 +07:00 [INF] HTTP GET / started
+2026-10-30 00:52:12.935 +07:00 [INF] Gateway: GET / from ::1 [0HNPLSENI5PH2:00000001]
+2026-10-30 00:52:12.935 +07:00 [INF] HTTP GET /index.html responded 200 in 0.5396 ms
+2026-10-30 00:52:12.935 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:52:23.258 +07:00 [INF] HTTP GET / started
+2026-10-30 00:52:23.258 +07:00 [INF] Gateway: GET / from ::1 [0HNPLSENI5PH3:00000001]
+2026-10-30 00:52:23.259 +07:00 [INF] HTTP GET /index.html responded 200 in 0.7653 ms
+2026-10-30 00:52:23.259 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:52:23.289 +07:00 [INF] HTTP HEAD / started
+2026-10-30 00:52:23.289 +07:00 [INF] Gateway: HEAD / from ::1 [0HNPLSENI5PH4:00000001]
+2026-10-30 00:52:23.289 +07:00 [INF] HTTP HEAD /index.html responded 200 in 0.2945 ms
+2026-10-30 00:52:23.289 +07:00 [INF] HTTP HEAD /index.html responded 200 in 0ms
+2026-10-30 00:53:18.143 +07:00 [INF] HTTP GET / started
+2026-10-30 00:53:18.143 +07:00 [INF] Gateway: GET / from ::1 [0HNPLSENI5PH5:00000001]
+2026-10-30 00:53:18.144 +07:00 [INF] HTTP GET /index.html responded 200 in 0.4724 ms
+2026-10-30 00:53:18.144 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:18.194 +07:00 [INF] HTTP GET /login.html started
+2026-10-30 00:53:18.194 +07:00 [INF] Gateway: GET /login.html from ::1 [0HNPLSENI5PH6:00000001]
+2026-10-30 00:53:18.195 +07:00 [INF] HTTP GET /login.html responded 200 in 0.4631 ms
+2026-10-30 00:53:18.195 +07:00 [INF] HTTP GET /login.html responded 200 in 0ms
+2026-10-30 00:53:18.259 +07:00 [INF] HTTP GET /register.html started
+2026-10-30 00:53:18.260 +07:00 [INF] Gateway: GET /register.html from ::1 [0HNPLSENI5PH7:00000001]
+2026-10-30 00:53:18.260 +07:00 [INF] HTTP GET /register.html responded 200 in 0.5189 ms
+2026-10-30 00:53:18.260 +07:00 [INF] HTTP GET /register.html responded 200 in 0ms
+2026-10-30 00:53:18.319 +07:00 [INF] HTTP GET /jobs.html started
+2026-10-30 00:53:18.319 +07:00 [INF] Gateway: GET /jobs.html from ::1 [0HNPLSENI5PH8:00000001]
+2026-10-30 00:53:18.319 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0.4276 ms
+2026-10-30 00:53:18.319 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0ms
+2026-10-30 00:53:18.383 +07:00 [INF] HTTP GET /admin/dashboard started
+2026-10-30 00:53:18.383 +07:00 [INF] Gateway: GET /admin/dashboard from ::1 [0HNPLSENI5PH9:00000001]
+2026-10-30 00:53:18.384 +07:00 [INF] HTTP GET /index.html responded 200 in 0.5328 ms
+2026-10-30 00:53:18.384 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:18.445 +07:00 [INF] HTTP GET /employer/dashboard started
+2026-10-30 00:53:18.445 +07:00 [INF] Gateway: GET /employer/dashboard from ::1 [0HNPLSENI5PHA:00000001]
+2026-10-30 00:53:18.446 +07:00 [INF] HTTP GET /index.html responded 200 in 0.5202 ms
+2026-10-30 00:53:18.446 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:18.506 +07:00 [INF] HTTP GET /salary started
+2026-10-30 00:53:18.506 +07:00 [INF] Gateway: GET /salary from ::1 [0HNPLSENI5PHB:00000001]
+2026-10-30 00:53:18.507 +07:00 [INF] HTTP GET /index.html responded 200 in 0.4703 ms
+2026-10-30 00:53:18.507 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:18.585 +07:00 [INF] HTTP GET /career-advice started
+2026-10-30 00:53:18.585 +07:00 [INF] Gateway: GET /career-advice from ::1 [0HNPLSENI5PHC:00000001]
+2026-10-30 00:53:18.586 +07:00 [INF] HTTP GET /index.html responded 200 in 0.7606 ms
+2026-10-30 00:53:18.586 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:32.896 +07:00 [INF] HTTP GET / started
+2026-10-30 00:53:32.897 +07:00 [INF] Gateway: GET / from ::1 [0HNPLSENI5PHD:00000001]
+2026-10-30 00:53:32.897 +07:00 [INF] HTTP GET /index.html responded 200 in 0.4844 ms
+2026-10-30 00:53:32.897 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:32.956 +07:00 [INF] HTTP GET /login.html started
+2026-10-30 00:53:32.956 +07:00 [INF] Gateway: GET /login.html from ::1 [0HNPLSENI5PHE:00000001]
+2026-10-30 00:53:32.957 +07:00 [INF] HTTP GET /login.html responded 200 in 0.3913 ms
+2026-10-30 00:53:32.957 +07:00 [INF] HTTP GET /login.html responded 200 in 0ms
+2026-10-30 00:53:33.015 +07:00 [INF] HTTP GET /register.html started
+2026-10-30 00:53:33.015 +07:00 [INF] Gateway: GET /register.html from ::1 [0HNPLSENI5PHF:00000001]
+2026-10-30 00:53:33.015 +07:00 [INF] HTTP GET /register.html responded 200 in 0.4859 ms
+2026-10-30 00:53:33.015 +07:00 [INF] HTTP GET /register.html responded 200 in 0ms
+2026-10-30 00:53:33.076 +07:00 [INF] HTTP GET /jobs.html started
+2026-10-30 00:53:33.076 +07:00 [INF] Gateway: GET /jobs.html from ::1 [0HNPLSENI5PHG:00000001]
+2026-10-30 00:53:33.076 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0.3969 ms
+2026-10-30 00:53:33.077 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0ms
+2026-10-30 00:53:33.137 +07:00 [INF] HTTP GET /admin/dashboard started
+2026-10-30 00:53:33.137 +07:00 [INF] Gateway: GET /admin/dashboard from ::1 [0HNPLSENI5PHH:00000001]
+2026-10-30 00:53:33.137 +07:00 [INF] HTTP GET /index.html responded 200 in 0.4465 ms
+2026-10-30 00:53:33.137 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:33.203 +07:00 [INF] HTTP GET /employer/dashboard started
+2026-10-30 00:53:33.203 +07:00 [INF] Gateway: GET /employer/dashboard from ::1 [0HNPLSENI5PHI:00000001]
+2026-10-30 00:53:33.204 +07:00 [INF] HTTP GET /index.html responded 200 in 0.6463 ms
+2026-10-30 00:53:33.204 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:33.262 +07:00 [INF] HTTP GET /salary started
+2026-10-30 00:53:33.262 +07:00 [INF] Gateway: GET /salary from ::1 [0HNPLSENI5PHJ:00000001]
+2026-10-30 00:53:33.263 +07:00 [INF] HTTP GET /index.html responded 200 in 0.4207 ms
+2026-10-30 00:53:33.263 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:33.360 +07:00 [INF] HTTP GET /career-advice started
+2026-10-30 00:53:33.360 +07:00 [INF] Gateway: GET /career-advice from ::1 [0HNPLSENI5PHK:00000001]
+2026-10-30 00:53:33.360 +07:00 [INF] HTTP GET /index.html responded 200 in 0.5656 ms
+2026-10-30 00:53:33.360 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:44.877 +07:00 [INF] HTTP GET / started
+2026-10-30 00:53:44.877 +07:00 [INF] Gateway: GET / from ::1 [0HNPLSENI5PHL:00000001]
+2026-10-30 00:53:44.878 +07:00 [INF] HTTP GET /index.html responded 200 in 0.5307 ms
+2026-10-30 00:53:44.878 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:44.915 +07:00 [INF] HTTP GET /login.html started
+2026-10-30 00:53:44.916 +07:00 [INF] Gateway: GET /login.html from ::1 [0HNPLSENI5PHM:00000001]
+2026-10-30 00:53:44.916 +07:00 [INF] HTTP GET /login.html responded 200 in 0.4213 ms
+2026-10-30 00:53:44.916 +07:00 [INF] HTTP GET /login.html responded 200 in 0ms
+2026-10-30 00:53:44.954 +07:00 [INF] HTTP GET /register.html started
+2026-10-30 00:53:44.954 +07:00 [INF] Gateway: GET /register.html from ::1 [0HNPLSENI5PHN:00000001]
+2026-10-30 00:53:44.954 +07:00 [INF] HTTP GET /register.html responded 200 in 0.4485 ms
+2026-10-30 00:53:44.954 +07:00 [INF] HTTP GET /register.html responded 200 in 0ms
+2026-10-30 00:53:44.995 +07:00 [INF] HTTP GET /jobs.html started
+2026-10-30 00:53:44.995 +07:00 [INF] Gateway: GET /jobs.html from ::1 [0HNPLSENI5PHO:00000001]
+2026-10-30 00:53:44.995 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0.4458 ms
+2026-10-30 00:53:44.995 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0ms
+2026-10-30 00:53:45.032 +07:00 [INF] HTTP GET /salary started
+2026-10-30 00:53:45.032 +07:00 [INF] Gateway: GET /salary from ::1 [0HNPLSENI5PHP:00000001]
+2026-10-30 00:53:45.033 +07:00 [INF] HTTP GET /index.html responded 200 in 0.3851 ms
+2026-10-30 00:53:45.033 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-30 00:53:45.072 +07:00 [INF] HTTP GET /career-advice started
+2026-10-30 00:53:45.072 +07:00 [INF] Gateway: GET /career-advice from ::1 [0HNPLSENI5PHQ:00000001]
+2026-10-30 00:53:45.072 +07:00 [INF] HTTP GET /index.html responded 200 in 0.3810 ms
+2026-10-30 00:53:45.073 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms

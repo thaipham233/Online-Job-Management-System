@@ -105,17 +105,32 @@ namespace Online_Job_Management_System.Services.Auth
                 };
             }
 
-            var result = await _userManager.CheckPasswordAsync(user, dto.Password);
-            if (!result)
+            // Determine which password format is stored and verify accordingly
+            var storedHash = user.PasswordHash;
+            if (!string.IsNullOrEmpty(storedHash))
             {
-                return new AuthResponseDto
+                // 1) BCrypt hashed passwords (standard registered accounts)
+                if (storedHash.StartsWith("$2", StringComparison.OrdinalIgnoreCase))
                 {
-                    Succeeded = false,
-                    Errors = new[] { "Invalid credentials" }
-                };
+                    var result = await _userManager.CheckPasswordAsync(user, dto.Password);
+                    if (result)
+                    {
+                        return await GenerateAuthResponseAsync(user);
+                    }
+                }
+
+                // 2) Plain-text passwords (demo seed fallback)
+                if (string.Equals(storedHash, dto.Password, StringComparison.Ordinal))
+                {
+                    return await GenerateAuthResponseAsync(user);
+                }
             }
 
-            return await GenerateAuthResponseAsync(user);
+            return new AuthResponseDto
+            {
+                Succeeded = false,
+                Errors = new[] { "Invalid credentials" }
+            };
         }
 
         public async Task<AuthResponseDto> RefreshTokenAsync(string refreshToken)
@@ -236,27 +251,36 @@ namespace Online_Job_Management_System.Services.Auth
         private string GenerateJwtToken(User user, IList<string> roles)
         {
             var jwtSettings = _configuration.GetSection("Jwt");
-            var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings["Key"]!));
+            var jwtKey = jwtSettings["Key"] ?? throw new InvalidOperationException("JWT Key not configured");
+            var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+            // 🛡️ Bảo vệ null/empty values
+            var email = string.IsNullOrWhiteSpace(user.Email) ? "unknown@email.com" : user.Email;
+            var userName = string.IsNullOrWhiteSpace(user.UserName) ? "unknown" : user.UserName;
+            var sub = user.Id.ToString() ?? "0";
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.Sub, sub),
+                new Claim(JwtRegisteredClaimNames.Email, email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Email, user.Email)
+                new Claim(ClaimTypes.NameIdentifier, sub),
+                new Claim(ClaimTypes.Name, userName),
+                new Claim(ClaimTypes.Email, email)
             };
 
-            foreach (var role in roles)
+            // Thêm roles an toàn
+            if (roles != null)
             {
-                claims.Add(new Claim(ClaimTypes.Role, role));
+                foreach (var role in roles.Where(r => !string.IsNullOrWhiteSpace(r)))
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, role));
+                }
             }
 
             var token = new JwtSecurityToken(
-                issuer: jwtSettings["Issuer"],
-                audience: jwtSettings["Audience"],
+                issuer: jwtSettings["Issuer"] ?? "OnlineJobManagementSystem",
+                audience: jwtSettings["Audience"] ?? "OnlineJobManagementSystemUsers",
                 claims: claims,
                 expires: DateTime.UtcNow.AddMinutes(GetJwtExpiryMinutes()),
                 signingCredentials: creds

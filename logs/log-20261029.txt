@@ -1,0 +1,62 @@
+2026-10-29 18:36:25.766 +07:00 [INF] HTTP GET /health started
+2026-10-29 18:36:25.794 +07:00 [WRN] Failed to determine the https port for redirect.
+2026-10-29 18:36:25.823 +07:00 [INF] HTTP GET /health responded 200 in 30.0495 ms
+2026-10-29 18:36:25.825 +07:00 [INF] HTTP GET /health responded 200 in 61ms
+2026-10-29 18:36:25.857 +07:00 [INF] HTTP GET /css/common.css started
+2026-10-29 18:36:25.863 +07:00 [INF] HTTP GET /css/common.css responded 200 in 6.2420 ms
+2026-10-29 18:36:25.863 +07:00 [INF] HTTP GET /css/common.css responded 200 in 6ms
+2026-10-29 18:36:35.946 +07:00 [INF] HTTP GET /css/common.css started
+2026-10-29 18:36:35.950 +07:00 [INF] HTTP GET /css/common.css responded 200 in 3.5899 ms
+2026-10-29 18:36:35.950 +07:00 [INF] HTTP GET /css/common.css responded 200 in 4ms
+2026-10-29 18:36:35.982 +07:00 [INF] HTTP GET /jobs.html started
+2026-10-29 18:36:35.990 +07:00 [INF] Gateway: GET /jobs.html from ::1 [0HNPLM3EOGOJT:00000001]
+2026-10-29 18:36:35.992 +07:00 [INF] HTTP GET /jobs.html responded 200 in 9.8340 ms
+2026-10-29 18:36:35.992 +07:00 [INF] HTTP GET /jobs.html responded 200 in 10ms
+2026-10-29 18:36:36.027 +07:00 [INF] HTTP GET /index.html started
+2026-10-29 18:36:36.028 +07:00 [INF] Gateway: GET /index.html from ::1 [0HNPLM3EOGOJU:00000001]
+2026-10-29 18:36:36.028 +07:00 [INF] HTTP GET /index.html responded 200 in 0.8662 ms
+2026-10-29 18:36:36.029 +07:00 [INF] HTTP GET /index.html responded 200 in 1ms
+2026-10-29 18:36:47.213 +07:00 [INF] HTTP GET /index.html started
+2026-10-29 18:36:47.214 +07:00 [INF] Gateway: GET /index.html from ::1 [0HNPLM3EOGOJV:00000001]
+2026-10-29 18:36:47.214 +07:00 [INF] HTTP GET /index.html responded 200 in 0.6037 ms
+2026-10-29 18:36:47.214 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-29 18:36:47.241 +07:00 [INF] HTTP GET /wwwroot-mpa/index.html started
+2026-10-29 18:36:47.242 +07:00 [INF] Gateway: GET /wwwroot-mpa/index.html from ::1 [0HNPLM3EOGOK0:00000001]
+2026-10-29 18:36:47.243 +07:00 [INF] HTTP GET /wwwroot-mpa/index.html responded 404 in 1.3854 ms
+2026-10-29 18:36:47.243 +07:00 [INF] HTTP GET /wwwroot-mpa/index.html responded 404 in 1ms
+2026-10-29 18:36:47.276 +07:00 [INF] HTTP HEAD / started
+2026-10-29 18:36:47.276 +07:00 [INF] Gateway: HEAD / from ::1 [0HNPLM3EOGOK1:00000001]
+2026-10-29 18:36:47.278 +07:00 [INF] HTTP HEAD /index.html responded 200 in 2.0791 ms
+2026-10-29 18:36:47.278 +07:00 [INF] HTTP HEAD /index.html responded 200 in 2ms
+2026-10-29 18:37:46.676 +07:00 [INF] HTTP GET /health started
+2026-10-29 18:37:46.676 +07:00 [INF] HTTP GET /health responded 200 in 0.3621 ms
+2026-10-29 18:37:46.676 +07:00 [INF] HTTP GET /health responded 200 in 0ms
+2026-10-29 18:37:46.710 +07:00 [INF] HTTP GET /css/common.css started
+2026-10-29 18:37:46.710 +07:00 [INF] HTTP GET /css/common.css responded 200 in 0.4608 ms
+2026-10-29 18:37:46.710 +07:00 [INF] HTTP GET /css/common.css responded 200 in 0ms
+2026-10-29 18:37:46.736 +07:00 [INF] HTTP GET /jobs.html started
+2026-10-29 18:37:46.736 +07:00 [INF] Gateway: GET /jobs.html from ::1 [0HNPLM3EOGOK4:00000001]
+2026-10-29 18:37:46.737 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0.5482 ms
+2026-10-29 18:37:46.737 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0ms
+2026-10-29 18:37:46.764 +07:00 [INF] HTTP GET /index.html started
+2026-10-29 18:37:46.764 +07:00 [INF] Gateway: GET /index.html from ::1 [0HNPLM3EOGOK5:00000001]
+2026-10-29 18:37:46.765 +07:00 [INF] HTTP GET /index.html responded 200 in 0.4995 ms
+2026-10-29 18:37:46.765 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms
+2026-10-29 18:37:58.882 +07:00 [INF] HTTP GET /wwwroot-mpa/index.html started
+2026-10-29 18:37:58.883 +07:00 [INF] Gateway: GET /wwwroot-mpa/index.html from ::1 [0HNPLM3EOGOK6:00000001]
+2026-10-29 18:37:58.883 +07:00 [INF] HTTP GET /wwwroot-mpa/index.html responded 404 in 0.3637 ms
+2026-10-29 18:37:58.883 +07:00 [INF] HTTP GET /wwwroot-mpa/index.html responded 404 in 0ms
+2026-10-29 18:44:39.539 +07:00 [INF] HTTP GET /health started
+2026-10-29 18:44:39.540 +07:00 [INF] HTTP GET /health responded 200 in 0.1584 ms
+2026-10-29 18:44:39.540 +07:00 [INF] HTTP GET /health responded 200 in 0ms
+2026-10-29 18:44:39.567 +07:00 [INF] HTTP GET /css/common.css started
+2026-10-29 18:44:39.567 +07:00 [INF] HTTP GET /css/common.css responded 200 in 0.4255 ms
+2026-10-29 18:44:39.567 +07:00 [INF] HTTP GET /css/common.css responded 200 in 0ms
+2026-10-29 18:44:39.593 +07:00 [INF] HTTP GET /jobs.html started
+2026-10-29 18:44:39.594 +07:00 [INF] Gateway: GET /jobs.html from ::1 [0HNPLM3EOGOK9:00000001]
+2026-10-29 18:44:39.594 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0.5304 ms
+2026-10-29 18:44:39.594 +07:00 [INF] HTTP GET /jobs.html responded 200 in 0ms
+2026-10-29 18:44:39.620 +07:00 [INF] HTTP GET /index.html started
+2026-10-29 18:44:39.620 +07:00 [INF] Gateway: GET /index.html from ::1 [0HNPLM3EOGOKA:00000001]
+2026-10-29 18:44:39.620 +07:00 [INF] HTTP GET /index.html responded 200 in 0.4576 ms
+2026-10-29 18:44:39.621 +07:00 [INF] HTTP GET /index.html responded 200 in 0ms

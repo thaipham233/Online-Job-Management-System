@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: 772aad79-6de5-4b12-8001-5083ad421879
+
+localResources:
+  specs:
+    - ../obj/Debug/net8.0/EndpointInfo/Online Job Management System.json

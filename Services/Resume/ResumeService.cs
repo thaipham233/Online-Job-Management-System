@@ -295,11 +295,11 @@ namespace Online_Job_Management_System.Services.Resume
         private ResumeDto MapToDto(Online_Job_Management_System.Models.Resume resume)
         {
             var dto = _mapper.Map<ResumeDto>(resume);
-            dto.Educations = _mapper.Map<List<EducationDto>>(resume.Educations);
-            dto.WorkExperiences = _mapper.Map<List<WorkExperienceDto>>(resume.WorkExperiences);
-            dto.Skills = _mapper.Map<List<ResumeSkillDto>>(resume.ResumeSkills);
-            dto.Certificates = _mapper.Map<List<CertificateDto>>(resume.Certificates);
-            dto.Languages = _mapper.Map<List<LanguageDto>>(resume.Languages);
+            dto.Educations = resume.Educations?.Select(e => _mapper.Map<EducationDto>(e)).ToList() ?? new List<EducationDto>();
+            dto.WorkExperiences = resume.WorkExperiences?.Select(e => _mapper.Map<WorkExperienceDto>(e)).ToList() ?? new List<WorkExperienceDto>();
+            dto.Skills = resume.ResumeSkills?.Select(s => _mapper.Map<ResumeSkillDto>(s)).ToList() ?? new List<ResumeSkillDto>();
+            dto.Certificates = resume.Certificates?.Select(c => _mapper.Map<CertificateDto>(c)).ToList() ?? new List<CertificateDto>();
+            dto.Languages = resume.Languages?.Select(l => _mapper.Map<LanguageDto>(l)).ToList() ?? new List<LanguageDto>();
             return dto;
         }
     }
